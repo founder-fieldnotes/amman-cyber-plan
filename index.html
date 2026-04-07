@@ -9,623 +9,388 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #f6f5ef;
-    --surface: #ffffff;
-    --surface-alt: #efeee6;
-    --ink: #111111;
-    --muted: #5d5b57;
-    --border: #d8d3c7;
-    --accent: #00a7a0;
-    --accent-dark: #0b6a66;
-    --red-track: #d14b2d;
-    --blue-track: #1674d1;
-    --green-track: #1e7a4f;
-    --gold: #b67a00;
-    --shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
-    --radius: 22px;
-    --radius-sm: 14px;
-    --max: 1240px;
-  }
 
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-  }
+/* =========================
+   ROOT SYSTEM
+========================= */
 
-  a { color: inherit; text-decoration: none; }
+:root {
+  --bg: #f3f1ea;
+  --white: #ffffff;
+  --ink: #111111;
+  --muted: #5f5c57;
+  --border: #111111;
 
-  .page {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 24px;
-  }
+  --blue: #38b6e8;
+  --green: #cfead6;
+  --yellow: #f3e6b3;
+  --cream: #ece8dc;
 
-  .eyebrow,
-  .label,
-  .mini-label,
-  .stat-label,
-  .phase-kicker,
-  .footnote,
-  .chip,
-  .table th,
-  .hero-meta,
-  .decision-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
+  --max: 1240px;
+}
 
-  .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    padding: 10px 0 24px;
-    border-bottom: 1px solid rgba(17,17,17,0.08);
-  }
+/* =========================
+   BASE
+========================= */
 
-  .brand {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
+* {
+  box-sizing: border-box;
+}
 
-  .eyebrow {
-    font-size: 11px;
-    color: var(--accent-dark);
-  }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
 
-  .brand-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ink);
-  }
+.page {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+}
 
-  .top-links {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    color: var(--muted);
-    font-size: 12px;
-  }
+/* =========================
+   TYPOGRAPHY
+========================= */
 
-  .hero {
-    padding: 44px 0 30px;
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
-    gap: 28px;
-    align-items: start;
-  }
+h1 {
+  font-size: clamp(48px, 7vw, 88px);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+  font-weight: 800;
+}
 
-  .hero-copy {
-    max-width: 760px;
-  }
+h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  letter-spacing: -0.04em;
+  margin: 0 0 16px;
+}
 
-  .hero h1 {
-    margin: 0 0 18px;
-    font-size: clamp(48px, 7.2vw, 96px);
-    line-height: 0.93;
-    font-weight: 800;
-    letter-spacing: -0.045em;
-  }
+h3 {
+  font-size: 26px;
+  margin: 0 0 12px;
+}
 
-  .hero h1 span {
-    color: var(--accent-dark);
-  }
+p {
+  color: var(--muted);
+  font-size: 15px;
+}
 
-  .hero-sub {
-    max-width: 760px;
-    font-size: clamp(18px, 2vw, 23px);
-    line-height: 1.35;
-    color: #202020;
-    margin-bottom: 22px;
-  }
+/* =========================
+   HEADER
+========================= */
 
-  .hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px 18px;
-    font-size: 11px;
-    color: var(--muted);
-    margin-bottom: 24px;
-  }
+.topbar {
+  border: 2px solid var(--border);
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
+.brand-title {
+  font-weight: 700;
+}
 
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    padding: 12px 18px;
-    font-size: 14px;
-    font-weight: 700;
-    transition: 0.2s ease;
-    border: 1px solid var(--ink);
-  }
+.top-links {
+  font-size: 12px;
+  display: flex;
+  gap: 16px;
+}
 
-  .button.primary {
-    background: var(--ink);
-    color: #fff;
-    border-color: var(--ink);
-  }
+/* =========================
+   HERO
+========================= */
 
-  .button.secondary {
-    background: transparent;
-    color: var(--ink);
-  }
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--border);
+}
 
-  .hero-panel {
-    background: linear-gradient(180deg, #ffffff 0%, #f0eee5 100%);
-    border: 1px solid var(--border);
-    border-radius: 28px;
-    padding: 24px;
-    box-shadow: var(--shadow);
-  }
+.hero-copy {
+  padding: 48px;
+  background: var(--white);
+}
 
-  .hero-panel .mini-label {
-    font-size: 11px;
-    color: var(--accent-dark);
-    margin-bottom: 12px;
-  }
+.hero-panel {
+  padding: 48px;
+  background: var(--blue);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .hero-panel h2 {
-    margin: 0 0 14px;
-    font-size: 28px;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
+.hero-sub {
+  font-size: 20px;
+  margin-bottom: 24px;
+}
 
-  .hero-panel p {
-    margin: 0 0 18px;
-    color: var(--muted);
-    font-size: 14px;
-  }
+.button {
+  border: 2px solid var(--border);
+  padding: 12px 16px;
+  display: inline-block;
+  font-weight: 600;
+  background: var(--white);
+}
 
-  .hero-panel-list {
-    display: grid;
-    gap: 10px;
-  }
+.button.primary {
+  background: var(--ink);
+  color: white;
+}
 
-  .hero-panel-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    padding-top: 10px;
-    border-top: 1px solid rgba(17,17,17,0.08);
-    font-size: 14px;
-  }
+/* =========================
+   STATS
+========================= */
 
-  .hero-panel-item strong {
-    display: block;
-    color: var(--ink);
-    font-size: 16px;
-    margin-bottom: 2px;
-  }
+.stats-band {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+}
 
-  .hero-panel-item span {
-    color: var(--muted);
-  }
+.stat {
+  padding: 24px;
+  background: var(--white);
+  border-right: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
 
-  .stats-band {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin: 10px 0 34px;
-  }
+.stat-value {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
 
-  .stat {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 18px 18px 16px;
-    box-shadow: var(--shadow);
-  }
+/* =========================
+   PHASE STRIP
+========================= */
 
-  .stat-value {
-    font-size: clamp(30px, 4vw, 46px);
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    margin-bottom: 10px;
-  }
+.phase-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 2px solid var(--border);
+  margin-top: 24px;
+}
 
-  .stat-label {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
+.phase-card {
+  padding: 32px;
+  border-right: 2px solid var(--border);
+}
 
-  .stat-copy {
-    font-size: 13px;
-    color: #373633;
-  }
+.phase-card:last-child {
+  border-right: none;
+}
 
-  .section {
-    padding: 22px 0 10px;
-  }
+.phase-card.shared {
+  background: var(--green);
+}
 
-  .section-head {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
-    gap: 24px;
-    align-items: end;
-    margin-bottom: 20px;
-  }
+.phase-card.split {
+  background: var(--cream);
+}
 
-  .label {
-    font-size: 11px;
-    color: var(--accent-dark);
-    margin-bottom: 8px;
-  }
+.phase-card.converge {
+  background: var(--yellow);
+}
 
-  .section-title {
-    margin: 0;
-    font-size: clamp(30px, 4vw, 54px);
-    line-height: 0.96;
-    letter-spacing: -0.04em;
-  }
+/* =========================
+   GRID SYSTEM
+========================= */
 
-  .section-copy {
-    font-size: 15px;
-    color: var(--muted);
-    max-width: 580px;
-  }
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+}
 
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+}
+
+.grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+}
+
+.grid-3 > *,
+.grid-2 > *,
+.grid-2-1 > * {
+  border-right: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  padding: 24px;
+  background: var(--white);
+}
+
+.grid-3 > *:last-child,
+.grid-2 > *:last-child,
+.grid-2-1 > *:last-child {
+  border-right: none;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+  background: var(--white);
+}
+
+.track-card.red {
+  border-top: 6px solid var(--red-track);
+}
+
+.track-card.blue {
+  border-top: 6px solid var(--blue-track);
+}
+
+.track-card.green {
+  border-top: 6px solid var(--green-track);
+}
+
+.track-card.gold {
+  border-top: 6px solid #b67a00;
+}
+
+/* =========================
+   LISTS
+========================= */
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  margin-bottom: 10px;
+  padding-left: 14px;
+  position: relative;
+}
+
+li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+/* =========================
+   DECISION SECTION
+========================= */
+
+.decision-wrap {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+}
+
+.decision-wrap > * {
+  border-right: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  padding: 24px;
+}
+
+.decision-wrap > *:last-child {
+  border-right: none;
+}
+
+.decision-title {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--border);
+  margin-top: 16px;
+}
+
+.compare-item {
+  padding: 20px;
+  border-right: 2px solid var(--border);
+}
+
+.compare-item:last-child {
+  border-right: none;
+}
+
+/* =========================
+   CALLOUTS
+========================= */
+
+.callout {
+  padding: 16px;
+  border: 2px solid var(--border);
+  margin-top: 16px;
+  background: var(--cream);
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table td,
+.table th {
+  border-bottom: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  border-top: 2px solid var(--border);
+  margin-top: 40px;
+  padding-top: 16px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero,
+  .stats-band,
+  .grid-3,
+  .grid-2,
+  .grid-2-1,
+  .decision-wrap,
   .phase-strip {
-    display: grid;
-    grid-template-columns: 1.25fr 2fr 1.4fr;
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-
-  .phase-card {
-    border-radius: 22px;
-    padding: 22px;
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid transparent;
-  }
-
-  .phase-card.shared {
-    background: #e7f5ec;
-    border-color: #cde8d7;
-  }
-
-  .phase-card.split {
-    background: #f1efe7;
-    border-color: #dfdacd;
-  }
-
-  .phase-card.converge {
-    background: #f8f0db;
-    border-color: #e6d4a4;
-  }
-
-  .phase-kicker {
-    font-size: 11px;
-    color: rgba(17,17,17,0.65);
-    margin-bottom: 10px;
-  }
-
-  .phase-weeks {
-    font-size: 34px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    margin-bottom: 10px;
-  }
-
-  .phase-card h3 {
-    margin: 0 0 10px;
-    font-size: 24px;
-    line-height: 1.02;
-    letter-spacing: -0.03em;
-  }
-
-  .phase-card p {
-    margin: 0;
-    color: #3f3c38;
-    font-size: 14px;
-  }
-
-  .grid-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-
-  .grid-2-1 {
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
-    gap: 16px;
-  }
-
-  .grid-2 {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
-    box-shadow: var(--shadow);
-  }
-
-  .card.alt {
-    background: var(--surface-alt);
-  }
-
-  .card h3 {
-    margin: 0 0 12px;
-    font-size: 28px;
-    line-height: 1.03;
-    letter-spacing: -0.03em;
-  }
-
-  .card h4 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-  }
-
-  .card p {
-    margin: 0 0 10px;
-    color: var(--muted);
-    font-size: 14px;
-  }
-
-  .card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 10px;
-  }
-
-  .card li {
-    position: relative;
-    padding-left: 18px;
-    font-size: 14px;
-    color: #2f2d2a;
-  }
-
-  .card li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--accent-dark);
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  .track-card.red { border-top: 4px solid var(--red-track); }
-  .track-card.blue { border-top: 4px solid var(--blue-track); }
-  .track-card.green { border-top: 4px solid var(--green-track); }
-  .track-card.gold { border-top: 4px solid var(--gold); }
-
-  .track-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--muted);
-  }
-
-  .track-tag::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    display: inline-block;
-  }
-
-  .track-tag.red::before { background: var(--red-track); }
-  .track-tag.blue::before { background: var(--blue-track); }
-  .track-tag.green::before { background: var(--green-track); }
-  .track-tag.gold::before { background: var(--gold); }
-
-  .table-wrap {
-    overflow-x: auto;
-  }
-
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 840px;
-  }
-
-  .table th {
-    text-align: left;
-    font-size: 10px;
-    color: var(--muted);
-    padding: 0 0 12px;
-    border-bottom: 1px solid rgba(17,17,17,0.12);
-  }
-
-  .table td {
-    vertical-align: top;
-    padding: 14px 10px 14px 0;
-    border-bottom: 1px solid rgba(17,17,17,0.08);
-    font-size: 14px;
-    color: #2d2b28;
-  }
-
-  .table tr:last-child td { border-bottom: none; }
-
-  .week-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 62px;
-    padding: 6px 10px;
-    border-radius: 999px;
-    background: #ece8dc;
-    font-size: 11px;
-    font-weight: 700;
-    color: #413f3b;
-  }
-
-  .decision-wrap {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
-    gap: 16px;
-  }
-
-  .decision-card {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .decision-card::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 6px;
-    background: var(--gold);
-  }
-
-  .decision-tag {
-    font-size: 10px;
-    color: var(--gold);
-    margin-bottom: 12px;
-  }
-
-  .decision-title {
-    margin: 0 0 8px;
-    font-size: 36px;
-    line-height: 0.98;
-    letter-spacing: -0.04em;
-  }
-
-  .decision-title span {
-    color: var(--gold);
+    grid-template-columns: 1fr;
   }
 
   .compare-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-    margin-top: 18px;
+    grid-template-columns: 1fr;
   }
 
-  .compare-item {
-    background: #faf9f5;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 18px;
-  }
+}
 
-  .compare-item .mini-label {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-
-  .callout {
-    margin-top: 16px;
-    border-radius: 18px;
-    padding: 16px 18px;
-    font-size: 14px;
-  }
-
-  .callout.gold {
-    background: #f8f0db;
-    border: 1px solid #e6d4a4;
-  }
-
-  .callout.green {
-    background: #e7f5ec;
-    border: 1px solid #cde8d7;
-  }
-
-  .callout strong { color: var(--ink); }
-
-  .badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
-
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    border-radius: 999px;
-    padding: 8px 12px;
-    font-size: 10px;
-    border: 1px solid currentColor;
-  }
-
-  .chip.red { color: var(--red-track); }
-  .chip.blue { color: var(--blue-track); }
-  .chip.green { color: var(--green-track); }
-  .chip.gold { color: var(--gold); }
-  .chip.gray { color: var(--muted); }
-
-  .footnote {
-    margin-top: 8px;
-    font-size: 10px;
-    color: var(--muted);
-  }
-
-  .footer {
-    margin-top: 34px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(17,17,17,0.12);
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    flex-wrap: wrap;
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  @media (max-width: 1120px) {
-    .hero,
-    .section-head,
-    .grid-2-1,
-    .decision-wrap {
-      grid-template-columns: 1fr;
-    }
-
-    .stats-band,
-    .grid-3,
-    .grid-2,
-    .phase-strip,
-    .compare-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (max-width: 720px) {
-    .page { padding: 18px; }
-    .topbar { padding-bottom: 18px; }
-    .hero { padding-top: 28px; }
-    .hero h1 { font-size: 48px; }
-    .section-title { font-size: 34px; }
-    .decision-title { font-size: 28px; }
-  }
 </style>
 </head>
 <body>
@@ -894,7 +659,7 @@
             <li><strong>Wk 12:</strong> VM &amp; cloud artifacts — audit-log correlation, privacy boundaries, retention logic</li>
           </ul>
           <div class="callout" style="background:#e9f1fb; border:1px solid #c5daf7;">
-            <strong>Critical hardware weeks:</strong> Wk 3 imaging and Wk 11 mobile forensics require guaranteed kit access.
+            <strong>Physical kit access (Wks 3 &amp; 11):</strong> the DFIR hardware setup is intentionally lean and purpose-built. It is not a broad sysadmin toolkit. Priority goes to enough <strong>RAM and SSD capacity</strong> for VM-heavy work, plus the few physical items required for evidence-safe imaging and mobile forensics. Hardware write blockers, removable media, and a limited set of mobile devices matter more than extra networking accessories. Optional router or networking gear should be treated as backup equipment, not standard kit contents.
           </div>
           <div class="badge-row">
             <span class="chip blue">Security+</span>
@@ -974,18 +739,24 @@
         <div class="grid-2" style="grid-template-columns:1fr; gap:16px;">
           <div class="card track-card gold">
             <div class="track-tag gold">Lab infrastructure — cost model</div>
-            <h3>Lean and reusable</h3>
+            <h3>Lean, reusable, and aligned to the real training need</h3>
             <ul>
-              <li><strong>Virtual / cloud lab stack:</strong> approximately <strong>$10–15 per learner per month</strong></li>
-              <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500</strong> across the full cohort</li>
+              <li><strong>Virtual / cloud lab stack:</strong> approximately <strong>$10–15 per learner per month</strong> for core range access, shared infrastructure, and platform costs</li>
+              <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500</strong> across the full cohort of 100 learners</li>
               <li><strong>4-month cohort virtual cost:</strong> approximately <strong>$4,000–6,000</strong></li>
-              <li><strong>DFIR physical kits (25):</strong> approximately <strong>$200–250 per kit</strong> = <strong>$5,000–6,250 one-time</strong></li>
-              <li><strong>Additional classroom cost:</strong> none required if current space is used rotationally</li>
-              <li><strong>Future cohorts:</strong> recurring cost drops to the virtual stack only</li>
+              <li><strong>DFIR shared hardware kit (25 total):</strong> lean, purpose-built kit focused on imaging and mobile forensics rather than a full sysadmin or networking toolkit</li>
+              <li><strong>Target hardware priority:</strong> sufficient <strong>RAM and SSD capacity</strong> for VM-heavy workflows, plus write blockers, removable media, and limited mobile devices for DFIR lab use</li>
+              <li><strong>Estimated DFIR hardware cost:</strong> approximately <strong>$125–200 per kit</strong> = roughly <strong>$3,125–5,000 one-time</strong>, depending on how much existing equipment can be reused</li>
+              <li><strong>Wireless routers and extra networking accessories:</strong> optional backup equipment only, not standard per-kit requirements</li>
+              <li><strong>Additional classroom cost:</strong> <strong>none required</strong> if the current room is used as a rotational hybrid space</li>
+              <li><strong>Future cohorts:</strong> recurring cost drops to the virtual stack plus minor replenishment / replacement of shared hardware</li>
             </ul>
             <div class="callout gold">
-              <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$9,000–12,250</strong><br>
-              <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong>
+              <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$7,125–11,000</strong><br>
+              <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong> once shared hardware is already owned
+            </div>
+            <div class="footnote">
+              This version assumes the advisor’s recommendation: no unnecessary sysadmin toolkit, no default networking bundle, and hardware spending prioritized toward the VM and DFIR workflows that actually matter instructionally.
             </div>
           </div>
 
