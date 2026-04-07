@@ -477,46 +477,82 @@
   .chip.green { color: var(--green-track); }
   .chip.gold { color: #b67a00; }
   .chip.gray { color: var(--muted); }
+.decision-wrap {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  border-left: 2px solid var(--border);
+  border-top: 2px solid var(--border);
+  margin-top: 24px;
+  align-items: stretch;
+}
 
-  .decision-wrap {
-    display: grid;
-    grid-template-columns: 2.5fr 1fr;
-    border-left: 2px solid var(--border);
-    border-top: 2px solid var(--border);
-    margin-top: 24px;
-  }
+.decision-wrap > * {
+  border-right: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+  min-width: 0;
+}
 
-  .decision-wrap > * {
-    border-right: 2px solid var(--border);
-    border-bottom: 2px solid var(--border);
-    padding: 24px;
-    min-width: 0;
-  }
+.decision-wrap > *:last-child {
+  border-right: none;
+}
 
-  .decision-wrap > *:last-child {
-    border-right: none;
-  }
+.decision-card {
+  background: var(--white);
+  padding: 24px;
+}
+.decision-image {
+  background: var(--white);
+  display: flex;
+  align-items: stretch;
+  min-height: 360px;
+}
 
-  .decision-card {
-    background: var(--white);
-  }
+.decision-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  
+.decision-side {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  min-width: 0;
+  background: var(--white);
+}
 
-  .decision-title {
-    font-size: 48px;
-    line-height: 1;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-  }
+.decision-side > * {
+  border-bottom: 2px solid var(--border);
+}
 
-  .decision-title span {
-    color: var(--ink);
-  }
+.decision-side > *:last-child {
+  border-bottom: none;
+}
 
-  .decision-tag {
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
+.decision-side .card {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  padding: 24px;
+  background: var(--white);
+}
+
+.decision-title {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.decision-title span {
+  color: var(--ink);
+}
+
+.decision-tag {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
 
   .compare-grid {
     display: grid;
@@ -989,88 +1025,85 @@
           These are the three blocks investors and program operators need to understand together: the delivery model, the cost model, and the staffing model.
         </div>
       </div>
-
       <div class="decision-wrap">
-        <div class="card decision-card">
-          <div class="decision-tag">Decision</div>
-          <h3 class="decision-title"><span>Rotational hybrid</span> keeps the current room footprint viable</h3>
-          <p>
-            The program does not require bigger classrooms if delivery is structured around scheduled hybrid rotation instead of full-cohort physical attendance. Concept sessions remain virtual for all learners, the existing room is reserved for the highest-value in-person lab moments, and all three groups participate in both formats across the program.
-          </p>
+  <div class="card decision-card">
+    <div class="decision-tag">Decision</div>
+    <h3 class="decision-title"><span>Rotational hybrid</span> keeps the current room footprint viable</h3>
+    <p>
+      The program does not require bigger classrooms if delivery is structured around scheduled hybrid rotation instead of full-cohort physical attendance. Concept sessions remain virtual for all learners, the existing room is reserved for the highest-value in-person lab moments, and all three groups participate in both formats across the program.
+    </p>
 
-          <div class="compare-grid">
-            <div class="compare-item">
-              <div class="mini-label">Classroom strategy</div>
-              <ul>
-                <li><strong>Sunday concept:</strong> fully virtual for all learners</li>
-                <li><strong>Mon–Thu labs:</strong> hybrid all day, with controlled physical attendance</li>
-                <li><strong>All three groups are hybrid:</strong> no fully remote group</li>
-                <li><strong>Thursday:</strong> purple-team comparison, demos, and reporting anchor</li>
-                <li><strong>All groups stay synchronized by week</strong></li>
-              </ul>
-            </div>
-            <div class="compare-item">
-              <div class="mini-label">Track priority</div>
-              <ul>
-                <li><strong>DFIR:</strong> priority access during hardware-dependent weeks</li>
-                <li><strong>Cybersecurity:</strong> rotates in-person participation for guided labs, debugging, and purple work</li>
-                <li><strong>Online participation:</strong> synchronous, structured, and artifact-driven</li>
-                <li><strong>Physical presence is scheduled, not assumed</strong></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="callout gold">
-            <strong>Bottom line:</strong> the main challenge is not real estate. It is hybrid orchestration, group synchronization, and disciplined operational planning.
-          </div>
-        </div>
-
-        <div class="grid-2" style="grid-template-columns:1fr; margin-top:0; border-left:none; border-top:none;">
-          <div class="card track-card gold" style="border-right:none;">
-            <div class="track-tag gold">Lab infrastructure — cost model</div>
-            <h3>Lean, reusable, and aligned to the real training need</h3>
-            <ul>
-              <li><strong>Virtual / cloud lab stack:</strong> approximately <strong>$10–15 per learner per month</strong> for core range access, shared infrastructure, and platform costs</li>
-              <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500</strong> across the full cohort of 100 learners</li>
-              <li><strong>4-month cohort virtual cost:</strong> approximately <strong>$4,000–6,000</strong></li>
-              <li><strong>DFIR shared hardware kit (25 total):</strong> lean, purpose-built kit focused on imaging and mobile forensics rather than a full sysadmin or networking toolkit</li>
-              <li><strong>Target hardware priority:</strong> sufficient <strong>RAM and SSD capacity</strong> for VM-heavy workflows, plus write blockers, removable media, and limited mobile devices for DFIR lab use</li>
-              <li><strong>Estimated DFIR hardware cost:</strong> approximately <strong>$125–200 per kit</strong> = roughly <strong>$3,125–5,000 one-time</strong>, depending on how much existing equipment can be reused</li>
-              <li><strong>Wireless routers and extra networking accessories:</strong> optional backup equipment only, not standard per-kit requirements</li>
-              <li><strong>Additional classroom cost:</strong> <strong>none required</strong> if the current room is used as a rotational hybrid space</li>
-              <li><strong>Future cohorts:</strong> recurring cost drops to the virtual stack plus minor replenishment / replacement of shared hardware</li>
-            </ul>
-            <div class="callout gold">
-              <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$7,125–11,000</strong><br>
-              <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong> once shared hardware is already owned
-            </div>
-            <div class="footnote">
-              This version assumes the advisor’s recommendation: no unnecessary sysadmin toolkit, no default networking bundle, and hardware spending prioritized toward the VM and DFIR workflows that actually matter instructionally.
-            </div>
-          </div>
-
-          <div class="card track-card green" style="border-right:none;">
-            <div class="track-tag green">Staffing &amp; assessment</div>
-            <h3>Built for parity across in-room and online learners</h3>
-            <ul>
-              <li><strong>Core delivery:</strong> 1 virtual concept session + hybrid labs across 3 groups</li>
-              <li><strong>Wks 0–2:</strong> Lead instructor ×1, support instructor ×1, hybrid TA support</li>
-              <li><strong>Wks 3–12:</strong> Cyber lead ×1, DFIR lead ×1, <strong>minimum 3 TAs</strong>, preferred <strong>4–5 TAs</strong></li>
-              <li><strong>Wks 13–16:</strong> both instructors joint for purple and capstone delivery</li>
-              <li><strong>Hybrid facilitation rule:</strong> one person owns the room, one owns the online experience</li>
-              <li><strong>Assessment:</strong> identical deliverables and grading standards regardless of participation mode</li>
-              <li><strong>Primary grading signal:</strong> artifacts, readiness checks, rubric-scored labs, capstone reporting, and AI governance compliance</li>
-            </ul>
-            <div class="badge-row">
-              <span class="chip green">2 instructors</span>
-              <span class="chip green">3–5 TAs</span>
-              <span class="chip green">Hybrid parity</span>
-              <span class="chip green">Artifact-based</span>
-            </div>
-          </div>
-        </div>
+    <div class="compare-grid">
+      <div class="compare-item">
+        <div class="mini-label">Classroom strategy</div>
+        <ul>
+          <li><strong>Sunday concept:</strong> fully virtual for all learners</li>
+          <li><strong>Mon–Thu labs:</strong> hybrid all day, with controlled physical attendance</li>
+          <li><strong>All three groups are hybrid:</strong> no fully remote group</li>
+          <li><strong>Thursday:</strong> purple-team comparison, demos, and reporting anchor</li>
+          <li><strong>All groups stay synchronized by week</strong></li>
+        </ul>
       </div>
-    </section>
+      <div class="compare-item">
+        <div class="mini-label">Track priority</div>
+        <ul>
+          <li><strong>DFIR:</strong> priority access during hardware-dependent weeks</li>
+          <li><strong>Cybersecurity:</strong> rotates in-person participation for guided labs, debugging, and purple work</li>
+          <li><strong>Online participation:</strong> synchronous, structured, and artifact-driven</li>
+          <li><strong>Physical presence is scheduled, not assumed</strong></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>Bottom line:</strong> the main challenge is not real estate. It is hybrid orchestration, group synchronization, and disciplined operational planning.
+    </div>
+  </div>
+
+  <div class="decision-side">
+    <div class="card track-card gold">
+      <div class="track-tag gold">Lab infrastructure — cost model</div>
+      <h3>Lean, reusable, and aligned to the real training need</h3>
+      <ul>
+        <li><strong>Virtual / cloud lab stack:</strong> approximately <strong>$10–15 per learner per month</strong> for core range access, shared infrastructure, and platform costs</li>
+        <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500</strong> across the full cohort of 100 learners</li>
+        <li><strong>4-month cohort virtual cost:</strong> approximately <strong>$4,000–6,000</strong></li>
+        <li><strong>DFIR shared hardware kit (25 total):</strong> lean, purpose-built kit focused on imaging and mobile forensics rather than a full sysadmin or networking toolkit</li>
+        <li><strong>Target hardware priority:</strong> sufficient <strong>RAM and SSD capacity</strong> for VM-heavy workflows, plus write blockers, removable media, and limited mobile devices for DFIR lab use</li>
+        <li><strong>Estimated DFIR hardware cost:</strong> approximately <strong>$125–200 per kit</strong> = roughly <strong>$3,125–5,000 one-time</strong></li>
+        <li><strong>Wireless routers and extra networking accessories:</strong> optional backup equipment only, not standard per-kit requirements</li>
+        <li><strong>Additional classroom cost:</strong> <strong>none required</strong></li>
+      </ul>
+      <div class="callout gold">
+        <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$7,125–11,000</strong><br>
+        <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong>
+      </div>
+    </div>
+
+    <div class="card track-card green">
+      <div class="track-tag green">Staffing &amp; assessment</div>
+      <h3>Built for parity across in-room and online learners</h3>
+      <ul>
+        <li><strong>Core delivery:</strong> 1 virtual concept session + hybrid labs across 3 groups</li>
+        <li><strong>Wks 0–2:</strong> Lead instructor ×1, support instructor ×1, hybrid TA support</li>
+        <li><strong>Wks 3–12:</strong> Cyber lead ×1, DFIR lead ×1, <strong>minimum 3 TAs</strong>, preferred <strong>4–5 TAs</strong></li>
+        <li><strong>Wks 13–16:</strong> both instructors joint for purple and capstone delivery</li>
+        <li><strong>Hybrid facilitation rule:</strong> one person owns the room, one owns the online experience</li>
+        <li><strong>Assessment:</strong> identical deliverables and grading standards regardless of participation mode</li>
+      </ul>
+      <div class="badge-row">
+        <span class="chip green">2 instructors</span>
+        <span class="chip green">3–5 TAs</span>
+        <span class="chip green">Hybrid parity</span>
+        <span class="chip green">Artifact-based</span>
+      </div>
+    </div>
+      <div class="decision-image">
+       <img src="./images/cyber-hero.png" alt="Cybersecurity and digital infrastructure illustration" />
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="section">
       <div class="grid-3">
