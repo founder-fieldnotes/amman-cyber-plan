@@ -1,788 +1,1071 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amman Cybersecurity Program — Master Course Plan</title>
-<meta name="description" content="Master blueprint for a 16-week integrated Cybersecurity and Digital Forensics program in Amman, Jordan.">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Barlow+Condensed:wght@300;600;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amman Cybersecurity & Digital Forensics Program — Master Blueprint</title>
+<meta name="description" content="Master blueprint for a 16-week integrated Cybersecurity and Digital Forensics program in Amman, Jordan." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0e1a;
-    --surface: #101626;
-    --surface2: #161d30;
-    --border: #1e2a44;
-    --accent: #00c2ff;
-    --text: #d4dff7;
-    --muted: #6b7fa8;
-    --red-track: #ff6b35;
-    --blue-track: #00c2ff;
-    --shared: #39d98a;
-    --gold: #f5c842;
+    --bg: #f6f5ef;
+    --surface: #ffffff;
+    --surface-alt: #efeee6;
+    --ink: #111111;
+    --muted: #5d5b57;
+    --border: #d8d3c7;
+    --accent: #00a7a0;
+    --accent-dark: #0b6a66;
+    --red-track: #d14b2d;
+    --blue-track: #1674d1;
+    --green-track: #1e7a4f;
+    --gold: #b67a00;
+    --shadow: 0 10px 30px rgba(17, 17, 17, 0.06);
+    --radius: 22px;
+    --radius-sm: 14px;
+    --max: 1240px;
   }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { background: var(--bg); }
-
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
+    margin: 0;
     background: var(--bg);
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    font-weight: 300;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
     line-height: 1.55;
-    font-size: 13px;
-    padding: 28px;
-    max-width: 1140px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .page {
+    max-width: var(--max);
     margin: 0 auto;
+    padding: 24px;
   }
 
-  /* HEADER */
-  .header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 14px;
-    margin-bottom: 16px;
-    gap: 16px;
-  }
-
-  .kicker {
+  .eyebrow,
+  .label,
+  .mini-label,
+  .stat-label,
+  .phase-kicker,
+  .footnote,
+  .chip,
+  .table th,
+  .hero-meta,
+  .decision-tag {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    font-size: 34px;
-    line-height: 1.0;
-    letter-spacing: -0.5px;
-    color: #fff;
-  }
-
-  h1 span { color: var(--accent); }
-
-  .sub {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 4px;
-    font-style: italic;
-  }
-
-  .meta-box {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    padding: 10px 14px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    line-height: 1.8;
-    color: var(--muted);
-    text-align: right;
-  }
-
-  .meta-box strong { color: var(--accent); }
-
-  /* PHASE STRIP */
-  .phase-strip {
-    display: flex;
-    margin-bottom: 14px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-  }
-
-  .phase-block {
-    padding: 8px 14px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .phase-block .weeks {
-    font-size: 15px;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  .phase-block.sh {
-    background: rgba(57,217,138,0.12);
-    color: var(--shared);
-    border-right: 1px solid var(--border);
-    flex: 3;
-  }
-
-  .phase-block.sp {
-    background: rgba(100,110,140,0.10);
-    color: var(--muted);
-    border-right: 1px solid var(--border);
-    flex: 10;
-  }
-
-  .phase-block.cv {
-    background: rgba(245,200,66,0.10);
-    color: var(--gold);
-    flex: 4;
-  }
-
-  /* GRID */
-  .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 14px;
-    margin-bottom: 14px;
-  }
-
-  .wide-col { grid-column: span 2; }
-  .full-col { grid-column: span 3; }
-
-  /* CARD */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    padding: 14px 16px;
-    position: relative;
-  }
-
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-  }
-
-  .card.accent-blue::before  { background: var(--blue-track); }
-  .card.accent-red::before   { background: var(--red-track); }
-  .card.accent-green::before { background: var(--shared); }
-  .card.accent-gold::before  { background: var(--gold); }
-
-  h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  h2.blue  { color: var(--blue-track); }
-  h2.red   { color: var(--red-track); }
-  h2.green { color: var(--shared); }
-  h2.gold  { color: var(--gold); }
-
-  ul {
-    padding-left: 0;
-    list-style: none;
-  }
-
-  ul li {
-    padding: 3px 0 3px 14px;
-    position: relative;
-    color: var(--text);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    font-size: 12px;
-  }
-
-  ul li:last-child { border-bottom: none; }
-
-  ul li::before {
-    content: '›';
-    position: absolute;
-    left: 0;
-    color: var(--muted);
-  }
-
-  strong {
-    font-weight: 500;
-    color: #fff;
-  }
-
-  em {
-    color: var(--accent);
-    font-style: normal;
-  }
-
-  /* TABLES */
-  .tbl {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 11px;
-  }
-
-  .tbl th {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 5px 8px;
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .tbl td {
-    padding: 5px 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    vertical-align: top;
-    font-size: 11px;
-    line-height: 1.4;
-  }
-
-  .tbl tr:last-child td { border-bottom: none; }
-
-  .phase-shared { color: var(--shared); font-weight: 500; }
-  .phase-split  { color: var(--muted); }
-  .phase-merge  { color: var(--gold); font-weight: 500; }
-
-  .wk {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    background: var(--surface2);
-    padding: 2px 5px;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .cyber-col { color: var(--red-track); }
-  .dfir-col  { color: var(--blue-track); }
-
-  .wk-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: var(--shared);
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  /* DECISION BOX */
-  .decision {
-    background: var(--surface2);
-    border: 1px solid var(--gold);
-    padding: 14px 16px;
-    position: relative;
-  }
-
-  .decision::before {
-    content: 'DECISION';
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 0.2em;
-    color: var(--gold);
-    position: absolute;
-    top: -8px;
-    left: 12px;
-    background: var(--bg);
-    padding: 0 6px;
-  }
-
-  .verdict {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 6px;
-  }
-
-  .verdict span { color: var(--gold); }
-
-  /* COMPARE GRID */
-  .compare-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
-
-  .compare-item {
-    background: var(--surface);
-    padding: 8px 10px;
-    font-size: 11px;
-  }
-
-  .compare-item .lbl {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-
-  /* CALLOUT */
-  .callout {
-    border-left: 2px solid var(--shared);
-    padding: 6px 10px;
-    font-size: 11px;
-    margin-top: 8px;
-    color: var(--muted);
-    background: rgba(57,217,138,0.06);
-  }
-
-  .callout strong { color: var(--shared); }
-
-  .callout.red {
-    border-color: var(--red-track);
-    background: rgba(255,107,53,0.06);
-  }
-
-  .callout.red strong { color: var(--red-track); }
-
-  .callout.blue {
-    border-color: var(--blue-track);
-    background: rgba(0,194,255,0.05);
-  }
-
-  .callout.blue strong { color: var(--blue-track); }
-
-  .callout.gold {
-    border-color: var(--gold);
-    background: rgba(245,200,66,0.08);
-  }
-
-  .callout.gold strong { color: var(--gold); }
-
-  /* BADGES */
-  .badge-row {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin-top: 8px;
-  }
-
-  .badge {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    padding: 2px 7px;
-    border: 1px solid var(--border);
-    color: var(--muted);
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  .badge.b { border-color: var(--blue-track); color: var(--blue-track); }
-  .badge.r { border-color: var(--red-track);  color: var(--red-track); }
-  .badge.g { border-color: var(--shared);     color: var(--shared); }
-  .badge.y { border-color: var(--gold);       color: var(--gold); }
-  .badge.w { border-color: var(--muted);      color: var(--muted); }
-
-  /* MISC */
-  .note {
-    font-size: 10px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 6px;
-    padding-top: 6px;
-    border-top: 1px solid var(--border);
-  }
-
-  .footer {
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    margin-top: 14px;
+  .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
+    gap: 16px;
+    padding: 10px 0 24px;
+    border-bottom: 1px solid rgba(17,17,17,0.08);
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    color: var(--accent-dark);
+  }
+
+  .brand-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .top-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
     color: var(--muted);
+    font-size: 12px;
+  }
+
+  .hero {
+    padding: 44px 0 30px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.9fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .hero h1 {
+    margin: 0 0 18px;
+    font-size: clamp(48px, 7.2vw, 96px);
+    line-height: 0.93;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+  }
+
+  .hero h1 span {
+    color: var(--accent-dark);
+  }
+
+  .hero-sub {
+    max-width: 760px;
+    font-size: clamp(18px, 2vw, 23px);
+    line-height: 1.35;
+    color: #202020;
+    margin-bottom: 22px;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s ease;
+    border: 1px solid var(--ink);
+  }
+
+  .button.primary {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+
+  .button.secondary {
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .hero-panel {
+    background: linear-gradient(180deg, #ffffff 0%, #f0eee5 100%);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+  }
+
+  .hero-panel .mini-label {
+    font-size: 11px;
+    color: var(--accent-dark);
+    margin-bottom: 12px;
+  }
+
+  .hero-panel h2 {
+    margin: 0 0 14px;
+    font-size: 28px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-panel p {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .hero-panel-list {
+    display: grid;
+    gap: 10px;
+  }
+
+  .hero-panel-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(17,17,17,0.08);
+    font-size: 14px;
+  }
+
+  .hero-panel-item strong {
+    display: block;
+    color: var(--ink);
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+
+  .hero-panel-item span {
+    color: var(--muted);
+  }
+
+  .stats-band {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 10px 0 34px;
+  }
+
+  .stat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--shadow);
+  }
+
+  .stat-value {
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .stat-copy {
+    font-size: 13px;
+    color: #373633;
+  }
+
+  .section {
+    padding: 22px 0 10px;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 0.55fr);
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 20px;
+  }
+
+  .label {
+    font-size: 11px;
+    color: var(--accent-dark);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 54px);
+    line-height: 0.96;
+    letter-spacing: -0.04em;
+  }
+
+  .section-copy {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 580px;
+  }
+
+  .phase-strip {
+    display: grid;
+    grid-template-columns: 1.25fr 2fr 1.4fr;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .phase-card {
+    border-radius: 22px;
+    padding: 22px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid transparent;
+  }
+
+  .phase-card.shared {
+    background: #e7f5ec;
+    border-color: #cde8d7;
+  }
+
+  .phase-card.split {
+    background: #f1efe7;
+    border-color: #dfdacd;
+  }
+
+  .phase-card.converge {
+    background: #f8f0db;
+    border-color: #e6d4a4;
+  }
+
+  .phase-kicker {
+    font-size: 11px;
+    color: rgba(17,17,17,0.65);
+    margin-bottom: 10px;
+  }
+
+  .phase-weeks {
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+  }
+
+  .phase-card h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+  }
+
+  .phase-card p {
+    margin: 0;
+    color: #3f3c38;
+    font-size: 14px;
+  }
+
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
-  .win { color: var(--shared); }
+  .grid-2-1 {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    gap: 16px;
+  }
 
-  @media (max-width: 980px) {
-    .main-grid,
-    .compare-grid,
-    .header {
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow);
+  }
+
+  .card.alt {
+    background: var(--surface-alt);
+  }
+
+  .card h3 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    line-height: 1.03;
+    letter-spacing: -0.03em;
+  }
+
+  .card h4 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .card p {
+    margin: 0 0 10px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+
+  .card li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #2f2d2a;
+  }
+
+  .card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-dark);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .track-card.red { border-top: 4px solid var(--red-track); }
+  .track-card.blue { border-top: 4px solid var(--blue-track); }
+  .track-card.green { border-top: 4px solid var(--green-track); }
+  .track-card.gold { border-top: 4px solid var(--gold); }
+
+  .track-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .track-tag::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    display: inline-block;
+  }
+
+  .track-tag.red::before { background: var(--red-track); }
+  .track-tag.blue::before { background: var(--blue-track); }
+  .track-tag.green::before { background: var(--green-track); }
+  .track-tag.gold::before { background: var(--gold); }
+
+  .table-wrap {
+    overflow-x: auto;
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 840px;
+  }
+
+  .table th {
+    text-align: left;
+    font-size: 10px;
+    color: var(--muted);
+    padding: 0 0 12px;
+    border-bottom: 1px solid rgba(17,17,17,0.12);
+  }
+
+  .table td {
+    vertical-align: top;
+    padding: 14px 10px 14px 0;
+    border-bottom: 1px solid rgba(17,17,17,0.08);
+    font-size: 14px;
+    color: #2d2b28;
+  }
+
+  .table tr:last-child td { border-bottom: none; }
+
+  .week-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 62px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #ece8dc;
+    font-size: 11px;
+    font-weight: 700;
+    color: #413f3b;
+  }
+
+  .decision-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(300px, 0.9fr);
+    gap: 16px;
+  }
+
+  .decision-card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .decision-card::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 6px;
+    background: var(--gold);
+  }
+
+  .decision-tag {
+    font-size: 10px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .decision-title {
+    margin: 0 0 8px;
+    font-size: 36px;
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+
+  .decision-title span {
+    color: var(--gold);
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .compare-item {
+    background: #faf9f5;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 18px;
+  }
+
+  .compare-item .mini-label {
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .callout {
+    margin-top: 16px;
+    border-radius: 18px;
+    padding: 16px 18px;
+    font-size: 14px;
+  }
+
+  .callout.gold {
+    background: #f8f0db;
+    border: 1px solid #e6d4a4;
+  }
+
+  .callout.green {
+    background: #e7f5ec;
+    border: 1px solid #cde8d7;
+  }
+
+  .callout strong { color: var(--ink); }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 10px;
+    border: 1px solid currentColor;
+  }
+
+  .chip.red { color: var(--red-track); }
+  .chip.blue { color: var(--blue-track); }
+  .chip.green { color: var(--green-track); }
+  .chip.gold { color: var(--gold); }
+  .chip.gray { color: var(--muted); }
+
+  .footnote {
+    margin-top: 8px;
+    font-size: 10px;
+    color: var(--muted);
+  }
+
+  .footer {
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(17,17,17,0.12);
+    display: flex;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  @media (max-width: 1120px) {
+    .hero,
+    .section-head,
+    .grid-2-1,
+    .decision-wrap {
       grid-template-columns: 1fr;
     }
 
-    .wide-col,
-    .full-col {
-      grid-column: span 1;
+    .stats-band,
+    .grid-3,
+    .grid-2,
+    .phase-strip,
+    .compare-grid {
+      grid-template-columns: 1fr;
     }
+  }
 
-    .phase-strip {
-      flex-direction: column;
-    }
-
-    .footer {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  @media (max-width: 720px) {
+    .page { padding: 18px; }
+    .topbar { padding-bottom: 18px; }
+    .hero { padding-top: 28px; }
+    .hero h1 { font-size: 48px; }
+    .section-title { font-size: 34px; }
+    .decision-title { font-size: 28px; }
   }
 </style>
 </head>
 <body>
+  <div class="page">
 
-<!-- HEADER -->
-<div class="header">
-  <div>
-    <div class="kicker">Master Program Blueprint · Amman, Jordan · 2025–2026</div>
-    <h1>CYBERSECURITY <span>&</span> DIGITAL FORENSICS</h1>
-    <div class="sub">16-Week Integrated Dual-Track Program — College Graduates &amp; Working Professionals</div>
-  </div>
-  <div class="meta-box">
-    <strong>100 LEARNERS</strong><br>
-    75 × Cybersecurity (Red / Offense)<br>
-    25 × Digital Forensics (Blue / DFIR)<br>
-    <strong>CREDENTIAL</strong>: Cybersecurity Analyst (SOC/IR)<br>
-    Specialization: Red Teaming <em>or</em> DFIR<br>
-    <strong>CERT MAP</strong>: Security+ → CySA+ → CASP+
-  </div>
-</div>
-
-<!-- PHASE STRIP -->
-<div class="phase-strip">
-  <div class="phase-block sh">
-    <span class="weeks">Wks 0–2</span>
-    SHARED FOUNDATION<br>3 weeks · Joint cohort
-  </div>
-  <div class="phase-block sp">
-    <span class="weeks">Wks 3–12</span>
-    DIVERGE — SPECIALTY TRACKS<br>10 weeks · Split labs, shared weekly scenario
-  </div>
-  <div class="phase-block.cv phase-block cv">
-    <span class="weeks">Wks 13–16</span>
-    CONVERGE — PURPLE + CAPSTONE<br>4 weeks · Joint exercises &amp; CISO panel
-  </div>
-</div>
-
-<!-- ROW 1: RATIONALE + COHORT FLOW -->
-<div class="main-grid">
-
-  <div class="card accent-gold">
-    <h2 class="gold">Strategic Rationale — Why This Structure</h2>
-    <ul>
-      <li><strong>AI is automating Tier-1 SOC triage</strong> — job postings for basic security analysts have fallen <em>~53%</em> since 2022. Jordan needs analysts who think above the automation layer, not just clear tickets.</li>
-      <li><strong>One umbrella, two specializations</strong> — market all grads as <em>Cybersecurity Analyst (SOC/IR)</em> with a specialization line. JDs in Amman skew to SOC/IR generalists; specialization depth closes the deal.</li>
-      <li><strong>Purple-team fluency is the differentiator</strong> — organizations are moving to fusion teams. Graduates who have operated both sides earn a premium and are harder to automate away.</li>
-      <li><strong>DFIR demand tied to compliance pressure</strong> — "incident response" framing resonates with Amman banks, telcos, and government entities facing stronger compliance expectations.</li>
-      <li><strong>AI skills are table stakes in 2026</strong> — validated AI workflows (audit logs, hallucination checks, evidence-safe pipelines) are embedded as a cross-cutting professional habit from Week 1.</li>
-      <li><strong>3-week shared phase is intentional</strong> — OS, networking, CLI, ethics, RoE, <em>and</em> the full evidence-safe foundation cannot be done responsibly in 2 weeks. Three weeks builds the habits that protect the program’s legal defensibility and employer credibility for both tracks.</li>
-    </ul>
-  </div>
-
-  <div class="card accent-green wide-col">
-    <h2 class="green">Cohort Flow — Phase-by-Phase Overview</h2>
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th>Phase</th>
-          <th>Weeks</th>
-          <th>Mode</th>
-          <th>Cybersecurity Track (75)</th>
-          <th>DFIR Track (25)</th>
-          <th>Hrs/Wk</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="phase-shared">● SHARED</span></td>
-          <td><span class="wk">0–2</span></td>
-          <td>Joint cohort</td>
-          <td colspan="2" style="color:#ccc; font-style:italic;">
-            OS &amp; networking (Windows/Linux, TCP/IP, DNS, HTTP/S) · VM setup, snapshots, lab isolation · CLI/Git/Python ·
-            Ethics &amp; Rules of Engagement · Intro SIEM/log reading ·
-            <strong style="color:var(--shared)">Evidence-safe core (both tracks):</strong> write-blocker orientation, hash validation drills (MD5/SHA-256), chain-of-custody pledge, timezone normalization. ·
-            <em>Wk 2 Red/Blue feedback loop: Red runs Nmap scan; Blue analyzes the Windows artifacts &amp; Event IDs that exact scan produced.</em>
-          </td>
-          <td>10–12</td>
-        </tr>
-        <tr>
-          <td><span class="phase-split">◌ DIVERGE</span></td>
-          <td><span class="wk">3–12</span></td>
-          <td>Split labs, shared scenario</td>
-          <td class="cyber-col">Recon (Pt 1&amp;2) → Web attacks → Exploitation &amp; automation → Passwords &amp; SE → AD attack paths (Pt 1&amp;2) → Priv-esc / EDR evasion → C2 &amp; OPSEC → Detection-aware offense</td>
-          <td class="dfir-col">Chain of custody deep-dive → Windows artifacts → Linux/macOS artifacts → Unified timelines → AI-assisted triage pipeline (Pt 1&amp;2) → Memory forensics → Malware analysis → Mobile forensics → VM &amp; cloud artifacts</td>
-          <td>10–12</td>
-        </tr>
-        <tr>
-          <td><span class="phase-merge">★ CONVERGE</span></td>
-          <td><span class="wk">13–16</span></td>
-          <td>Joint purple + capstone</td>
-          <td class="cyber-col">Wk 13: Purple attack side · Wk 14: Attack reporting workshop · Wk 15: Capstone red campaign · Wk 16: CISO panel — attack findings brief</td>
-          <td class="dfir-col">Wk 13: Purple defense side · Wk 14: Courtroom-ready reporting workshop · Wk 15: Capstone acquire→timeline→analyze · Wk 16: CISO panel — investigation &amp; remediation brief</td>
-          <td>8–10</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="note">
-      Weekly rhythm: <strong style="color:#fff">Sunday</strong> — concept block, all cohort &nbsp;·&nbsp;
-      <strong style="color:#fff">Mon–Thu</strong> — hybrid lab delivery across rotating groups and tracks &nbsp;·&nbsp;
-      <strong style="color:#fff">Thursday</strong> — purple/demo/reports, rotating joint vs. track-specific. Capstone pairs 1 Red + 1 DFIR learner per team. Guest practitioners invited Wks 5, 9, 13.
-    </div>
-  </div>
-
-</div>
-
-<!-- ROW 2: SHARED FOUNDATION DETAIL -->
-<div class="main-grid">
-  <div class="card accent-green full-col">
-    <h2 class="green">Shared Foundation — Weeks 0–2 in Detail (Joint Cohort · Both Tracks)</h2>
-    <p style="font-size:11px; color:var(--muted); margin-bottom:8px;">
-      This is where both tracks earn the right to diverge. Every topic is a prerequisite for <em>either</em> specialization. Evidence-safe habits live here — not in Week 3 — because DFIR legal defensibility and Red-track documentation standards both depend on them from day one.
-    </p>
-    <table class="tbl">
-      <thead>
-        <tr>
-          <th style="width:68px;">Week</th>
-          <th style="width:36%;">Topics — Both Tracks</th>
-          <th style="width:30%;">Lab / Do</th>
-          <th>Why It's Shared</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="wk-num">Wk 0</span><br><span style="font-size:9px;color:var(--muted);">Pre-work</span></td>
-          <td>Laptop hardening; VM install (Kali + Windows Server 2022); OSI/TCP-IP primer; Git &amp; CLI refresh; lab isolation safety check; timezone setup</td>
-          <td>Self-paced: verify VM snapshots restore correctly; confirm network isolation (no traffic leakage); submit CLI exercise via Git</td>
-          <td>Every learner arrives with a working, isolated lab. Zero class time lost to setup. Instructors can confirm readiness before Week 1.</td>
-        </tr>
-        <tr>
-          <td><span class="wk-num">Wk 1</span></td>
-          <td>OS &amp; networking foundations (Windows/Linux, TCP/IP, DNS, HTTP/S) · Security mindset &amp; ethics · Rules of Engagement · Intro SIEM/log reading · <strong style="color:var(--shared);">Evidence-safe habits:</strong> write-blocker orientation, hash validation (MD5/SHA-256), chain-of-custody pledge, timezone normalization</td>
-          <td>Packet capture baseline · OS artifact discovery report · Hash-verify a provided disk image · Fill a chain-of-custody form · Ingest and query a basic SIEM event in ELK</td>
-          <td>DFIR must handle evidence correctly before touching any media. Red must document every action before any scan. Both tracks need to understand what evidence <em>is</em> before they create or destroy it.</td>
-        </tr>
-        <tr>
-          <td><span class="wk-num">Wk 2</span></td>
-          <td>Virtualization deep-dive (snapshots, rollbacks, NAT vs. host-only) · Scripting intro (Bash/PowerShell/Python) · Windows OS internals basics · <strong style="color:var(--shared);">Red/Blue feedback loop:</strong> Red runs Nmap/Masscan enumeration; Blue analyzes the Windows Event IDs, registry writes, and file-creation artifacts that scan produced</td>
-          <td><strong style="color:var(--red-track);">Red:</strong> run enumeration scan against shared lab target, document every tool used. <strong style="color:var(--blue-track);">Blue:</strong> extract and annotate all artifacts the scan left. <strong>Both:</strong> live debrief — compare notes in the same room, write a joint one-page report.</td>
-          <td>The most important shared lab in the program. Teaches Red that every action leaves a trace; teaches Blue what offense looks like from the inside. Sets the purple mindset before the split. The joint debrief builds cross-track respect that carries through 10 weeks of separation.</td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="callout">
-      <strong>Instructor note — Week 2 debrief:</strong> Budget 30 extra minutes. Run it as a live cross-track discussion where Red and Blue teams compare their reports before the instructor reveals the “full picture.” This moment of mutual surprise is the program’s first genuine “aha” — protect it.
-    </div>
-  </div>
-</div>
-
-<!-- ROW 3: TRACK SPINES + AI -->
-<div class="main-grid">
-
-  <div class="card accent-red">
-    <h2 class="red">Cybersecurity Track — Wks 3–12 Spine (75 Learners)</h2>
-    <ul>
-      <li><strong>Wk 3–4:</strong> Recon Pt 1 &amp; 2 — Nmap/Masscan, OSINT, asset catalog, vuln sweep, attack surface map, passive/active dossier</li>
-      <li><strong>Wk 5:</strong> Web attacks — OWASP Top 10, SQLi/XSS, Burp + SQLmap, PoC write-ups with fix-ready remediation</li>
-      <li><strong>Wk 6–7:</strong> Exploitation &amp; automation — Metasploit safe chains, Python tool-chaining, AI-assisted variants with mandatory audit log &amp; hallucination check</li>
-      <li><strong>Wk 7:</strong> Passwords &amp; social engineering — Hashcat workflow, Gophish campaign, ethics-gated RoE, defense recs</li>
-      <li><strong>Wk 8–9:</strong> AD attack paths Pt 1 &amp; 2 — BloodHound/SharpHound, graph analysis, safe priv-esc demo, MITRE ATT&amp;CK mapping, mitigation write-up</li>
-      <li><strong>Wk 10:</strong> Priv-esc / EDR evasion — LotL techniques, detected vs. undetected log, EDR visibility &amp; evasion trade-offs</li>
-      <li><strong>Wk 11:</strong> C2 &amp; OPSEC — Sliver/Mythic minimal deployment, operator SOPs, teardown checklist, blue-team review</li>
-      <li><strong>Wk 12:</strong> Detection-aware offense — Sysmon enabled, logs shipped to ELK/Wazuh, “what to monitor” list per TTP, purple reporting Pt 1 draft</li>
-    </ul>
-    <div class="callout red">
-      <strong>Every red week — mandatory:</strong> “Write a detection” task. Learners propose one SIEM rule or Sigma detection for the technique they just used. Non-negotiable. Red graduates who cannot think defensively are harder to place and more likely to cause harm.
-    </div>
-    <div class="badge-row">
-      <span class="badge r">Security+</span>
-      <span class="badge r">CySA+</span>
-      <span class="badge r">CASP+</span>
-      <span class="badge r">MITRE ATT&amp;CK</span>
-    </div>
-  </div>
-
-  <div class="card accent-blue">
-    <h2 class="blue">Digital Forensics Track — Wks 3–12 Spine (25 Learners)</h2>
-    <ul>
-      <li><strong>Wk 3:</strong> Chain of custody &amp; imaging deep-dive — full SOP, write-blocker practice on shared physical kit, complete hash validation workflow, ESD + no-boot handling, smartphone awareness. <em>Builds on Wk 1 intro.</em></li>
-      <li><strong>Wk 4:</strong> Windows artifacts — Registry, top Event IDs cheat sheet, timeline stitching; live cross-track exercise: analyze artifacts from Red track’s Wk 3–4 recon scans</li>
-      <li><strong>Wk 5:</strong> Linux / macOS artifacts — cross-OS correlation workbook, unified logs, plists, macOS Sonoma TCC deltas</li>
-      <li><strong>Wk 6:</strong> Unified timelines &amp; rapid triage — Plaso + Timesketch, triage vs. full acquisition, manifest + error budgets, threat intel workflow integration</li>
-      <li><strong>Wk 7–8:</strong> AI-assisted triage pipeline Pt 1 &amp; 2 — local/offline LLMs only; derived artifacts only (never raw evidence to AI); JSON/YAML audit log (model/prompt/version/variance); legal admissibility; validation &amp; governance</li>
-      <li><strong>Wk 9:</strong> Memory forensics — Volatility triage, profile selection, process tree correlation, memory triage report</li>
-      <li><strong>Wk 10:</strong> Malware analysis — static triage (hashes/PE headers/strings), sandbox awareness, memory-to-process-tree correlation, defensive recommendations</li>
-      <li><strong>Wk 11:</strong> Mobile forensics — AFU/BFU decision tree, ALEAPP/ILEAPP, privacy/scope Go/No-Go memo. <em>Shared physical kit required.</em></li>
-      <li><strong>Wk 12:</strong> VM &amp; cloud artifacts — snapshot extraction, SaaS/IaaS audit-log correlation (Okta/AAD/M365), privacy boundaries &amp; retention policy</li>
-    </ul>
-    <div class="callout blue">
-      <strong>Physical kit access (Wks 3 &amp; 11):</strong> Publish the rotation schedule at Week 0. 25 kits serve 25 DFIR learners — one per learner during these two sessions, eliminating wait time. These are the only weeks where virtual infrastructure cannot substitute for real hardware.
-    </div>
-    <div class="badge-row">
-      <span class="badge b">Security+</span>
-      <span class="badge b">CySA+</span>
-      <span class="badge b">CASP+</span>
-      <span class="badge b">Chain of Custody</span>
-    </div>
-  </div>
-
-  <div class="card accent-green">
-    <h2 class="green">AI Integration — Cross-Cutting Layer</h2>
-    <ul>
-      <li><strong>Not a module — a professional habit.</strong> Every week has an AI touchpoint with a mandatory audit trail, starting Week 1.</li>
-      <li><strong>Red track:</strong> AI co-pilot for payload variant generation (logged + validated before use); AI-assisted report drafting; hallucination check required before any submission</li>
-      <li><strong>DFIR track:</strong> Local/offline LLMs only; derived artifacts only — never raw evidence to AI; JSON/YAML log captures model, prompt, version, and output variance every use</li>
-      <li><strong>Both tracks:</strong> AI governance policy in capstone RoE; AI risk assessment required in final deliverable</li>
-      <li><strong>AI threat awareness (Wks 6–7):</strong> Deepfake social engineering, AI-optimized phishing, model theft vectors woven into exploitation labs</li>
-      <li><strong>Career framing:</strong> Tier-1 triage is being automated. Graduates are the people who oversee, validate, and tune AI tools — this is taught explicitly, not implied.</li>
-    </ul>
-    <div class="note">AI is embedded as workflow discipline, not novelty tooling. The differentiator is not “uses AI,” but “uses AI safely, visibly, and defensibly.”</div>
-  </div>
-
-</div>
-
-<!-- ROW 4: LAB ENVIRONMENT + LAB COST + STAFFING -->
-<div class="main-grid">
-
-  <div class="decision wide-col" style="background:var(--surface); border-color:var(--gold); padding:14px 16px;">
-    <h2 class="gold" style="margin-bottom:10px;">Lab Environment — Recommendation</h2>
-    <div class="verdict"><span>VERDICT: Rotational Hybrid Model</span> — Keep Current Classroom Footprint, Run All Three Groups as Hybrid, Prioritize DFIR for Hardware-Dependent Labs</div>
-    <p style="font-size:12px; color:var(--muted); margin-bottom:10px;">
-      The program does <em>not</em> require bigger classrooms if delivery is structured around scheduled hybrid rotation instead of full-cohort physical attendance. The correct model is to keep concept sessions virtual for all learners, use the existing classroom for high-value in-person lab time, and ensure that <strong>all three groups</strong> have both in-person and online participation across the program. Digital Forensics gets priority access when hardware and evidence-handling are essential; Cybersecurity also uses the physical room on a rotating basis for guided labs, debugging, demonstrations, and purple-team work.
-    </p>
-    <div class="compare-grid">
-      <div class="compare-item">
-        <div class="lbl win">✓ Classroom Strategy — Hybrid for All Three Groups</div>
-        <ul style="padding-left:0; list-style:none;">
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Sunday concept:</strong> fully virtual for all learners — removes the largest space bottleneck immediately</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Mon–Thu labs:</strong> keep the current all-day lab structure, but rotate which learners are physically present while the rest of the same group joins online</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>All three groups are hybrid:</strong> every group has scheduled in-person time and scheduled online participation; no group is remote-only</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>No larger room required</strong> if physical attendance is capped, coordinated, and tied to the highest-value lab moments</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Thursday:</strong> use for virtual reporting, purple-team comparison, demos, and cross-track synthesis when space is constrained</li>
-          <li style="padding:3px 0; font-size:11px; color:var(--shared); font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ Space constraint solved through rotational hybrid delivery, not real-estate expansion</li>
-        </ul>
+    <header class="topbar">
+      <div class="brand">
+        <div class="eyebrow">Master Program Blueprint · Amman, Jordan · 2025–2026</div>
+        <div class="brand-title">Cybersecurity & Digital Forensics — Investor & Delivery View</div>
       </div>
-      <div class="compare-item">
-        <div class="lbl" style="color:var(--gold);">◎ Track Priority — Physical First for DFIR, Scheduled Physical Access for Cybersecurity</div>
-        <ul style="padding-left:0; list-style:none;">
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>DFIR (25 learners):</strong> priority use of physical classroom and kit access during hardware-dependent weeks, especially <strong>Wk 3 imaging</strong> and <strong>Wk 11 mobile forensics</strong></li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Cybersecurity (75 learners):</strong> hybrid every week — some learners in-room, others online, with rotation so all experience guided in-person support over time</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Physical kits:</strong> maintain 25 DFIR kits — one per DFIR learner during required hardware sessions, no waiting or station-sharing</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Online participation:</strong> structured, synchronous, and artifact-driven — not passive or recorded-only</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Key principle:</strong> every learner gets both formats; physical presence is reserved for work that benefits most from shared space, instructor proximity, and hardware access</li>
-          <li style="padding:3px 0; font-size:11px; color:var(--gold); font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ DFIR gets guaranteed hardware access; Cybersecurity gets repeated in-person lab support without requiring more classrooms</li>
-        </ul>
+      <div class="top-links">
+        <span>100 learners</span>
+        <span>16 weeks</span>
+        <span>Dual track</span>
+        <span>Hybrid delivery</span>
       </div>
-    </div>
-    <div class="note" style="margin-top:8px;">
-      <strong>Operating implication:</strong> keep all groups synchronized by week, rotate physical attendance within each group instead of designating one group as remote, and publish the classroom / kit schedule before launch. The biggest requirement is not more space — it is tighter operational coordination, stronger hybrid facilitation, and artifact-based lab design that works equally well for in-room and online learners.
-    </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Modern workforce training for security teams</div>
+        <h1>Cybersecurity <span>&</span><br>Digital Forensics</h1>
+        <div class="hero-sub">
+          A 16-week integrated program designed for the hiring market that exists now: hybrid delivery, purple-team fluency, evidence-safe workflows, and AI-governed execution built into every week.
+        </div>
+        <div class="hero-meta">
+          <span>100 learners total</span>
+          <span>75 Cybersecurity</span>
+          <span>25 DFIR</span>
+          <span>Security+ → CySA+ → CASP+</span>
+          <span>Credential: Cybersecurity Analyst (SOC/IR)</span>
+        </div>
+        <div class="hero-actions">
+          <span class="button primary">Investor-ready operating model</span>
+          <span class="button secondary">Built for employer placement</span>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="mini-label">At a glance</div>
+        <h2>What this program is built to solve</h2>
+        <p>
+          Employers increasingly need analysts who can work across attack, evidence, detection, and reporting — not just execute tools.
+        </p>
+        <div class="hero-panel-list">
+          <div class="hero-panel-item">
+            <div>
+              <strong>Shared foundation</strong>
+              <span>OS, networking, evidence-safe habits, lab discipline</span>
+            </div>
+            <div>Wks 0–2</div>
+          </div>
+          <div class="hero-panel-item">
+            <div>
+              <strong>Specialized depth</strong>
+              <span>Cybersecurity and DFIR split with shared scenario logic</span>
+            </div>
+            <div>Wks 3–12</div>
+          </div>
+          <div class="hero-panel-item">
+            <div>
+              <strong>Purple + capstone</strong>
+              <span>Joint exercises, executive reporting, investor-grade artifacts</span>
+            </div>
+            <div>Wks 13–16</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats-band">
+      <div class="stat">
+        <div class="stat-value">100</div>
+        <div class="stat-label">Learners</div>
+        <div class="stat-copy">Scaled delivery with 3 hybrid groups and one synchronized weekly cadence.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Delivery modes in one system</div>
+        <div class="stat-copy">Virtual concept, hybrid labs, and joint purple/reporting rhythm.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">$9–12k</div>
+        <div class="stat-label">Cohort 1 infrastructure</div>
+        <div class="stat-copy">Lean lab model with reusable DFIR hardware and low recurring cost.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">2 tracks</div>
+        <div class="stat-label">Under one hiring narrative</div>
+        <div class="stat-copy">Cybersecurity Analyst (SOC/IR) with specialization in Red Teaming or DFIR.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="label">Program architecture</div>
+          <h2 class="section-title">A sequence designed for execution, not just instruction</h2>
+        </div>
+        <div class="section-copy">
+          The structure creates a common security language first, then specialized skill depth, then cross-track pressure testing in a purple-team and capstone context.
+        </div>
+      </div>
+
+      <div class="phase-strip">
+        <div class="phase-card shared">
+          <div>
+            <div class="phase-kicker">Phase 1</div>
+            <div class="phase-weeks">Wks 0–2</div>
+            <h3>Shared foundation</h3>
+            <p>Joint cohort. Evidence-safe habits, OS/networking fluency, VM setup, scripting, and the Week 2 Red/Blue feedback loop.</p>
+          </div>
+        </div>
+        <div class="phase-card split">
+          <div>
+            <div class="phase-kicker">Phase 2</div>
+            <div class="phase-weeks">Wks 3–12</div>
+            <h3>Diverge — specialty tracks</h3>
+            <p>Split labs with shared scenario logic. Cybersecurity focuses on offensive workflows and defensive translation; DFIR focuses on evidence, artifacts, timelines, and triage.</p>
+          </div>
+        </div>
+        <div class="phase-card converge">
+          <div>
+            <div class="phase-kicker">Phase 3</div>
+            <div class="phase-weeks">Wks 13–16</div>
+            <h3>Converge — purple + capstone</h3>
+            <p>Joint exercises, executive reporting, and investor-credible final artifacts. Every learner finishes with both technical and decision-quality evidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-2-1">
+        <div class="card">
+          <div class="track-tag green">Why this structure works</div>
+          <h3>Strategic rationale</h3>
+          <ul>
+            <li><strong>AI is shrinking basic triage work.</strong> Jordan needs analysts who can think above the automation layer, not just clear tickets.</li>
+            <li><strong>One umbrella, two specializations.</strong> Graduates are marketable as Cybersecurity Analysts (SOC/IR), with specialization depth that helps close placement.</li>
+            <li><strong>Purple-team fluency is a differentiator.</strong> Employers increasingly value analysts who understand both attack paths and detection logic.</li>
+            <li><strong>DFIR demand maps well to compliance pressure.</strong> Incident response framing lands with banks, telcos, and government environments.</li>
+            <li><strong>AI skills are now baseline professional behavior.</strong> Audit logs, validation, and evidence-safe AI usage are not a bonus topic; they are required practice.</li>
+            <li><strong>The shared phase is not optional.</strong> Without common habits in documentation, evidence, and security reasoning, both tracks weaken.</li>
+          </ul>
+        </div>
+
+        <div class="card alt">
+          <div class="track-tag gold">Operating rhythm</div>
+          <h3>Weekly flow</h3>
+          <ul>
+            <li><strong>Sunday:</strong> concept block, all 100 learners, fully virtual</li>
+            <li><strong>Mon–Thu:</strong> hybrid lab delivery across three rotating groups</li>
+            <li><strong>Thursday:</strong> purple-team comparison, reporting, demos, and synthesis</li>
+            <li><strong>All groups stay synchronized by week</strong></li>
+            <li><strong>No group is fully remote</strong></li>
+            <li><strong>Capstone pairs Red + DFIR learners</strong></li>
+          </ul>
+          <div class="badge-row">
+            <span class="chip gray">3 hybrid groups</span>
+            <span class="chip gray">Shared schedule</span>
+            <span class="chip gray">Artifact-based</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="label">Shared foundation</div>
+          <h2 class="section-title">Weeks 0–2 establish the program’s operating discipline</h2>
+        </div>
+        <div class="section-copy">
+          This phase earns the right to specialize. It creates a common standard for evidence handling, documentation, lab isolation, and security reasoning before the tracks split.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width: 88px;">Week</th>
+                <th style="width: 32%;">Topics — both tracks</th>
+                <th style="width: 28%;">Lab / do</th>
+                <th>Why it matters</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="week-pill">Wk 0</span></td>
+                <td>Laptop hardening; VM install (Kali + Windows Server 2022); OSI/TCP-IP primer; Git and CLI refresh; lab isolation safety check; timezone setup</td>
+                <td>Self-paced setup verification; snapshot restore check; network isolation validation; CLI exercise via Git</td>
+                <td>Every learner starts with a functioning, isolated lab so class time is not lost to setup failure.</td>
+              </tr>
+              <tr>
+                <td><span class="week-pill">Wk 1</span></td>
+                <td>OS and networking foundations; security mindset and ethics; Rules of Engagement; SIEM/log reading; evidence-safe habits including hash validation and chain of custody</td>
+                <td>Packet capture baseline; OS artifact discovery report; hash verification of provided image; chain-of-custody form; basic ELK query</td>
+                <td>DFIR must treat evidence correctly before touching media; Red must document every action before any scan. This week creates that baseline.</td>
+              </tr>
+              <tr>
+                <td><span class="week-pill">Wk 2</span></td>
+                <td>Virtualization deep-dive; scripting intro; Windows internals; Red/Blue feedback loop where offense creates traces and DFIR analyzes them</td>
+                <td>Red runs Nmap/Masscan enumeration and documents it; Blue extracts Event IDs, registry changes, and file artifacts; both write a joint one-page report</td>
+                <td>This is the hinge moment of the entire program. It teaches Red that every action leaves evidence and teaches Blue what offense looks like from the inside.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout green">
+          <strong>Instructor note:</strong> protect the Week 2 debrief. Budget extra time for live comparison between Red and Blue findings before revealing the full picture.
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="label">Track design</div>
+          <h2 class="section-title">Two tracks, one coherent hiring story</h2>
+        </div>
+        <div class="section-copy">
+          Both tracks operate under one market-facing identity while preserving real specialization depth in the middle of the program.
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <div class="card track-card red">
+          <div class="track-tag red">Cybersecurity track · 75 learners</div>
+          <h3>Offense with defensive accountability</h3>
+          <ul>
+            <li><strong>Wks 3–4:</strong> Recon Pt 1 &amp; 2 — Nmap, Masscan, OSINT, asset catalog, vuln sweep, attack surface map</li>
+            <li><strong>Wk 5:</strong> Web attacks — OWASP, SQLi/XSS, Burp + SQLmap, remediation-ready reporting</li>
+            <li><strong>Wks 6–7:</strong> Exploitation &amp; automation — Metasploit chains, Python tool chaining, logged AI-assisted workflow</li>
+            <li><strong>Wk 7:</strong> Passwords &amp; social engineering — Hashcat, Gophish, ethics-gated ROE</li>
+            <li><strong>Wks 8–9:</strong> AD attack paths — BloodHound, graph analysis, mitigation mapping</li>
+            <li><strong>Wk 10:</strong> Priv-esc / EDR evasion — LotL tradeoffs, visibility, detected vs undetected paths</li>
+            <li><strong>Wk 11:</strong> C2 &amp; OPSEC — minimal Sliver/Mythic, teardown discipline, Blue-team review</li>
+            <li><strong>Wk 12:</strong> Detection-aware offense — Sysmon, ELK/Wazuh mapping, “what to monitor” list per TTP</li>
+          </ul>
+          <div class="callout" style="background:#f9ece8; border:1px solid #edc2b7;">
+            <strong>Non-negotiable:</strong> every Red week includes a “write a detection” task.
+          </div>
+          <div class="badge-row">
+            <span class="chip red">Security+</span>
+            <span class="chip red">CySA+</span>
+            <span class="chip red">CASP+</span>
+            <span class="chip red">MITRE ATT&amp;CK</span>
+          </div>
+        </div>
+
+        <div class="card track-card blue">
+          <div class="track-tag blue">Digital forensics track · 25 learners</div>
+          <h3>Evidence, timelines, and defensible analysis</h3>
+          <ul>
+            <li><strong>Wk 3:</strong> Chain of custody &amp; imaging deep-dive — full SOP, write blocker practice, hash validation, no-boot handling</li>
+            <li><strong>Wk 4:</strong> Windows artifacts — registry, event IDs, timeline stitching, Red recon artifact analysis</li>
+            <li><strong>Wk 5:</strong> Linux / macOS artifacts — unified logs, plists, cross-OS correlation</li>
+            <li><strong>Wk 6:</strong> Unified timelines &amp; rapid triage — Plaso, Timesketch, manifest discipline</li>
+            <li><strong>Wks 7–8:</strong> AI-assisted triage pipeline — local/offline only, derived artifacts only, legal admissibility and validation</li>
+            <li><strong>Wk 9:</strong> Memory forensics — Volatility, process tree correlation, triage report</li>
+            <li><strong>Wk 10:</strong> Malware analysis — static triage, sandbox awareness, defensive recommendations</li>
+            <li><strong>Wk 11:</strong> Mobile forensics — AFU/BFU decision tree, ALEAPP/ILEAPP, privacy and scope memo</li>
+            <li><strong>Wk 12:</strong> VM &amp; cloud artifacts — audit-log correlation, privacy boundaries, retention logic</li>
+          </ul>
+          <div class="callout" style="background:#e9f1fb; border:1px solid #c5daf7;">
+            <strong>Critical hardware weeks:</strong> Wk 3 imaging and Wk 11 mobile forensics require guaranteed kit access.
+          </div>
+          <div class="badge-row">
+            <span class="chip blue">Security+</span>
+            <span class="chip blue">CySA+</span>
+            <span class="chip blue">CASP+</span>
+            <span class="chip blue">Chain of custody</span>
+          </div>
+        </div>
+
+        <div class="card track-card green">
+          <div class="track-tag green">Cross-cutting layer</div>
+          <h3>AI integration as professional discipline</h3>
+          <ul>
+            <li><strong>Not a standalone module.</strong> AI is embedded every week as a visible, logged, validated workflow.</li>
+            <li><strong>Red:</strong> AI co-pilot for variants and reporting drafts, always with hallucination checks and usage logs.</li>
+            <li><strong>DFIR:</strong> local/offline LLMs only; derived artifacts only; never raw evidence into AI.</li>
+            <li><strong>Both tracks:</strong> AI governance policy in capstone ROE; AI risk statement in final deliverables.</li>
+            <li><strong>Career framing:</strong> graduates are trained to supervise, validate, and tune AI-enabled workflows — not just use them.</li>
+          </ul>
+          <div class="badge-row">
+            <span class="chip green">Audit logs</span>
+            <span class="chip green">Validation</span>
+            <span class="chip green">Governance</span>
+            <span class="chip green">Defensible use</span>
+          </div>
+          <div class="footnote">Differentiator: the program teaches AI as accountable operational behavior, not novelty tooling.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="label">Operating model</div>
+          <h2 class="section-title">A layout designed to support good decisions</h2>
+        </div>
+        <div class="section-copy">
+          These are the three blocks investors and program operators need to understand together: the delivery model, the cost model, and the staffing model.
+        </div>
+      </div>
+
+      <div class="decision-wrap">
+        <div class="card decision-card">
+          <div class="decision-tag">Decision</div>
+          <h3 class="decision-title"><span>Rotational hybrid</span> keeps the current room footprint viable</h3>
+          <p>
+            The program does not require bigger classrooms if delivery is structured around scheduled hybrid rotation instead of full-cohort physical attendance. Concept sessions remain virtual for all learners, the existing room is reserved for the highest-value in-person lab moments, and all three groups participate in both formats across the program.
+          </p>
+
+          <div class="compare-grid">
+            <div class="compare-item">
+              <div class="mini-label">Classroom strategy</div>
+              <ul>
+                <li><strong>Sunday concept:</strong> fully virtual for all learners</li>
+                <li><strong>Mon–Thu labs:</strong> hybrid all day, with controlled physical attendance</li>
+                <li><strong>All three groups are hybrid:</strong> no fully remote group</li>
+                <li><strong>Thursday:</strong> purple-team comparison, demos, and reporting anchor</li>
+                <li><strong>All groups stay synchronized by week</strong></li>
+              </ul>
+            </div>
+            <div class="compare-item">
+              <div class="mini-label">Track priority</div>
+              <ul>
+                <li><strong>DFIR:</strong> priority access during hardware-dependent weeks</li>
+                <li><strong>Cybersecurity:</strong> rotates in-person participation for guided labs, debugging, and purple work</li>
+                <li><strong>Online participation:</strong> synchronous, structured, and artifact-driven</li>
+                <li><strong>Physical presence is scheduled, not assumed</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="callout gold">
+            <strong>Bottom line:</strong> the main challenge is not real estate. It is hybrid orchestration, group synchronization, and disciplined operational planning.
+          </div>
+        </div>
+
+        <div class="grid-2" style="grid-template-columns:1fr; gap:16px;">
+          <div class="card track-card gold">
+            <div class="track-tag gold">Lab infrastructure — cost model</div>
+            <h3>Lean and reusable</h3>
+            <ul>
+              <li><strong>Virtual / cloud lab stack:</strong> approximately <strong>$10–15 per learner per month</strong></li>
+              <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500</strong> across the full cohort</li>
+              <li><strong>4-month cohort virtual cost:</strong> approximately <strong>$4,000–6,000</strong></li>
+              <li><strong>DFIR physical kits (25):</strong> approximately <strong>$200–250 per kit</strong> = <strong>$5,000–6,250 one-time</strong></li>
+              <li><strong>Additional classroom cost:</strong> none required if current space is used rotationally</li>
+              <li><strong>Future cohorts:</strong> recurring cost drops to the virtual stack only</li>
+            </ul>
+            <div class="callout gold">
+              <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$9,000–12,250</strong><br>
+              <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong>
+            </div>
+          </div>
+
+          <div class="card track-card green">
+            <div class="track-tag green">Staffing & assessment</div>
+            <h3>Built for parity across in-room and online learners</h3>
+            <ul>
+              <li><strong>Core delivery:</strong> 1 virtual concept session + hybrid labs across 3 groups</li>
+              <li><strong>Wks 0–2:</strong> Lead instructor ×1, support instructor ×1, hybrid TA support</li>
+              <li><strong>Wks 3–12:</strong> Cyber lead ×1, DFIR lead ×1, <strong>minimum 3 TAs</strong>, preferred <strong>4–5 TAs</strong></li>
+              <li><strong>Wks 13–16:</strong> both instructors joint for purple and capstone delivery</li>
+              <li><strong>Hybrid facilitation rule:</strong> one person owns the room, one owns the online experience</li>
+              <li><strong>Assessment:</strong> identical deliverables and grading standards regardless of participation mode</li>
+              <li><strong>Primary grading signal:</strong> artifacts, readiness checks, rubric-scored labs, capstone reporting, and AI governance compliance</li>
+            </ul>
+            <div class="badge-row">
+              <span class="chip green">2 instructors</span>
+              <span class="chip green">3–5 TAs</span>
+              <span class="chip green">Hybrid parity</span>
+              <span class="chip green">Artifact-based</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-3">
+        <div class="card track-card blue">
+          <div class="track-tag blue">Outcomes</div>
+          <h3>What all graduates can do</h3>
+          <ul>
+            <li>Log triage and SIEM-style detection thinking</li>
+            <li>IR lifecycle reasoning and MITRE ATT&amp;CK mapping</li>
+            <li>Windows/Linux administration basics with VM fluency</li>
+            <li>Python, PowerShell, and Bash automation in documented workflows</li>
+            <li>Executive reporting with remediation logic and AI governance statement</li>
+            <li>Purple-team participation with both attack and defense perspective</li>
+          </ul>
+          <div class="badge-row">
+            <span class="chip gray">SOC Analyst L1/L2</span>
+            <span class="chip gray">IR Analyst</span>
+            <span class="chip gray">DFIR Analyst</span>
+            <span class="chip gray">Jr. Threat Hunter</span>
+            <span class="chip gray">Jr. Pen Tester</span>
+          </div>
+        </div>
+
+        <div class="card track-card red">
+          <div class="track-tag red">Market positioning</div>
+          <h3>How this should be framed externally</h3>
+          <ul>
+            <li><strong>Single umbrella credential:</strong> Cybersecurity Analyst (SOC/IR) with specialization line</li>
+            <li><strong>DFIR framed as IR:</strong> better fit for banks, telcos, and compliance-heavy environments</li>
+            <li><strong>Cert sequence:</strong> Security+ and CySA+ as near-term baseline; CASP+ as stretch path</li>
+            <li><strong>AI fluency:</strong> weekly governed AI practice becomes a concrete CV differentiator</li>
+            <li><strong>Portfolio over certs:</strong> capstone artifacts create decision-ready evidence for employers and investors</li>
+          </ul>
+        </div>
+
+        <div class="card track-card gold">
+          <div class="track-tag gold">Risk mitigation</div>
+          <h3>Critical flags to manage early</h3>
+          <ul>
+            <li><strong>Evidence habits must begin in Wk 1, not Wk 3</strong></li>
+            <li><strong>“Write a detection” must remain mandatory every Red week</strong></li>
+            <li><strong>AI audit logging must be visible from the first week</strong></li>
+            <li><strong>Offline VM materials should exist before launch</strong></li>
+            <li><strong>DFIR hardware schedule must be published before Week 0</strong></li>
+            <li><strong>Hybrid parity is operational, not optional</strong></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Cybersecurity &amp; Digital Forensics Program — Amman, Jordan — Master Blueprint v2.0</span>
+      <span>Designed for investor review, delivery planning, and partner conversations</span>
+    </footer>
+
   </div>
-
-  <div class="card accent-gold">
-    <h2 class="gold">Lab Infrastructure — Cost Model</h2>
-    <ul>
-      <li><strong>Virtual / cloud lab stack:</strong> use a lean shared environment for all 100 learners — approximately <strong>$10–15 per learner per month</strong> for ranges, shared infrastructure, and core platform costs</li>
-      <li><strong>Monthly virtual cost:</strong> approximately <strong>$1,000–1,500 per month</strong> across the full cohort</li>
-      <li><strong>4-month cohort virtual cost:</strong> approximately <strong>$4,000–6,000 total</strong></li>
-      <li><strong>DFIR physical kits (25 total):</strong> approximately <strong>$200–250 per kit</strong> for a lean hardware setup = <strong>$5,000–6,250 one-time</strong></li>
-      <li><strong>Additional classroom cost:</strong> <strong>none required</strong> if the current room is used as a rotational hybrid space</li>
-      <li><strong>Future cohorts:</strong> hardware is reusable, so only the recurring virtual stack remains</li>
-    </ul>
-    <div class="callout gold">
-      <strong>Total Cohort 1 infrastructure cost:</strong> approximately <strong>$9,000–12,250</strong><br>
-      <strong>Future cohort cost:</strong> approximately <strong>$4,000–6,000</strong> once hardware is already owned
-    </div>
-    <div class="note">
-      This hybrid model materially lowers cost relative to a fully physical lab rollout or higher-cost enterprise cyber range model while preserving the physical access DFIR needs most.
-    </div>
-  </div>
-
-  <div class="card accent-green">
-    <h2 class="green">Staffing &amp; Assessment Model</h2>
-    <ul>
-      <li><strong>Core delivery model:</strong> 1 virtual concept session for all learners each week, plus hybrid lab delivery across <strong>3 groups</strong>. Every group includes both in-person and online learners during lab days; no group is fully remote.</li>
-      <li><strong>Wks 0–2 (Shared foundation):</strong> Lead instructor × 1 + support instructor × 1 + TA support for hybrid moderation and troubleshooting. Both instructors should be present for the Wk 2 Red/Blue debrief, which requires coordinated facilitation across tracks and modalities.</li>
-      <li><strong>Wks 3–12 (Split tracks):</strong> Cybersecurity lead × 1 + DFIR lead × 1. Cybersecurity runs across three hybrid groups; DFIR runs as one smaller hybrid track with physical priority during hardware weeks. At least <strong>3 TAs / lab mentors</strong> should be assigned consistently across the three groups.</li>
-      <li><strong>Wks 13–16 (Converge):</strong> Both instructors jointly lead purple-team and capstone sessions, with TAs supporting breakout rooms, artifact review, hybrid participation, and presentation prep.</li>
-      <li><strong>Hybrid facilitation requirement:</strong> one person must always own the room, and one must always own the online experience. Even when only one lead instructor is teaching, TA support must actively monitor chat, online questions, breakout issues, and submission logistics.</li>
-      <li><strong>Guest sessions (Wks 5, 9, 13):</strong> Jordan SOC/DFIR practitioners, lunch-and-learn format. Both tracks attend — builds realistic job expectations and cross-track professional networks.</li>
-    </ul>
-
-    <p style="font-size:11px; color:var(--muted); margin-top:8px; margin-bottom:6px;"><strong style="color:#fff;">Instructional staffing recommendation:</strong></p>
-    <ul>
-      <li><strong>Minimum:</strong> 2 instructors + 3 TAs / lab mentors for steady-state delivery</li>
-      <li><strong>Preferred:</strong> 2 instructors + 4–5 TAs / lab mentors during Wks 3–12, especially for Cybersecurity labs and DFIR hardware sessions</li>
-      <li><strong>Why:</strong> the constraint is not only content expertise — it is hybrid orchestration, debugging load, artifact review, and maintaining parity between in-room and online learners</li>
-    </ul>
-
-    <p style="font-size:11px; color:var(--muted); margin-top:8px; margin-bottom:6px;"><strong style="color:#fff;">Assessment framework:</strong></p>
-    <ul>
-      <li><strong>Weekly readiness checks:</strong> both tracks, shared low-stakes rubric, completed by all learners regardless of physical or online participation mode</li>
-      <li><strong>Track-specific lab rubrics:</strong> Wks 3–12, graded on technical accuracy, documentation quality, reproducibility, and appropriate use of AI audit logs</li>
-      <li><strong>Hybrid parity rule:</strong> deliverables and grading standards are identical for in-person and online learners; the mode changes, not the expectations</li>
-      <li><strong>Purple labs (Wks 13–14):</strong> graded equally on attack realism, detection quality, analysis quality, and cross-track communication</li>
-      <li><strong>Capstone (Wks 15–16):</strong> graded on technical artifacts, final briefing quality, teamwork across red/DFIR roles, and AI governance compliance</li>
-      <li><strong>TA workflow:</strong> TAs review readiness checks, support lab troubleshooting, verify artifact completeness, and escalate technical or integrity concerns to instructors</li>
-    </ul>
-
-    <div class="badge-row">
-      <span class="badge g">2 Instructors</span>
-      <span class="badge g">3–5 TAs</span>
-      <span class="badge g">Hybrid Delivery</span>
-      <span class="badge g">Lab Rubrics</span>
-      <span class="badge g">AI Governance</span>
-    </div>
-  </div>
-
-</div>
-
-<!-- ROW 5: OUTCOMES + MARKET + RISKS -->
-<div class="main-grid">
-
-  <div class="card accent-blue">
-    <h2 class="blue">Baseline Outcomes — All 100 Graduates</h2>
-    <ul>
-      <li>Log triage + SIEM-style detection thinking — parse, filter, pivot; simple detections &amp; playbooks</li>
-      <li>IR lifecycle; MITRE ATT&amp;CK mapping; evidence-safe handling built in from Week 1</li>
-      <li>Windows/Linux admin basics; VMs/snapshots; basic network traffic reading</li>
-      <li>Python/PowerShell/Bash automation; reproducible, fully documented workflows</li>
-      <li>Executive reporting: brief + remediation plan + AI governance statement</li>
-      <li>Purple-team participation: operated both attack and detection perspectives in a real exercise</li>
-    </ul>
-    <p style="font-size:11px; color:var(--muted); margin-top:8px;"><strong style="color:var(--red-track);">+Red:</strong> Recon → exploitation, AD paths, EDR evasion basics, C2/OPSEC, detection engineering awareness, purple-team collaboration</p>
-    <p style="font-size:11px; color:var(--muted); margin-top:4px;"><strong style="color:var(--blue-track);">+DFIR:</strong> Imaging + chain of custody, OS artifacts + timelines, memory triage, mobile/VM/cloud artifacts, parser discipline + provenance, court-defensible reporting</p>
-    <div class="badge-row">
-      <span class="badge w">SOC Analyst L1/L2</span>
-      <span class="badge w">IR Analyst</span>
-      <span class="badge w">Jr. Threat Hunter</span>
-      <span class="badge w">DFIR Analyst</span>
-      <span class="badge w">Jr. Pen Tester</span>
-    </div>
-  </div>
-
-  <div class="card accent-red">
-    <h2 class="red">Jordan Market Positioning</h2>
-    <ul>
-      <li><strong>Single umbrella credential:</strong> <em>Cybersecurity Analyst (SOC/IR)</em> with a specialization line. JDs in Amman ask for “SOC analyst” — specialization adds depth without confusing HR filters.</li>
-      <li><strong>DFIR → pitch as IR:</strong> “Incident Response Analyst” framing lands with banks, telcos, and government compliance teams. “Digital forensics” alone may not clear the first JD screen.</li>
-      <li><strong>Cert sequence:</strong> Security+ + CySA+ achievable without pre-placement exam investment. CASP+ as stretch goal for top capstone performers. Map both to certificates and LinkedIn.</li>
-      <li><strong>AI fluency differentiates:</strong> weekly AI governance habits create a concrete CV signal most competing regional programs will not offer.</li>
-      <li><strong>GRC pathway:</strong> Governance, Risk &amp; Compliance roles are growing with lower competition than analyst roles. Actively steer suitable learners here post-graduation.</li>
-      <li><strong>Portfolio over certs:</strong> Capstone artifacts — red campaign report, DFIR investigation package, CISO briefing — are concrete portfolio pieces that differentiate graduates from cert-only candidates.</li>
-    </ul>
-  </div>
-
-  <div class="card accent-gold">
-    <h2 class="gold">Risk Mitigation &amp; Critical Flags</h2>
-    <ul>
-      <li><strong>Evidence habits in Wk 1, not Wk 3:</strong> Chain-of-custody, hashing, and time-normalization are in the shared foundation. If DFIR learners miss this during an offense-heavy opening, the program’s legal defensibility is at risk from the first imaging lab.</li>
-      <li><strong>“Write a detection” every red week:</strong> Non-negotiable. Red graduates who cannot think defensively are harder to place and more likely to cause harm in real engagements.</li>
-      <li><strong>AI audit log from Week 1:</strong> Every AI-assisted output logged (model/prompt/version/variance). This becomes a professionalism signal in AI-augmented SOCs.</li>
-      <li><strong>Broadband risk:</strong> offline VM image libraries and pre-staged materials should exist before launch. No lab session should be blocked by connectivity failure alone.</li>
-      <li><strong>Physical kit schedule at Week 0:</strong> DFIR learners need guaranteed access in Wk 3 (imaging) and Wk 11 (mobile). Ambiguity here causes the highest-stakes labs to fail.</li>
-      <li><strong>Hybrid parity is operational, not optional:</strong> online learners must get live support, clear facilitation, and identical assessment standards or confidence in the model will collapse.</li>
-    </ul>
-  </div>
-
-</div>
-
-<!-- FOOTER -->
-<div class="footer">
-  <span>Cybersecurity &amp; Digital Forensics Program — Amman, Jordan — Master Blueprint v1.2</span>
-  <span>Internal planning draft · Structure, staffing, and cost model aligned to rotational hybrid delivery</span>
-</div>
-
 </body>
 </html>
