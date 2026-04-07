@@ -321,66 +321,77 @@
 </div>
 
 <!-- ROW 4: LAB ENV + STAFFING -->
-<div class="main-grid">
-
-  <div class="decision wide-col" style="background:var(--surface); border-color:#f5c842; padding:14px 16px;">
-    <h2 class="gold" style="margin-bottom:10px;">Lab Environment — Recommendation &amp; Cost Decision</h2>
-    <div class="verdict"><span>VERDICT: Rotational Hybrid Model</span> — Keep Current Classroom Footprint, Prioritize DFIR for Physical Labs, Run Cybersecurity as Hybrid</div>
-    <p style="font-size:12px; color:var(--muted); margin-bottom:10px;">
-      The program does <em>not</em> require bigger classrooms if delivery is structured around rotation instead of full-cohort physical attendance. The correct model is to keep concept sessions virtual for all learners, reserve in-person space for the highest-value lab work, and treat physical access as a scheduled resource. Digital Forensics gets priority access when hardware and evidence-handling are essential; Cybersecurity is delivered hybrid, with rotating in-person lab access and virtual-first execution for work that does not depend on physical equipment.
-    </p>
-    <div class="compare-grid">
-      <div class="compare-item">
-        <div class="lbl win">✓ Classroom Strategy — Use Existing Space More Intelligently</div>
-        <ul style="padding-left:0; list-style:none;">
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Sunday concept:</strong> fully virtual for all learners — removes the largest space bottleneck immediately</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Mon/Tue and Wed/Thu:</strong> keep the current all-day in-person lab structure, but assign space by rotating group and track priority</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>No larger room required</strong> if only one group is physically present at a time and all groups remain on the same instructional week</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Cybersecurity groups:</strong> rotate through in-person lab weeks; remote groups complete the same lab objectives with TA support and artifact-based checkpoints</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Thursday:</strong> use for virtual reporting, purple-team comparison, demos, and cross-track synthesis when space is constrained</li>
-          <li style="padding:3px 0; font-size:11px; color:var(--shared); font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ Space constraint solved operationally, not through real-estate expansion</li>
-        </ul>
-      </div>
-      <div class="compare-item">
-        <div class="lbl" style="color:#f5c842;">◎ Track Priority — Physical for DFIR, Hybrid for Cybersecurity</div>
-        <ul style="padding-left:0; list-style:none;">
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>DFIR (25 learners):</strong> priority use of physical classroom and kit access during hardware-dependent weeks, especially <strong>Wk 3 imaging</strong> and <strong>Wk 11 mobile forensics</strong></li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Cybersecurity (75 learners):</strong> primarily virtual-first labs, with rotating in-person attendance for high-friction debugging, demonstrations, and purple-team work</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Physical kits:</strong> maintain 25 DFIR kits — one per DFIR learner during required hardware sessions, no waiting or station-sharing</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Remote cyber weeks:</strong> not passive or recorded-only; they are structured lab weeks with TA office hours, required evidence, and the same deliverables as in-person groups</li>
-          <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Key principle:</strong> physical presence is reserved for work that genuinely benefits from shared space; everything else should scale virtually</li>
-          <li style="padding:3px 0; font-size:11px; color:#f5c842; font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ DFIR gets the room when the room matters most; Cybersecurity scales without sacrificing rigor</li>
-        </ul>
-      </div>
+<div class="decision wide-col" style="background:var(--surface); border-color:#f5c842; padding:14px 16px;">
+  <h2 class="gold" style="margin-bottom:10px;">Lab Environment — Recommendation &amp; Cost Decision</h2>
+  <div class="verdict"><span>VERDICT: Rotational Hybrid Model</span> — Keep Current Classroom Footprint, Run All Three Groups as Hybrid, Prioritize DFIR for Hardware-Dependent Labs</div>
+  <p style="font-size:12px; color:var(--muted); margin-bottom:10px;">
+    The program does <em>not</em> require bigger classrooms if delivery is structured around scheduled hybrid rotation instead of full-cohort physical attendance. The correct model is to keep concept sessions virtual for all learners, use the existing classroom for high-value in-person lab time, and ensure that <strong>all three groups</strong> have both in-person and online participation across the program. Digital Forensics gets priority access when hardware and evidence-handling are essential; Cybersecurity also uses the physical room on a rotating basis for guided labs, debugging, demonstrations, and purple-team work.
+  </p>
+  <div class="compare-grid">
+    <div class="compare-item">
+      <div class="lbl win">✓ Classroom Strategy — Hybrid for All Three Groups</div>
+      <ul style="padding-left:0; list-style:none;">
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Sunday concept:</strong> fully virtual for all learners — removes the largest space bottleneck immediately</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Mon/Tue and Wed/Thu:</strong> keep the current all-day lab structure, but rotate which learners are physically present while the rest of the same group joins online</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>All three groups are hybrid:</strong> every group has scheduled in-person time and scheduled online participation; no group is remote-only</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>No larger room required</strong> if physical attendance is capped, coordinated, and tied to the highest-value lab moments</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Thursday:</strong> use for virtual reporting, purple-team comparison, demos, and cross-track synthesis when space is constrained</li>
+        <li style="padding:3px 0; font-size:11px; color:var(--shared); font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ Space constraint solved through rotational hybrid delivery, not real-estate expansion</li>
+      </ul>
     </div>
-    <div class="note" style="margin-top:8px;">
-      <strong>Operating implication:</strong> keep all groups synchronized by week, rotate in-person access instead of creating different pacing tracks, and publish the classroom / kit schedule before launch. The biggest requirement is not more space — it is tighter operational coordination, stronger TA support, and artifact-based lab design that works in both in-person and remote modes.
+    <div class="compare-item">
+      <div class="lbl" style="color:#f5c842;">◎ Track Priority — Physical First for DFIR, Scheduled Physical Access for Cybersecurity</div>
+      <ul style="padding-left:0; list-style:none;">
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>DFIR (25 learners):</strong> priority use of physical classroom and kit access during hardware-dependent weeks, especially <strong>Wk 3 imaging</strong> and <strong>Wk 11 mobile forensics</strong></li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Cybersecurity (75 learners):</strong> hybrid every week — some learners in-room, others online, with rotation so all experience guided in-person support over time</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Physical kits:</strong> maintain 25 DFIR kits — one per DFIR learner during required hardware sessions, no waiting or station-sharing</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Online participation:</strong> structured, synchronous, and artifact-driven — not passive or recorded-only</li>
+        <li style="padding:2px 0; font-size:11px; color:var(--text);">· <strong>Key principle:</strong> every learner gets both formats; physical presence is reserved for work that benefits most from shared space, instructor proximity, and hardware access</li>
+        <li style="padding:3px 0; font-size:11px; color:#f5c842; font-weight:500; border-top:1px solid var(--border); margin-top:4px; padding-top:4px;">→ DFIR gets guaranteed hardware access; Cybersecurity gets repeated in-person lab support without requiring more classrooms</li>
+      </ul>
     </div>
   </div>
-
-  <div class="card accent-green">
-    <h2 class="green">Staffing &amp; Assessment Model</h2>
-    <ul>
-      <li><strong>Wks 0–2 (Shared):</strong> Lead instructor × 1 + support × 1. 4h curriculum dev + 2h teaching + 1h sync/week. Both instructors present for Wk 2 Red/Blue debrief — it requires two facilitators.</li>
-      <li><strong>Wks 3–12 (Split):</strong> Red instructor + DFIR instructor run parallel tracks. 4h dev + 2h teach + 1h sync each/week. Thursday sessions rotate joint — instructors alternate hosting.</li>
-      <li><strong>Wks 13–16 (Converge):</strong> Both instructors joint for all sessions. 6–8h/week + grading. CISO panel (Wk 16) should include 2–3 external Jordan-based practitioners.</li>
-      <li><strong>Guest sessions (Wks 5, 9, 13):</strong> Jordan SOC/DFIR practitioners, lunch-and-learn format. Both tracks attend — builds realistic job expectations and cross-track professional networks.</li>
-    </ul>
-    <p style="font-size:11px; color:var(--muted); margin-top:8px; margin-bottom:6px;"><strong style="color:#fff;">Assessment framework:</strong></p>
-    <ul>
-      <li>Weekly readiness checks — both tracks, shared low-stakes rubric</li>
-      <li>Track-specific lab rubrics — Wks 3–12, graded on technical accuracy + documentation quality</li>
-      <li>Purple labs (Wks 13–14) — graded equally on attack realism <em>and</em> detection quality</li>
-      <li>Capstone (Wks 15–16) — joint briefing quality, technical artifacts, AI governance compliance</li>
-    </ul>
-    <div class="badge-row">
-      <span class="badge g">Weekly Checks</span>
-      <span class="badge g">Lab Rubrics</span>
-      <span class="badge g">CISO Panel</span>
-      <span class="badge g">AI Governance</span>
-    </div>
+  <div class="note" style="margin-top:8px;">
+    <strong>Estimated cost model:</strong> keep the virtual backbone for all 100 learners at approximately <strong>$25–35 per learner per month</strong> for cloud ranges, shared infrastructure, and platform costs = <strong>$2,500–3,500/month</strong>, or roughly <strong>$10,000–14,000 across a 4-month cohort</strong>. Maintain <strong>25 DFIR physical kits</strong> at approximately <strong>$300–400 per kit</strong> = <strong>$7,500–10,000 one-time</strong>, reusable across future cohorts. Total estimated Cohort 1 infrastructure cost remains roughly <strong>$17,500–24,000</strong>, with later cohorts dropping substantially because hardware is already owned.
+    <br><br>
+    <strong>Operating implication:</strong> keep all groups synchronized by week, rotate physical attendance within each group instead of designating one group as remote, and publish the classroom / kit schedule before launch. The biggest requirement is not more space — it is tighter operational coordination, stronger hybrid facilitation, and artifact-based lab design that works equally well for in-room and online learners.
   </div>
+</div>
+<div class="card accent-green">
+  <h2 class="green">Staffing &amp; Assessment Model</h2>
+  <ul>
+    <li><strong>Core delivery model:</strong> 1 virtual concept session for all learners each week, plus hybrid lab delivery across <strong>3 groups</strong>. Every group includes both in-person and online learners during lab days; no group is fully remote.</li>
+    <li><strong>Wks 0–2 (Shared foundation):</strong> Lead instructor × 1 + support instructor × 1 + TA support for hybrid moderation and troubleshooting. Both instructors should be present for the Wk 2 Red/Blue debrief, which requires coordinated facilitation across tracks and modalities.</li>
+    <li><strong>Wks 3–12 (Split tracks):</strong> Cybersecurity lead × 1 + DFIR lead × 1. Cybersecurity runs across three hybrid groups; DFIR runs as one smaller hybrid track with physical priority during hardware weeks. At least <strong>3 TAs / lab mentors</strong> should be assigned consistently across the three groups.</li>
+    <li><strong>Wks 13–16 (Converge):</strong> Both instructors jointly lead purple-team and capstone sessions, with TAs supporting breakout rooms, artifact review, hybrid participation, and presentation prep.</li>
+    <li><strong>Hybrid facilitation requirement:</strong> one person must always own the room, and one must always own the online experience. Even when only one lead instructor is teaching, TA support must actively monitor chat, online questions, breakout issues, and submission logistics.</li>
+    <li><strong>Guest sessions (Wks 5, 9, 13):</strong> Jordan SOC/DFIR practitioners, lunch-and-learn format. Both tracks attend — builds realistic job expectations and cross-track professional networks.</li>
+  </ul>
 
+  <p style="font-size:11px; color:var(--muted); margin-top:8px; margin-bottom:6px;"><strong style="color:#fff;">Instructional staffing recommendation:</strong></p>
+  <ul>
+    <li><strong>Minimum:</strong> 2 instructors + 3 TAs / lab mentors for steady-state delivery</li>
+    <li><strong>Preferred:</strong> 2 instructors + 4–5 TAs / lab mentors during Wks 3–12, especially for Cybersecurity labs and DFIR hardware sessions</li>
+    <li><strong>Why:</strong> the constraint is not only content expertise — it is hybrid orchestration, debugging load, artifact review, and maintaining parity between in-room and online learners</li>
+  </ul>
+
+  <p style="font-size:11px; color:var(--muted); margin-top:8px; margin-bottom:6px;"><strong style="color:#fff;">Assessment framework:</strong></p>
+  <ul>
+    <li><strong>Weekly readiness checks:</strong> both tracks, shared low-stakes rubric, completed by all learners regardless of physical or online participation mode</li>
+    <li><strong>Track-specific lab rubrics:</strong> Wks 3–12, graded on technical accuracy, documentation quality, reproducibility, and appropriate use of AI audit logs</li>
+    <li><strong>Hybrid parity rule:</strong> deliverables and grading standards are identical for in-person and online learners; the mode changes, not the expectations</li>
+    <li><strong>Purple labs (Wks 13–14):</strong> graded equally on attack realism, detection quality, analysis quality, and cross-track communication</li>
+    <li><strong>Capstone (Wks 15–16):</strong> graded on technical artifacts, final briefing quality, teamwork across red/DFIR roles, and AI governance compliance</li>
+    <li><strong>TA workflow:</strong> TAs review readiness checks, support lab troubleshooting, verify artifact completeness, and escalate technical or integrity concerns to instructors</li>
+  </ul>
+
+  <div class="badge-row">
+    <span class="badge g">2 Instructors</span>
+    <span class="badge g">3–5 TAs</span>
+    <span class="badge g">Hybrid Delivery</span>
+    <span class="badge g">Lab Rubrics</span>
+    <span class="badge g">AI Governance</span>
+  </div>
 </div>
 
 <!-- ROW 5: OUTCOMES + MARKET + RISKS -->
