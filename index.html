@@ -27,6 +27,7 @@
   --green-track: #05c145;
 
   --max: 1400px;
+  --page-gutter: 24px;
 }
 
   * {
@@ -292,41 +293,37 @@
   }
 
   .section {
-    padding: 28px 24px 0;
-  }
-  .section {
-    padding: 28px 24px 0;
-  }
-  
-  .section-track {
-    padding: 28px 0 0;
-  }
-  
-  .section-track-frame {
-    background: var(--yellow);
-    border: 2px solid var(--border);
-    margin: 0 24px;
-    padding: 28px 24px 24px;
-  }
+  padding: 28px var(--page-gutter) 0;
+}
+.section-track {
+  padding: 28px var(--page-gutter) 0;
+}
+
+.section-track-frame {
+  background: var(--yellow);
+  border: 2px solid var(--border);
+  margin: 0;
+  padding: 28px 24px 24px;
+}
 
   .section-head {
-    display: grid;
-    grid-template-columns: 1.35fr 0.9fr;
-    gap: 24px;
-    align-items: end;
-    margin-bottom: 18px;
-  }
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 18px;
+}
 
   .section-title {
     margin: 0;
   }
 
   .section-copy {
-    font-size: 14px;
-    color: var(--muted);
-    max-width: 540px;
-  }
-
+  font-size: 14px;
+  color: var(--muted);
+  max-width: none;
+  width: 100%;
+}
   .phase-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -433,6 +430,21 @@
   .track-card.gold {
     border-top: 6px solid #b67a00;
   }
+  .track-card,
+.card {
+  min-width: 0;
+}
+
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.callout {
+  overflow-wrap: break-word;
+}
 
   ul {
     padding: 0;
@@ -476,13 +488,6 @@
   .track-tag.blue::before { background: var(--blue-track); }
   .track-tag.green::before { background: var(--green-track); }
   .track-tag.gold::before { background: #b67a00; }
-
-  .badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 14px;
-  }
 
   .chip {
     display: inline-flex;
@@ -720,31 +725,66 @@
   }
 
   @media (max-width: 720px) {
-    .topbar,
-    .hero,
-    .stats-band,
-    .footer {
-      margin-left: 16px;
-      margin-right: 16px;
-    }
-
-    .section {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-
-    h1 {
-      font-size: 54px;
-    }
-
-    .decision-title {
-      font-size: 34px;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-    }
+  :root {
+    --page-gutter: 16px;
   }
+
+  .topbar,
+  .hero,
+  .stats-band,
+  .footer {
+    margin-left: var(--page-gutter);
+    margin-right: var(--page-gutter);
+  }
+
+  .section {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .section-track {
+    padding-left: var(--page-gutter);
+    padding-right: var(--page-gutter);
+  }
+
+  .section-track-frame {
+    padding: 20px 16px 16px;
+  }
+
+  .section-head {
+    gap: 14px;
+  }
+
+  .grid-3 > *,
+  .grid-2 > *,
+  .grid-2-1 > * {
+    padding: 18px 16px;
+  }
+
+  .track-tag {
+    line-height: 1.4;
+  }
+
+  h1 {
+    font-size: 54px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  .decision-title {
+    font-size: 34px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+  }
+
+  li {
+    font-size: 13px;
+  }
+}
 </style>
 </head>
 <body>
