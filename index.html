@@ -299,11 +299,14 @@
     margin: 0 auto;
   }
   .section-track {
-    background: var(--yellow);
-    border-top: 2px solid var(--border);
-    border-bottom: 2px solid var(--border);
     margin-top: 24px;
-    padding-bottom: 24px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .section-track-frame {
+    background: var(--yellow);
+    border: 2px solid var(--border);
+    padding: 28px 24px 24px;
   }
 
   .section-head {
@@ -960,8 +963,8 @@
     </section>
 
     <section class="section section-track">
-    <div class="section-inner">
-      <div class="section-head">
+      <div class="section-track-frame">
+        <div class="section-head">
         <div>
           <div class="label">Track design</div>
           <h2 class="section-title">Two tracks, one coherent hiring story</h2>
