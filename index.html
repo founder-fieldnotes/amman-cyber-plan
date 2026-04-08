@@ -294,7 +294,10 @@
   .section {
     padding: 28px 24px 0;
   }
-
+  .section-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+  }
   .section-track {
     background: var(--yellow);
     border-top: 2px solid var(--border);
@@ -957,6 +960,7 @@
     </section>
 
     <section class="section section-track">
+    <div class="section-inner">
       <div class="section-head">
         <div>
           <div class="label">Track design</div>
@@ -1036,7 +1040,8 @@
           <div class="footnote">Differentiator: the program teaches AI as accountable operational behavior, not novelty tooling.</div>
         </div>
       </div>
-    </section>
+     </div> <!-- section-inner -->
+      </section>
 
     <section class="section" id="operating-model">
       <div class="section-head">
