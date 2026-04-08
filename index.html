@@ -10,23 +10,24 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f3f1ea;
-    --white: #ffffff;
-    --ink: #111111;
-    --muted: #5f5c57;
-    --border: #111111;
+  --bg: #f3f1ea;
+  --white: #ffffff;
+  --ink: #000000;
+  --muted: #5f5c57;
+  --border: #000000;
 
-    --blue: #38b6e8;
-    --green: #cfead6;
-    --yellow: #f3e6b3;
-    --cream: #ece8dc;
+  --yellow: #fdd837;
+  --blue: #29baee;
+  --green: #05c145;
+  --red: #ff624a;
+  --cream: #ece8dc;
 
-    --red-track: #d14b2d;
-    --blue-track: #1674d1;
-    --green-track: #1e7a4f;
+  --red-track: #ff624a;
+  --blue-track: #29baee;
+  --green-track: #05c145;
 
-    --max: 1400px;
-  }
+  --max: 1400px;
+}
 
   * {
     box-sizing: border-box;
@@ -198,21 +199,35 @@
   }
 
   .button {
-    border: 2px solid var(--border);
-    padding: 12px 16px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    background: var(--white);
-    color: var(--ink);
-    font-size: 14px;
-  }
+  border: 2px solid var(--border);
+  padding: 12px 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
 
-  .button.primary {
-    background: var(--ink);
-    color: var(--white);
-  }
+.button.primary {
+  background: var(--ink);
+  color: var(--white);
+}
+
+.button.primary:hover {
+  background: var(--blue);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.button.secondary:hover {
+  background: var(--yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+}
 
   .mini-label,
   .label,
@@ -504,8 +519,11 @@
   margin-top: 16px;
   border: 2px solid var(--border);
   background: var(--white);
-  min-height: 420px;
+  min-height: 460px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .decision-image img {
@@ -513,6 +531,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
   
 .decision-side {
@@ -751,8 +770,8 @@
           <span>Credential: Cybersecurity Analyst (SOC/IR)</span>
         </div>
         <div class="hero-actions">
-          <span class="button primary">Operating model</span>
-          <span class="button secondary">Built for employer placement</span>
+          <a class="button primary" href="#operating-model">Operating model</a>
+          <a class="button secondary" href="#outcomes">Built for employer placement</a>
         </div>
       </div>
 
@@ -790,14 +809,14 @@
 
     <section class="stats-band">
       <div class="stat">
-        <div class="stat-value">100</div>
-        <div class="stat-label">Learners</div>
-        <div class="stat-copy">Scaled delivery with 3 hybrid groups and one synchronized weekly cadence.</div>
+        <div class="stat-value">3</div>
+        <div class="stat-label">Cohorts</div>
+        <div class="stat-copy">Two Cybersecurity cohorts and one Digital Forensics cohort delivered in a coordinated weekly operating model.</div>
       </div>
       <div class="stat">
         <div class="stat-value">3</div>
-        <div class="stat-label">Delivery modes in one system</div>
-        <div class="stat-copy">Virtual concept, hybrid labs, and joint purple/reporting rhythm.</div>
+        <div class="stat-label">Distinct schedules</div>
+        <div class="stat-copy">Shared virtual Sunday core concepts, with track-specific in-person and online lab rotations during the week.</div>
       </div>
       <div class="stat">
         <div class="stat-value">$7–11k</div>
@@ -869,12 +888,12 @@
           <div class="track-tag gold">Operating rhythm</div>
           <h3>Weekly flow</h3>
           <ul>
-            <li><strong>Sunday:</strong> concept block, all 100 learners, fully virtual</li>
-            <li><strong>Mon–Thu:</strong> hybrid lab delivery across three rotating groups</li>
-            <li><strong>Thursday:</strong> purple-team comparison, reporting, demos, and synthesis</li>
-            <li><strong>All groups stay synchronized by week</strong></li>
-            <li><strong>No group is fully remote</strong></li>
-            <li><strong>Capstone pairs Red + DFIR learners</strong></li>
+            <li><strong>Sunday:</strong> core concept teaching for both tracks, taught virtually via Zoom</li>
+            <li><strong>Cyber Cohort 1:</strong> Monday and Wednesday in person, 9–1; Tuesday and Thursday online for demos and reinforcement</li>
+            <li><strong>Cyber Cohort 2:</strong> Monday and Wednesday remote; Tuesday and Thursday in person, 9–1</li>
+            <li><strong>Digital Forensics:</strong> Monday–Thursday in person 1–5, with 9–1 online instruction and support</li>
+            <li><strong>Shared cadence:</strong> all cohorts remain synchronized by week, even with different in-person / online patterns</li>
+            <li><strong>Capstone:</strong> structured to preserve cross-track alignment and executive reporting quality</li>
           </ul>
           <div class="badge-row">
             <span class="chip gray">3 hybrid groups</span>
@@ -1017,7 +1036,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="operating-model">
       <div class="section-head">
         <div>
           <div class="label">Operating model</div>
@@ -1108,7 +1127,7 @@
   </div>
 </section>
 
-    <section class="section">
+    <section class="section" id="outcomes">
       <div class="grid-3">
         <div class="card track-card blue">
           <div class="track-tag blue">Outcomes</div>
@@ -1158,8 +1177,8 @@
     </section>
 
     <footer class="footer">
-      <span>Cybersecurity &amp; Digital Forensics Program — Amman, Jordan — Master Blueprint v2.1</span>
-      <span>Designed for review, delivery planning, and partner conversations</span>
+      <span>Cybersecurity &amp; Digital Forensics Program — Amman, Jordan — Master Blueprint v2.2</span>
+      <span>© 2026 LevelUp Economy. Proprietary and confidential. No reproduction, redistribution, or commercial use without prior written permission.</span>
     </footer>
 
   </div>
