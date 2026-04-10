@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Instructor — Amman Cybersecurity & Digital Forensics Program</title>
+  <meta name="description" content="Lead Instructor role for the Amman Cybersecurity & Digital Forensics Program." />
+  <link rel="icon" type="image/png" href="/amman-cyber-plan/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f1ea;
+      --white: #ffffff;
+      --ink: #000000;
+      --muted: #4f4b46;
+      --border: #000000;
+      --yellow: #fdd837;
+      --blue: #29baee;
+      --green: #05c145;
+      --red: #ff624a;
+      --cream: #ece8dc;
+      --red-track: #ff624a;
+      --blue-track: #29baee;
+      --green-track: #05c145;
+      --gold-track: #b67a00;
+      --max: 1400px;
+      --page-gutter: 24px;
+      --content-inset: 16px;
+      --section-top: 36px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 0; }
+
+    .eyebrow, .label, .mini-label, .stat-label,
+    .footnote, .chip, .hero-meta, .track-tag, .brand-title,
+    .top-links, .day-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(56px, 8vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0 0 14px;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 28px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    strong { color: var(--ink); }
+
+    /* TOPBAR */
+    .topbar {
+      border: 2px solid var(--border);
+      margin: 24px var(--page-gutter);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      background: var(--bg);
+    }
+
+    .brand, .top-links { padding: 16px 18px; }
+
+    .brand {
+      border-right: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .brand-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .top-links {
+      font-size: 11px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--ink);
+    }
+
+    .top-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .top-links a:hover { border-color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      border: 2px solid var(--border);
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .hero-copy {
+      padding: 64px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .hero-panel {
+      padding: 64px;
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+      border-left: 2px solid var(--border);
+    }
+
+    .hero-sub {
+      font-size: 22px;
+      line-height: 1.35;
+      margin-bottom: 22px;
+      max-width: 720px;
+      color: #222;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 20px 0 22px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      border: 2px solid var(--border);
+      padding: 12px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button.primary:hover {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .button.secondary:hover { background: var(--green); }
+
+    .mini-label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-panel-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hero-panel-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17,17,17,0.3);
+      font-size: 14px;
+    }
+
+    .hero-panel-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* STATS */
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border: 2px solid var(--border);
+      border-top: none;
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .stat {
+      padding: 28px 22px 24px;
+      border-right: 2px solid var(--border);
+      min-height: 155px;
+      background: var(--white);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .stat-copy {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: var(--section-top) var(--page-gutter) 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 380px;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-title { margin: 0; }
+    .section-copy { font-size: 14px; color: var(--muted); }
+    .label { font-size: 10px; color: var(--muted); }
+
+    /* GRIDS */
+    .grid-3, .grid-2, .grid-2-1 {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; }
+
+    .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+      border-right: 2px solid var(--border);
+      padding: 24px var(--content-inset);
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .grid-3 > *:last-child, .grid-2 > *:last-child, .grid-2-1 > *:last-child {
+      border-right: none;
+    }
+
+    .card { background: var(--white); min-width: 0; }
+    .card.alt { background: var(--cream); }
+
+    .track-card.blue { border-top: 6px solid var(--blue-track); }
+    .track-card.green { border-top: 6px solid var(--green-track); }
+    .track-card.gold { border-top: 6px solid var(--gold-track); }
+    .track-card.red { border-top: 6px solid var(--red-track); }
+
+    /* LISTS */
+    ul { padding: 0; list-style: none; margin: 0; }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 14px;
+      position: relative;
+      color: #222;
+      font-size: 14px;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* TRACK TAGS */
+    .track-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .track-tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .track-tag.blue::before { background: var(--blue-track); }
+    .track-tag.green::before { background: var(--green-track); }
+    .track-tag.gold::before { background: var(--gold-track); }
+    .track-tag.red::before { background: var(--red-track); }
+
+    /* CHIPS */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+
+    .chip.blue { color: var(--blue-track); }
+    .chip.green { color: var(--green-track); }
+    .chip.gold { color: var(--gold-track); }
+    .chip.red { color: var(--red-track); }
+    .chip.gray { color: var(--muted); }
+
+    /* CALLOUTS */
+    .callout {
+      overflow-wrap: break-word;
+      padding: 16px var(--content-inset);
+      border: 2px solid var(--border);
+      margin-top: 16px;
+      background: var(--cream);
+      font-size: 14px;
+    }
+
+    .callout.green { background: var(--green); }
+    .callout.gold { background: var(--yellow); }
+    .program-note { margin-top: 16px; }
+
+    /* INSTRUCTIONAL LAYER TABLE */
+    .layer-wrap {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .layer-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .layer-row:last-child { border-bottom: none; }
+    .layer-row.you { background: var(--yellow); }
+
+    .layer-cell {
+      padding: 16px var(--content-inset);
+      border-right: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .layer-cell:last-child { border-right: none; }
+
+    .layer-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .layer-row.you .layer-role { color: var(--ink); }
+    .layer-desc { color: #222; }
+
+    /* AUTHORITY GRID */
+    .auth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .auth-cell {
+      padding: 20px var(--content-inset);
+      border-right: 2px solid var(--border);
+    }
+
+    .auth-cell:last-child { border-right: none; }
+    .auth-cell.yours { background: var(--yellow); }
+
+    .auth-head {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .auth-cell.yours .auth-head { color: var(--ink); }
+
+    /* SCHEDULE TABLE */
+    .schedule-table {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 120px 180px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row.header { background: var(--ink); }
+
+    .sched-cell {
+      padding: 12px var(--content-inset);
+      font-size: 13px;
+      color: #222;
+      border-right: 1px solid var(--border);
+    }
+
+    .sched-cell:last-child { border-right: none; }
+
+    .schedule-row.header .sched-cell {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .schedule-row.highlight { background: var(--yellow); }
+    .schedule-row.alt { background: var(--cream); }
+
+    .day-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .footnote {
+      margin-top: 10px;
+      font-size: 10px;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 2px solid var(--border);
+      margin: 28px var(--page-gutter) 24px;
+      padding-top: 14px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .footer a:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    @media (max-width: 1100px) {
+      .hero, .stats-band, .grid-3, .grid-2, .grid-2-1, .section-head, .auth-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar { grid-template-columns: 1fr; }
+
+      .brand {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .hero-panel {
+        border-left: none;
+        border-top: 2px solid var(--border);
+      }
+
+      .stats-band, .hero { border-top: 2px solid var(--border); }
+
+      .stats-band > *, .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+        border-right: none !important;
+      }
+
+      .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+        border-bottom: 2px solid var(--border);
+      }
+
+      .grid-3 > *:last-child, .grid-2 > *:last-child, .grid-2-1 > *:last-child {
+        border-bottom: none;
+      }
+
+      .hero-copy, .hero-panel {
+        min-height: auto;
+        padding: 32px 24px;
+      }
+
+      .layer-row { grid-template-columns: 160px 1fr; }
+      .schedule-row { grid-template-columns: 100px 1fr; }
+      .sched-cell.focus { display: none; }
+
+      .auth-cell {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .auth-cell:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --page-gutter: 16px;
+        --content-inset: 16px;
+        --section-top: 36px;
+      }
+
+      h1 { font-size: 54px; }
+      h3 { font-size: 24px; }
+      .hero-sub { font-size: 18px; }
+      li { font-size: 13px; }
+
+      .layer-row { grid-template-columns: 1fr; }
+
+      .layer-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="eyebrow">Amman, Jordan · 2025–2026</div>
+      <div class="brand-title">Cybersecurity &amp; Digital Forensics Program</div>
+    </div>
+    <div class="top-links">
+      <a href="../index.html">← Program overview</a>
+      <span>Open role</span>
+      <span>Async-first</span>
+      <a href="support-instructor-cybersecurity.html">Cybersecurity role →</a>
+      <a href="support-instructor-digital-forensics.html">Digital Forensics role →</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Open Role · LevelUp Economy</div>
+      <h1>Lead<br>Instructor</h1>
+      <div class="hero-sub">
+        The Lead Instructor owns the intellectual direction, curriculum quality, and instructional standards of the program. This role ensures the system is coherent, rigorous, and aligned with real-world expectations before anything reaches learners.
+      </div>
+      <div class="hero-meta">
+        <span>📍 Amman, Jordan</span>
+        <span>Async-first role</span>
+        <span>4–6 hrs/week pre-program</span>
+        <span>8–10 hrs/week in-session</span>
+        <span>Live only when teaching</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#responsibilities">Responsibilities</a>
+        <a class="button secondary" href="#qualifications">Qualifications</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="mini-label">What this role owns</div>
+      <h2>The system, not the sessions</h2>
+      <p>You are not the day-to-day delivery layer. You define standards, guide curriculum development, approve modules before release, coordinate or lead core concept sessions when needed, and serve as the highest instructional authority for the team.</p>
+      <div class="hero-panel-list">
+        <div class="hero-panel-item">
+          <div>
+            <strong>Curriculum authority</strong>
+            <span>Review, shape, and approve modules before Support Instructors and TAs begin formal review</span>
+          </div>
+          <div>Core</div>
+        </div>
+        <div class="hero-panel-item">
+          <div>
+            <strong>Instructional guidance</strong>
+            <span>Answer team questions, unblock decisions, and maintain coherence across the full program</span>
+          </div>
+          <div>Ongoing</div>
+        </div>
+        <div class="hero-panel-item">
+          <div>
+            <strong>Concept leadership</strong>
+            <span>Lead or coordinate live online core concept sessions and guest speakers when strategically useful</span>
+          </div>
+          <div>Selective</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="stats-band">
+    <div class="stat">
+      <div class="stat-value">4–6</div>
+      <div class="stat-label">Pre-program hrs / week</div>
+      <div class="stat-copy">Review curriculum drafts, guide structure, and establish standards before the cohort begins.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">8–10</div>
+      <div class="stat-label">In-session hrs / week</div>
+      <div class="stat-copy">High-leverage oversight during delivery: approvals, guidance, live concept sessions, and escalation support.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Async</div>
+      <div class="stat-label">Primary working mode</div>
+      <div class="stat-copy">Most work is flexible and self-directed, with live participation only when leading designated sessions.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Final</div>
+      <div class="stat-label">Academic authority</div>
+      <div class="stat-copy">This role holds final instructional and academic judgment across curriculum quality and standards.</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Instructional system</div>
+        <h2 class="section-title">Where you sit</h2>
+      </div>
+      <div class="section-copy">
+        The program operates across three instructional layers. The Lead Instructor defines standards and approves direction. Support Instructors own applied execution. TAs handle daily support, grading workflows, and risk visibility.
+      </div>
+    </div>
+
+    <div class="layer-wrap">
+      <div class="layer-row you">
+        <div class="layer-cell"><span class="layer-role">Lead Instructor ← you</span></div>
+        <div class="layer-cell layer-desc"><strong>Owns curriculum direction, instructional standards, module approval, guest-speaker coordination, and final academic judgment</strong></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-cell"><span class="layer-role">Support Instructors</span></div>
+        <div class="layer-cell layer-desc">Own applied execution, live labs, TA supervision, grading oversight, and learner readiness enforcement</div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-cell"><span class="layer-role">Teaching Assistants</span></div>
+        <div class="layer-cell layer-desc">Provide daily learner support, first-pass grading, dashboard monitoring, and early risk detection</div>
+      </div>
+    </div>
+
+    <div class="auth-grid">
+      <div class="auth-cell yours">
+        <div class="auth-head">You hold authority over</div>
+        <ul>
+          <li>Curriculum structure and sequencing</li>
+          <li>Final academic judgment</li>
+          <li>Instructional standards and rigor</li>
+          <li>Approval of all modules before release</li>
+        </ul>
+      </div>
+      <div class="auth-cell">
+        <div class="auth-head">You do not own</div>
+        <ul>
+          <li>Routine lab delivery</li>
+          <li>TA management and daily supervision</li>
+          <li>Day-to-day learner support</li>
+          <li>Routine first-pass grading workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Curriculum system</div>
+        <h2 class="section-title">Module approval pipeline</h2>
+      </div>
+      <div class="section-copy">
+        The Lead Instructor is the first formal approval gate. Support Instructors and TAs review after Lead approval, not before. This preserves coherence, authority, and consistent standards across the program.
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Step 1</div>
+        <h3>Draft &amp; prepare</h3>
+        <p>Curriculum materials are developed and prepared for review, including module structure, assignments, flow, technical assumptions, and delivery plans.</p>
+      </div>
+      <div class="card alt track-card blue">
+        <div class="track-tag blue">Step 2</div>
+        <h3>Lead review &amp; approval</h3>
+        <p>You review for sequencing, clarity, rigor, coherence, and alignment with real-world expectations. Nothing moves forward until you approve it.</p>
+      </div>
+      <div class="card track-card green">
+        <div class="track-tag green">Step 3</div>
+        <h3>Team review</h3>
+        <p>After Lead approval, Support Instructors and TAs test, validate, and provide implementation feedback before delivery readiness is finalized.</p>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>No module reaches the instructional team for formal downstream review without Lead Instructor approval.</strong>
+    </div>
+  </section>
+
+  <section class="section" id="responsibilities">
+    <div class="section-head">
+      <div>
+        <div class="label">Responsibilities</div>
+        <h2 class="section-title">What you'll do</h2>
+      </div>
+      <div class="section-copy">
+        This role is high-leverage and selective. You are responsible for direction, standards, approvals, and strategic instructional guidance rather than routine execution work.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Curriculum leadership</div>
+        <h3>Shape the program</h3>
+        <ul>
+          <li>Guide overall curriculum structure and sequencing across the full program</li>
+          <li>Review all modules before release to the broader instructional team</li>
+          <li>Ensure alignment between learning objectives, assignments, and intended learner outcomes</li>
+          <li>Maintain coherence between shared foundations, specialization tracks, and capstone expectations</li>
+        </ul>
+      </div>
+
+      <div class="card track-card blue">
+        <div class="track-tag blue">Instructional direction</div>
+        <h3>Set the standard</h3>
+        <ul>
+          <li>Define standards for labs, assignments, grading philosophy, and technical rigor</li>
+          <li>Ensure the program remains grounded in real-world practice and role-relevant expectations</li>
+          <li>Provide guidance to Support Instructors when instructional trade-offs or escalation decisions appear</li>
+          <li>Protect consistency across tracks, speakers, and module authorship</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="border-top: none;">
+      <div class="card track-card green">
+        <div class="track-tag green">Core concept sessions</div>
+        <h3>Teach selectively</h3>
+        <ul>
+          <li>Lead or host core concept sessions when strategically useful for the cohort</li>
+          <li>Coordinate guest speakers for key topics where specialist depth adds value</li>
+          <li>Ensure conceptual clarity and continuity across any live online teaching moments</li>
+          <li>Use live sessions intentionally, not as routine delivery obligations</li>
+        </ul>
+      </div>
+
+      <div class="card track-card red">
+        <div class="track-tag red">Team guidance</div>
+        <h3>Be the escalation point</h3>
+        <ul>
+          <li>Serve as the instructional guide for team questions that require judgment, authority, or deeper curriculum context</li>
+          <li>Answer questions asynchronously whenever possible</li>
+          <li>Unblock ambiguous decisions for Support Instructors and program leadership</li>
+          <li>Adjust direction when feedback reveals curriculum or delivery issues</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="border-top: none;">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Quality control</div>
+        <h3>Catch issues early</h3>
+        <ul>
+          <li>Identify weak sequencing, unclear instructions, or mismatched difficulty before learners experience them</li>
+          <li>Review high-level patterns in instructional feedback and intervene when standards drift</li>
+          <li>Ensure the curriculum remains technically defensible and professionally credible</li>
+          <li>Protect the integrity of the learning experience across the full lifecycle</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip blue">Rigor</span>
+          <span class="chip blue">Coherence</span>
+          <span class="chip blue">Standards</span>
+          <span class="chip blue">Approval</span>
+        </div>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">Operating model</div>
+        <h3>Async-first by design</h3>
+        <ul>
+          <li>Most work is asynchronous and self-directed</li>
+          <li>Feedback, approvals, and team guidance can be delivered on a flexible schedule</li>
+          <li>Join live only when teaching or hosting core concept sessions, or when a true escalation requires discussion</li>
+          <li>This role is built for judgment, not clock time</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip green">Async-first</span>
+          <span class="chip green">Flexible schedule</span>
+          <span class="chip green">High leverage</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Working model</div>
+        <h2 class="section-title">How the role works</h2>
+      </div>
+      <div class="section-copy">
+        This role is intentionally built for flexibility. The Lead Instructor is expected to deliver strong judgment, clear written feedback, and fast directional clarity — not fixed office-hour presence.
+      </div>
+    </div>
+
+    <div class="grid-2-1">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Async-first</div>
+        <h3>Flexible but authoritative</h3>
+        <ul>
+          <li>Review materials, leave comments, approve modules, and answer instructional questions on a flexible schedule</li>
+          <li>Operate primarily through written feedback, async updates, and scheduled check-ins as needed</li>
+          <li>Maintain visibility without requiring constant synchronous presence</li>
+          <li>Prioritize clarity, decisiveness, and speed of judgment over time spent online</li>
+        </ul>
+      </div>
+
+      <div class="card alt track-card green">
+        <div class="track-tag green">Live participation</div>
+        <h3>Only when intentional</h3>
+        <ul>
+          <li>Lead live online sessions only when teaching or hosting designated core concept sessions</li>
+          <li>Join syncs when a question requires real-time instructional judgment</li>
+          <li>Avoid unnecessary live attendance in routine execution workflows</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-head">
+      <div>
+        <div class="label">Weekly rhythm</div>
+        <h2 class="section-title">What your week looks like</h2>
+      </div>
+      <div class="section-copy">
+        The role is not tied to rigid daily blocks. Instead, it follows a recurring rhythm of review, approvals, selective live participation, and directional guidance.
+      </div>
+    </div>
+
+    <div class="schedule-table">
+      <div class="schedule-row header">
+        <div class="sched-cell">Focus</div>
+        <div class="sched-cell focus">Mode</div>
+        <div class="sched-cell">Key actions</div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="sched-cell"><span class="day-pill">Pre-program</span></div>
+        <div class="sched-cell focus">Async</div>
+        <div class="sched-cell">Review curriculum structure, guide module quality, provide written feedback, and establish standards before launch</div>
+      </div>
+
+      <div class="schedule-row alt">
+        <div class="sched-cell"><span class="day-pill">In-session</span></div>
+        <div class="sched-cell focus">Async-first</div>
+        <div class="sched-cell">Approve upcoming materials, answer team questions, review patterns in feedback, and maintain instructional coherence</div>
+      </div>
+
+      <div class="schedule-row highlight">
+        <div class="sched-cell"><span class="day-pill">Selective live</span></div>
+        <div class="sched-cell focus">Online</div>
+        <div class="sched-cell">Lead or host core concept sessions, coordinate guest speakers, or join escalations that require synchronous instructional judgment</div>
+      </div>
+
+      <div class="schedule-row alt">
+        <div class="sched-cell"><span class="day-pill">As needed</span></div>
+        <div class="sched-cell focus">Advisory</div>
+        <div class="sched-cell">Provide directional clarity to Support Instructors, unblock team decisions, and protect standards when ambiguity appears</div>
+      </div>
+    </div>
+
+    <div class="callout green program-note">
+      <strong>This is a high-leverage role.</strong> The expectation is not constant presence. The expectation is consistent judgment, strong approvals, and fast, clear instructional leadership.
+    </div>
+  </section>
+
+  <section class="section" id="qualifications">
+    <div class="section-head">
+      <div>
+        <div class="label">Qualifications</div>
+        <h2 class="section-title">What you bring</h2>
+      </div>
+      <div class="section-copy">
+        This role requires senior instructional judgment, technical credibility, and the ability to hold quality standards across a complex multi-layer delivery model. The right person is decisive, clear, and comfortable leading through guidance rather than routine execution.
+      </div>
+    </div>
+
+    <div class="grid-2-1">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Required</div>
+        <h3>Core qualifications</h3>
+        <ul>
+          <li>Strong experience designing, reviewing, or leading technical curriculum in a hands-on training environment</li>
+          <li>Ability to assess module quality for sequencing, clarity, difficulty, instructional coherence, and real-world relevance</li>
+          <li>Credibility across technical instruction, not just subject-matter knowledge in isolation</li>
+          <li>Ability to guide instructional teams through written feedback, directional clarity, and sound judgment</li>
+          <li>Comfort acting as the final instructional decision-maker when ambiguity or trade-offs arise</li>
+          <li>Strong written communication and async collaboration habits</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip gold">Curriculum design</span>
+          <span class="chip gold">Module review</span>
+          <span class="chip gold">Async leadership</span>
+          <span class="chip gold">Instructional judgment</span>
+        </div>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">Ideal profile</div>
+        <h3>How you operate</h3>
+        <ul>
+          <li>Decisive — you can make high-quality calls without overprocessing</li>
+          <li>Structured — you see where sequence, scope, or delivery logic breaks down</li>
+          <li>Credible — the team trusts your judgment because it is grounded and consistent</li>
+          <li>Flexible — you can work asynchronously without losing visibility or responsiveness</li>
+          <li>Selective — you know when to step in live and when written guidance is enough</li>
+          <li>Calm — you improve the system without becoming the bottleneck</li>
+        </ul>
+        <div class="callout gold" style="margin-top:14px;">
+          <strong>The best Lead Instructor is not the busiest person in the system.</strong> They are the clearest, most trusted, and most consistently right.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Outcome</div>
+        <h2 class="section-title">What excellence looks like</h2>
+      </div>
+      <div class="section-copy">
+        When this role is working well, the entire system becomes more coherent, more confident, and more resilient before learners ever feel the difference.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Curriculum quality</div>
+        <h3>The program holds together</h3>
+        <ul>
+          <li>The curriculum flows cleanly and builds logically</li>
+          <li>Modules are clear, rigorous, and aligned to intended outcomes</li>
+          <li>Weak sequencing and unclear instructions are caught before release</li>
+        </ul>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">Instructional confidence</div>
+        <h3>The team can move</h3>
+        <ul>
+          <li>Support Instructors operate with clarity and confidence</li>
+          <li>TAs are not absorbing ambiguity from upstream decisions</li>
+          <li>Questions are resolved quickly without the Lead becoming a bottleneck</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>Excellence here means learners experience a program that feels intentional, credible, and well-run — because the system was guided correctly long before delivery day.</strong>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Lead Instructor — Amman Cybersecurity &amp; Digital Forensics Program · LevelUp Economy</span>
+    <span>
+      <a href="../index.html">Program overview</a> &nbsp;·&nbsp;
+      <a href="support-instructor-cybersecurity.html">Cybersecurity role</a> &nbsp;·&nbsp;
+      <a href="support-instructor-digital-forensics.html">Digital Forensics role</a> &nbsp;·&nbsp;
+      <a href="teaching-assistant.html">Teaching Assistant role</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
