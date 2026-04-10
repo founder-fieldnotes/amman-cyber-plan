@@ -224,7 +224,7 @@
       color: var(--ink);
       font-size: 14px;
       text-decoration: none;
-      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
     }
 
     .button.primary {
@@ -236,12 +236,14 @@
       background: var(--blue);
       color: var(--ink);
       border-color: var(--ink);
+      transform: translateY(-1px);
     }
 
     .button.secondary:hover {
       background: var(--yellow);
       color: var(--ink);
       border-color: var(--ink);
+      transform: translateY(-1px);
     }
 
     .mini-label,
@@ -1282,20 +1284,32 @@
           </p>
     
           <div style="margin-top:18px; display:grid; gap:10px;">
-            <a class="button primary" href="/amman-cyber-plan/roles/lead-instructor.html">
-              Lead Instructor
+            <a class="button primary"
+               href="/amman-cyber-plan/roles/lead-instructor.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              Lead Instructor ↗
             </a>
           
-            <a class="button secondary" href="/amman-cyber-plan/roles/support-instructor-cybersecurity.html">
-              Support Instructor — Cybersecurity
+            <a class="button secondary"
+               href="/amman-cyber-plan/roles/support-instructor-cybersecurity.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              Support Instructor — Cybersecurity ↗
             </a>
           
-            <a class="button secondary" href="/amman-cyber-plan/roles/support-instructor-digital-forensics.html">
-              Support Instructor — Digital Forensics
+            <a class="button secondary"
+               href="/amman-cyber-plan/roles/support-instructor-digital-forensics.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              Support Instructor — Digital Forensics ↗
             </a>
           
-            <a class="button secondary" href="/amman-cyber-plan/roles/teaching-assistant.html">
-              Teaching Assistant
+            <a class="button secondary"
+               href="/amman-cyber-plan/roles/teaching-assistant.html"
+               target="_blank"
+               rel="noopener noreferrer">
+              Teaching Assistant ↗
             </a>
           </div>
         </div>
