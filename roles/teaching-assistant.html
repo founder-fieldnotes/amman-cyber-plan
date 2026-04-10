@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching Assistant — Amman Cybersecurity & Digital Forensics Program</title>
+  <meta name="description" content="Teaching Assistant role for the 16-week Amman Cybersecurity & Digital Forensics Program." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f1ea;
+      --white: #ffffff;
+      --ink: #000000;
+      --muted: #4f4b46;
+      --border: #000000;
+      --yellow: #fdd837;
+      --blue: #29baee;
+      --green: #05c145;
+      --red: #ff624a;
+      --cream: #ece8dc;
+      --red-track: #ff624a;
+      --blue-track: #29baee;
+      --green-track: #05c145;
+      --gold-track: #b67a00;
+      --max: 1400px;
+      --page-gutter: 24px;
+      --content-inset: 16px;
+      --section-top: 36px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 0; }
+
+    .eyebrow, .label, .mini-label, .stat-label, .phase-kicker,
+    .footnote, .chip, .hero-meta, .track-tag, .brand-title,
+    .top-links, .table th, .week-pill, .day-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 { font-size: clamp(56px, 8vw, 110px); line-height: 0.9; letter-spacing: -0.05em; margin: 0 0 18px; font-weight: 800; }
+    h2 { font-size: clamp(28px, 4vw, 52px); line-height: 0.95; letter-spacing: -0.05em; margin: 0 0 14px; font-weight: 800; }
+    h3 { font-size: 28px; line-height: 1.02; letter-spacing: -0.04em; margin: 0 0 12px; font-weight: 800; }
+    p { color: var(--muted); font-size: 15px; margin: 0; }
+    strong { color: var(--ink); }
+
+    /* TOPBAR */
+    .topbar {
+      border: 2px solid var(--border);
+      margin: 24px var(--page-gutter);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      background: var(--bg);
+    }
+    .brand, .top-links { padding: 16px 18px; }
+    .brand { border-right: 2px solid var(--border); display: flex; flex-direction: column; gap: 4px; }
+    .eyebrow { font-size: 10px; color: var(--muted); margin-bottom: 2px; }
+    .brand-title { font-size: 12px; font-weight: 700; color: var(--ink); }
+    .top-links { font-size: 11px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; color: var(--ink); }
+    .top-links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; }
+    .top-links a:hover { border-color: var(--ink); }
+
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; border: 2px solid var(--border); margin: 0 var(--page-gutter); background: var(--white); }
+    .hero-copy { padding: 64px; min-height: 520px; display: flex; flex-direction: column; justify-content: center; background: var(--white); }
+    .hero-panel { padding: 64px; background: var(--blue); display: flex; flex-direction: column; justify-content: center; min-height: 520px; border-left: 2px solid var(--border); }
+    .hero-sub { font-size: 22px; line-height: 1.35; margin-bottom: 22px; max-width: 720px; color: #222; }
+    .hero-meta { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 20px 0 22px; font-size: 10px; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button { border: 2px solid var(--border); padding: 12px 16px; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; background: var(--white); color: var(--ink); font-size: 14px; text-decoration: none; transition: background-color 0.18s, color 0.18s, border-color 0.18s; }
+    .button.primary { background: var(--ink); color: var(--white); }
+    .button.primary:hover { background: var(--blue); color: var(--ink); }
+    .button.secondary:hover { background: var(--yellow); }
+    .mini-label { font-size: 10px; color: var(--muted); }
+    .hero-panel-list { display: grid; gap: 14px; margin-top: 18px; }
+    .hero-panel-item { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding-top: 12px; border-top: 1px solid rgba(17,17,17,0.45); font-size: 14px; }
+    .hero-panel-item strong { display: block; margin-bottom: 2px; }
+
+    /* STATS */
+    .stats-band { display: grid; grid-template-columns: repeat(4,1fr); border: 2px solid var(--border); border-top: none; margin: 0 var(--page-gutter); background: var(--white); }
+    .stat { padding: 28px 22px 24px; border-right: 2px solid var(--border); min-height: 155px; background: var(--white); }
+    .stat:last-child { border-right: none; }
+    .stat-value { font-size: 44px; font-weight: 800; margin-bottom: 6px; line-height: 1; letter-spacing: -0.04em; }
+    .stat-label { font-size: 10px; color: var(--muted); }
+    .stat-copy { font-size: 14px; color: var(--muted); }
+
+    /* SECTIONS */
+    .section { padding: var(--section-top) var(--page-gutter) 0; }
+    .section-head { display: grid; grid-template-columns: minmax(0,1fr) 380px; gap: 24px; align-items: end; margin-bottom: 18px; }
+    .section-title { margin: 0; }
+    .section-copy { font-size: 14px; color: var(--muted); }
+    .label { font-size: 10px; color: var(--muted); }
+
+    /* GRIDS */
+    .grid-3, .grid-2, .grid-2-1 { border: 2px solid var(--border); margin-top: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; }
+    .grid-3>*, .grid-2>*, .grid-2-1>* { border-right: 2px solid var(--border); padding: 24px var(--content-inset); background: var(--white); min-width: 0; }
+    .grid-3>*:last-child, .grid-2>*:last-child, .grid-2-1>*:last-child { border-right: none; }
+    .card { background: var(--white); min-width: 0; }
+    .card.alt { background: var(--cream); }
+    .track-card.blue { border-top: 6px solid var(--blue-track); }
+    .track-card.green { border-top: 6px solid var(--green-track); }
+    .track-card.gold { border-top: 6px solid var(--gold-track); }
+    .track-card.red { border-top: 6px solid var(--red-track); }
+
+    /* LISTS */
+    ul { padding: 0; list-style: none; margin: 0; }
+    li { margin-bottom: 10px; padding-left: 14px; position: relative; color: #222; font-size: 14px; }
+    li::before { content: "•"; position: absolute; left: 0; top: 0; }
+
+    /* TRACK TAGS */
+    .track-tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 10px; color: var(--muted); }
+    .track-tag::before { content: ""; width: 10px; height: 10px; border-radius: 999px; display: inline-block; }
+    .track-tag.blue::before { background: var(--blue-track); }
+    .track-tag.green::before { background: var(--green-track); }
+    .track-tag.gold::before { background: var(--gold-track); }
+    .track-tag.red::before { background: var(--red-track); }
+
+    /* CHIPS */
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .chip { display: inline-flex; align-items: center; border: 1px solid currentColor; padding: 6px 10px; font-size: 10px; color: var(--muted); }
+    .chip.blue { color: var(--blue-track); }
+    .chip.green { color: var(--green-track); }
+    .chip.gold { color: var(--gold-track); }
+    .chip.gray { color: var(--muted); }
+
+    /* TABLE */
+    .table-card { border: 2px solid var(--border); background: var(--white); }
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .table { width: 100%; border-collapse: collapse; min-width: 860px; }
+    .table td, .table th { border-bottom: 1px solid var(--border); padding: 12px var(--content-inset); vertical-align: top; font-size: 13px; text-align: left; }
+    .table tbody tr:last-child td { border-bottom: none; }
+    .table th { font-size: 10px; color: var(--muted); }
+
+    /* WEEK PILL */
+    .week-pill { display: inline-block; padding: 4px 8px; border: 1px solid var(--border); background: var(--cream); font-size: 11px; font-weight: 600; }
+
+    /* CALLOUTS */
+    .callout { overflow-wrap: break-word; padding: 16px var(--content-inset); border: 2px solid var(--border); margin-top: 16px; background: var(--cream); font-size: 14px; }
+    .callout.green { background: var(--green); }
+    .callout.gold { background: var(--yellow); }
+    .callout.blue { background: var(--blue); }
+    .program-note { margin-top: 16px; }
+
+    /* NOT GRID */
+    .not-grid { display: grid; grid-template-columns: repeat(2,1fr); border: 2px solid var(--border); margin-top: 24px; }
+    .not-item { padding: 20px var(--content-inset); border-right: 2px solid var(--border); border-bottom: 2px solid var(--border); background: var(--cream); display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--muted); }
+    .not-item:nth-child(2n) { border-right: none; }
+    .not-item:nth-child(3), .not-item:nth-child(4) { border-bottom: none; }
+    .not-x { font-family: 'IBM Plex Mono', monospace; font-size: 16px; color: var(--red-track); line-height: 1; flex-shrink: 0; margin-top: 1px; }
+
+    /* SCHEDULE TABLE */
+    .schedule-table { border: 2px solid var(--border); margin-top: 24px; }
+    .schedule-row { display: grid; grid-template-columns: 120px 180px 1fr; border-bottom: 1px solid var(--border); }
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row.header { background: var(--ink); }
+    .sched-cell { padding: 12px var(--content-inset); font-size: 13px; color: #222; border-right: 1px solid var(--border); }
+    .sched-cell:last-child { border-right: none; }
+    .schedule-row.header .sched-cell { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); }
+    .schedule-row.highlight { background: var(--blue); }
+    .schedule-row.alt { background: var(--cream); }
+    .day-pill { font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .footnote { margin-top: 10px; font-size: 10px; color: var(--muted); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* FOOTER */
+    .footer { border-top: 2px solid var(--border); margin: 28px var(--page-gutter) 24px; padding-top: 14px; font-size: 11px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); }
+    .footer a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--muted); }
+    .footer a:hover { color: var(--ink); border-color: var(--ink); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .hero, .stats-band, .grid-3, .grid-2, .grid-2-1, .section-head, .not-grid { grid-template-columns: 1fr; }
+      .topbar { grid-template-columns: 1fr; }
+      .brand { border-right: none; border-bottom: 2px solid var(--border); }
+      .hero-panel { border-left: none; border-top: 2px solid var(--border); }
+      .stats-band, .hero { border-top: 2px solid var(--border); }
+      .stats-band>*, .grid-3>*, .grid-2>*, .grid-2-1>* { border-right: none !important; }
+      .grid-3>*, .grid-2>*, .grid-2-1>* { border-bottom: 2px solid var(--border); }
+      .grid-3>*:last-child, .grid-2>*:last-child, .grid-2-1>*:last-child { border-bottom: none; }
+      .hero-copy, .hero-panel { min-height: auto; padding: 32px 24px; }
+      .table { min-width: 720px; }
+      .not-item { border-right: none !important; }
+      .not-item:nth-child(3) { border-bottom: 2px solid var(--border) !important; }
+      .schedule-row { grid-template-columns: 100px 1fr; }
+      .sched-cell.focus { display: none; }
+    }
+    @media (max-width: 720px) {
+      :root { --page-gutter: 16px; --content-inset: 16px; --section-top: 36px; }
+      h1 { font-size: 54px; }
+      h3 { font-size: 24px; }
+      .hero-sub { font-size: 18px; }
+      li { font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="eyebrow">Amman, Jordan · 2025–2026</div>
+      <div class="brand-title">Cybersecurity &amp; Digital Forensics Program</div>
+    </div>
+    <div class="top-links">
+      <a href="../index.html">← Program overview</a>
+      <span>Open role</span>
+      <span>Contract</span>
+      <a href="support-instructor.html">Support Instructor →</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Open Role · LevelUp Economy</div>
+      <h1>Teaching<br>Assistant</h1>
+      <div class="hero-sub">
+        TAs are a critical execution layer in this program — not secondary support. You are the daily force that maintains learner momentum, readiness standards, and professional discipline.
+      </div>
+      <div class="hero-meta">
+        <span>📍 Amman, Jordan</span>
+        <span>16-week program</span>
+        <span>Active: Wks 3–12</span>
+        <span>Min. 3 · Preferred 4–5</span>
+        <span>Contract</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#responsibilities">Responsibilities</a>
+        <a class="button secondary" href="#qualifications">Qualifications</a>
+      </div>
+    </div>
+    <aside class="hero-panel">
+      <div class="mini-label">What this role does</div>
+      <h2>The early warning system</h2>
+      <p>If someone quietly falls behind, the program fails. TAs are the ground-level execution layer that keeps all three hybrid cohorts moving.</p>
+      <div class="hero-panel-list">
+        <div class="hero-panel-item">
+          <div><strong>Daily readiness enforcement</strong><span>Monitor dashboards, run targeted support, log and escalate same day</span></div>
+          <div>Every day</div>
+        </div>
+        <div class="hero-panel-item">
+          <div><strong>First-pass grading</strong><span>Labs, integration tasks, peer reviews, and reflection artifacts</span></div>
+          <div>48–72 hrs</div>
+        </div>
+        <div class="hero-panel-item">
+          <div><strong>Debugging &amp; coaching</strong><span>Guide interpretation — not solutions. Build independence.</span></div>
+          <div>Daily</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="stats-band">
+    <div class="stat">
+      <div class="stat-value">3–5</div>
+      <div class="stat-label">TAs needed</div>
+      <div class="stat-copy">Minimum 3 required. 4–5 preferred for full coverage across three hybrid cohorts.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">10</div>
+      <div class="stat-label">Active weeks</div>
+      <div class="stat-copy">Weeks 3–12. The core phase where track-specific skills are built and assessed daily.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">100</div>
+      <div class="stat-label">Learners</div>
+      <div class="stat-copy">75 in cybersecurity across two cohorts, 25 in digital forensics — all in hybrid format.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">48h</div>
+      <div class="stat-label">Grading SLA</div>
+      <div class="stat-copy">Drills and labs within 48 hours. Integration tasks escalated to Support Instructor within 72 hours.</div>
+    </div>
+  </div>
+
+  <!-- RESPONSIBILITIES -->
+  <section class="section" id="responsibilities">
+    <div class="section-head">
+      <div>
+        <div class="label">Responsibilities</div>
+        <h2 class="section-title">What you'll do</h2>
+      </div>
+      <div class="section-copy">
+        Your work spans daily learner monitoring, grading, live lab support, debugging coaching, and curriculum review — across all three hybrid cohorts.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Every day</div>
+        <h3>Monitor &amp; support</h3>
+        <ul>
+          <li>Check the student dashboard to identify learners of concern — never rely on what a student says they completed; always verify first</li>
+          <li>Group learners by issue type and run targeted support sessions proactively — do not wait to be asked</li>
+          <li>Brief sync after each session; log notes and escalate blockers to the Support Instructor same day</li>
+        </ul>
+      </div>
+      <div class="card track-card green">
+        <div class="track-tag green">Lab &amp; assignment support</div>
+        <h3>Keep everyone moving</h3>
+        <ul>
+          <li>Attend lab sessions, observe where learners struggle, run targeted support after the Support Instructor completes the demo</li>
+          <li>Ensure every learner submits an attempt before end of each lab day — even an incomplete one; <strong>attempts must be on record</strong></li>
+          <li>Prioritize learners who still need to complete assignments, working with the highest-need students first</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="border-top: none;">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Grading</div>
+        <h3>First-pass review</h3>
+        <ul>
+          <li>Conduct first-pass grading of labs, integration tasks, peer reviews, and reflection artifacts</li>
+          <li>Manually evaluate: screenshot authenticity, commit message quality, PR description completeness, README documentation, and rubric alignment</li>
+          <li>~48 hours for drills and labs; escalate integration tasks to the Support Instructor within 72 hours</li>
+        </ul>
+        <div class="callout gold">
+          <strong>Tone standard:</strong> Direct. Precise. Professional. Not praise-heavy. Not vague. Example: "README is missing environment setup instructions. Please document venv creation and dependency installation steps."
+        </div>
+      </div>
+      <div class="card track-card red">
+        <div class="track-tag red">Debugging &amp; coaching</div>
+        <h3>Build independence</h3>
+        <ul>
+          <li>Ask learners to show the failing line or error — guide interpretation of the error message</li>
+          <li>Suggest the next diagnostic step rather than providing the answer outright</li>
+          <li><strong>Do not write their solution or paste corrected code.</strong> The goal is building independence.</li>
+          <li>Process reflection exports and act on flagged learners within 24 hours — flags are predictive, act early</li>
+          <li>Escalate integrity concerns to the Support Instructor <em>before</em> any learner outreach</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM REVIEW -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Curriculum review</div>
+        <h2 class="section-title">One week ahead, every week</h2>
+      </div>
+      <div class="section-copy">
+        Beginning each Sunday, review module materials scheduled for two weeks out. Feedback is due one full week before delivery begins.
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="track-tag green">Sunday</div>
+        <h3>Open &amp; begin</h3>
+        <p>Open module materials scheduled for <strong>2 weeks ahead</strong>. Begin testing instruction clarity, assignment flow including GitHub Classroom repos, and difficulty levels.</p>
+        <div class="badge-row">
+          <span class="chip gray">60–90 min/day</span>
+          <span class="chip gray">GitHub Classroom</span>
+        </div>
+      </div>
+      <div class="card alt">
+        <div class="track-tag gold">Mon–Thu</div>
+        <h3>Continue reviewing</h3>
+        <p>Continue testing and leaving feedback daily outside of onsite hours. If you find a blocking issue at any point, <strong>flag it to the Lead Instructor immediately</strong> — don't wait for the deadline.</p>
+      </div>
+      <div class="card">
+        <div class="track-tag blue">Deadline</div>
+        <h3>Due: one week out</h3>
+        <p>Feedback is due no later than <strong>Sunday of the week prior to teaching</strong> — one full week before delivery begins. Do not leave it until the deadline.</p>
+        <div class="badge-row">
+          <span class="chip blue">Instruction clarity</span>
+          <span class="chip blue">Assignment flow</span>
+          <span class="chip blue">Difficulty levels</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOT RESPONSIBLE -->
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Scope limits</div>
+        <h2 class="section-title">What you are NOT responsible for</h2>
+      </div>
+      <div class="section-copy">
+        The TA role has a clear boundary. These four items sit with the Support Instructor or Lead Instructor — not with you.
+      </div>
+    </div>
+    <div class="not-grid">
+      <div class="not-item"><span class="not-x">✕</span><span>Re-running automated checks manually</span></div>
+      <div class="not-item"><span class="not-x">✕</span><span>Modifying curriculum content</span></div>
+      <div class="not-item"><span class="not-x">✕</span><span>Making unilateral academic integrity judgments</span></div>
+      <div class="not-item"><span class="not-x">✕</span><span>Overriding rubric standards set by the Lead Instructor</span></div>
+    </div>
+  </section>
+
+  <!-- WEEKLY SCHEDULE -->
+  <section class="section" id="schedule">
+    <div class="section-head">
+      <div>
+        <div class="label">Weekly rhythm</div>
+        <h2 class="section-title">What your week looks like</h2>
+      </div>
+      <div class="section-copy">
+        Core hours are Monday–Thursday in a hybrid format. Curriculum review runs Sunday through Thursday outside of onsite hours.
+      </div>
+    </div>
+    <div class="schedule-table">
+      <div class="schedule-row header">
+        <div class="sched-cell">Day</div>
+        <div class="sched-cell focus">Core focus</div>
+        <div class="sched-cell">Key actions</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-cell"><span class="day-pill">Every day</span></div>
+        <div class="sched-cell focus">Monitor &amp; support</div>
+        <div class="sched-cell">Check dashboard → group by issue → run targeted support → log notes in ClickUp</div>
+      </div>
+      <div class="schedule-row alt">
+        <div class="sched-cell"><span class="day-pill">Sunday</span></div>
+        <div class="sched-cell focus">Curriculum review begins</div>
+        <div class="sched-cell">Open module materials (2 weeks ahead); begin testing and leaving feedback on clarity, flow, and difficulty</div>
+      </div>
+      <div class="schedule-row highlight">
+        <div class="sched-cell"><span class="day-pill">Monday</span></div>
+        <div class="sched-cell focus">Applied Lab day</div>
+        <div class="sched-cell">Attend session → publish Lab in TalentLMS → targeted support → ensure all attempts submitted before end of day</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-cell"><span class="day-pill">Tuesday</span></div>
+        <div class="sched-cell focus">Lab completion + Stretch</div>
+        <div class="sched-cell">Continue Lab support (highest-need first) → publish Stretch Assignment when eligible learners are ready</div>
+      </div>
+      <div class="schedule-row highlight">
+        <div class="sched-cell"><span class="day-pill">Wednesday</span></div>
+        <div class="sched-cell focus">Integration Task day</div>
+        <div class="sched-cell">Attend session → publish Integration Task → targeted support → ensure all attempts submitted before end of day</div>
+      </div>
+      <div class="schedule-row alt">
+        <div class="sched-cell"><span class="day-pill">Thursday</span></div>
+        <div class="sched-cell focus">Integration + Stretch + Sync prep</div>
+        <div class="sched-cell">Continue Integration support → publish Stretch when eligible → prep Module Feedback for Lead Instructor sync</div>
+      </div>
+    </div>
+    <div class="callout green program-note">
+      <strong>Key priorities:</strong> Seek out learners rather than waiting for them to ask. Always prioritize struggling learners over advanced ones. Never let a learner remain stuck for more than one day.
+    </div>
+  </section>
+
+  <!-- QUALIFICATIONS -->
+  <section class="section" id="qualifications">
+    <div class="section-head">
+      <div>
+        <div class="label">Qualifications</div>
+        <h2 class="section-title">What you bring</h2>
+      </div>
+      <div class="section-copy">
+        Depth in one track is fine. What matters most is proactivity, documentation discipline, and the ability to work in a fast-moving hybrid environment.
+      </div>
+    </div>
+    <div class="grid-2-1">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Required</div>
+        <h3>Core qualifications</h3>
+        <ul>
+          <li>Hands-on technical experience in cybersecurity, digital forensics, or a closely related field</li>
+          <li>Familiarity with tools relevant to your track — Nmap, ELK/Wazuh, Volatility, Autopsy, Metasploit, or similar</li>
+          <li>Ability to enforce professional habits: clean repo structure, meaningful commit messages, proper branching, clear README files, and reproducibility standards</li>
+          <li>Strong communication skills and comfort working in hybrid environments</li>
+          <li>Organized and proactive — you seek out struggling learners rather than waiting to be flagged</li>
+        </ul>
+        <div class="callout" style="background:#e9f1fb; border:1px solid #c5daf7; margin-top:14px;">
+          <strong>What excellence looks like:</strong> Struggling learners are identified and supported same-day. Curriculum issues are caught before delivery. Feedback is submitted on time. The cohort moves forward together.
+        </div>
+      </div>
+      <div class="card track-card green">
+        <div class="track-tag green">Preferred</div>
+        <h3>Nice to have</h3>
+        <ul>
+          <li>Familiarity with the Security+ / CySA+ cert pathway</li>
+          <li>MITRE ATT&amp;CK framework knowledge</li>
+          <li>Experience with TalentLMS or similar LMS platforms</li>
+          <li>Arabic language skills for optional learner support sessions</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip green">Security+</span>
+          <span class="chip green">CySA+</span>
+          <span class="chip green">MITRE ATT&amp;CK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Teaching Assistant — Amman Cybersecurity &amp; Digital Forensics Program · LevelUp Economy · v1.0</span>
+    <span>
+      <a href="../index.html">Program overview</a> &nbsp;·&nbsp;
+      <a href="support-instructor.html">Support Instructor role</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
