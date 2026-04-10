@@ -42,7 +42,7 @@ https://founder-fieldnotes.github.io/amman-cyber-plan/
 
 ## Instructor Role Pages
 
-- Lead Instructor
+- Lead Instructor  
   https://founder-fieldnotes.github.io/amman-cyber-plan/roles/lead-instructor.html
   
 - Cybersecurity Support Instructor  
