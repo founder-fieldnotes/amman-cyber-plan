@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Questions from the Field — Amman Cybersecurity & Digital Forensics Program</title>
+  <meta name="description" content="Questions from the Field: practical answers about the Amman Cybersecurity & Digital Forensics Program." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/amman-cyber-plan/images/favicon.png">
+
+  <style>
+    :root {
+      --bg: #f3f1ea;
+      --white: #ffffff;
+      --ink: #000000;
+      --muted: #4f4b46;
+      --border: #000000;
+
+      --yellow: #fdd837;
+      --blue: #29baee;
+      --green: #05c145;
+      --red: #ff624a;
+      --cream: #ece8dc;
+
+      --red-track: #ff624a;
+      --blue-track: #29baee;
+      --green-track: #05c145;
+      --gold-track: #b67a00;
+
+      --max: 1400px;
+      --page-gutter: 24px;
+      --content-inset: 16px;
+      --section-top: 36px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .eyebrow,
+    .label,
+    .mini-label,
+    .stat-label,
+    .chip,
+    .hero-meta,
+    .track-tag,
+    .brand-title,
+    .top-links {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(56px, 8vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0 0 14px;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 28px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    strong { color: var(--ink); }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+    }
+
+    .topbar {
+      border: 2px solid var(--border);
+      margin: 24px var(--page-gutter) 24px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      background: var(--bg);
+    }
+
+    .brand,
+    .top-links {
+      padding: 16px 18px;
+    }
+
+    .brand {
+      border-right: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .brand-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .top-links {
+      font-size: 11px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--ink);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      border: 2px solid var(--border);
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .hero-copy {
+      padding: 64px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .hero-panel {
+      padding: 64px;
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+      border-left: 2px solid var(--border);
+    }
+
+    .hero-sub {
+      font-size: 22px;
+      line-height: 1.35;
+      margin-bottom: 22px;
+      max-width: 720px;
+      color: #222;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 20px 0 22px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      border: 2px solid var(--border);
+      padding: 12px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button.primary:hover {
+      background: var(--blue);
+      color: var(--ink);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .button.secondary:hover {
+      background: var(--yellow);
+      color: var(--ink);
+      border-color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .mini-label,
+    .label,
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-panel-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hero-panel-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17, 17, 17, 0.45);
+      font-size: 14px;
+    }
+
+    .hero-panel-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 2px solid var(--border);
+      border-top: none;
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .stat {
+      padding: 28px 22px 24px;
+      border-right: 2px solid var(--border);
+      min-height: 155px;
+      background: var(--white);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-copy {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .section {
+      padding: var(--section-top) var(--page-gutter) 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-title { margin: 0; }
+
+    .section-copy {
+      font-size: 14px;
+      color: var(--muted);
+      width: 100%;
+    }
+
+    .grid-2,
+    .grid-2-1,
+    .grid-3 {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-2-1 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-2 > *,
+    .grid-2-1 > *,
+    .grid-3 > * {
+      border-right: 2px solid var(--border);
+      padding: 24px var(--content-inset);
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .grid-2 > *:last-child,
+    .grid-2-1 > *:last-child,
+    .grid-3 > *:last-child {
+      border-right: none;
+    }
+
+    .card { background: var(--white); min-width: 0; }
+    .card.alt { background: var(--cream); }
+
+    .track-card.red { border-top: 6px solid var(--red-track); }
+    .track-card.blue { border-top: 6px solid var(--blue-track); }
+    .track-card.green { border-top: 6px solid var(--green-track); }
+    .track-card.gold { border-top: 6px solid var(--gold-track); }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 14px;
+      position: relative;
+      color: #222;
+      font-size: 14px;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .track-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .track-tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .track-tag.red::before { background: var(--red-track); }
+    .track-tag.blue::before { background: var(--blue-track); }
+    .track-tag.green::before { background: var(--green-track); }
+    .track-tag.gold::before { background: var(--gold-track); }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      padding: 6px 10px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .chip.red { color: var(--red-track); }
+    .chip.blue { color: var(--blue-track); }
+    .chip.green { color: var(--green-track); }
+    .chip.gold { color: var(--gold-track); }
+    .chip.gray { color: var(--muted); }
+
+    .callout {
+      overflow-wrap: break-word;
+      padding: 16px var(--content-inset);
+      border: 2px solid var(--border);
+      margin-top: 16px;
+      background: var(--cream);
+      font-size: 14px;
+    }
+
+    .callout.green { background: var(--green); }
+    .callout.gold { background: var(--yellow); }
+    .callout.blue { background: var(--blue); }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    details.faq-item {
+      border: 2px solid var(--border);
+      background: var(--white);
+    }
+
+    details.faq-item[open] {
+      background: var(--cream);
+    }
+
+    summary.faq-question {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px;
+      font-weight: 700;
+      font-size: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+    }
+
+    summary.faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-symbol {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    details.faq-item .faq-answer {
+      padding: 0 16px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-answer p + p,
+    .faq-answer ul,
+    .faq-answer .badge-row {
+      margin-top: 12px;
+    }
+
+    .faq-answer ul li {
+      font-size: 14px;
+    }
+
+    .faq-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 2px solid var(--border);
+      margin-top: 24px;
+      background: var(--white);
+    }
+
+    .faq-nav a {
+      padding: 18px 16px;
+      border-right: 2px solid var(--border);
+      text-decoration: none;
+      color: var(--ink);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .faq-nav a:last-child {
+      border-right: none;
+    }
+
+    .faq-nav a:hover {
+      background: var(--yellow);
+    }
+
+    .footer {
+      border-top: 2px solid var(--border);
+      margin: 28px var(--page-gutter) 24px;
+      padding-top: 14px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .stats-band,
+      .grid-2,
+      .grid-2-1,
+      .grid-3,
+      .section-head,
+      .faq-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .brand {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .hero-panel {
+        border-left: none;
+        border-top: 2px solid var(--border);
+      }
+
+      .stats-band,
+      .hero {
+        border-top: 2px solid var(--border);
+      }
+
+      .stats-band > *,
+      .grid-2 > *,
+      .grid-2-1 > *,
+      .grid-3 > * {
+        border-right: none !important;
+      }
+
+      .grid-2 > *,
+      .grid-2-1 > *,
+      .grid-3 > * {
+        border-bottom: 2px solid var(--border);
+      }
+
+      .grid-2 > *:last-child,
+      .grid-2-1 > *:last-child,
+      .grid-3 > *:last-child {
+        border-bottom: none;
+      }
+
+      .faq-nav a {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .faq-nav a:last-child {
+        border-bottom: none;
+      }
+
+      .hero-copy,
+      .hero-panel {
+        min-height: auto;
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --page-gutter: 16px;
+        --content-inset: 16px;
+        --section-top: 36px;
+      }
+
+      h1 { font-size: 54px; }
+      h3 { font-size: 24px; }
+      .hero-sub { font-size: 18px; }
+      li { font-size: 13px; }
+
+      .section-head {
+        gap: 14px;
+      }
+
+      .grid-2 > *,
+      .grid-2-1 > *,
+      .grid-3 > * {
+        padding: 18px var(--content-inset);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="eyebrow">Amman, Jordan · 2025–2026</div>
+        <div class="brand-title">Cybersecurity &amp; Digital Forensics Program</div>
+      </div>
+      <div class="top-links">
+       <link rel="icon" type="image/png" href="/amman-cyber-plan/images/favicon.png">
+        <a href="/amman-cyber-plan/">Program overview</a>
+        <span>Questions from the Field</span>
+        <span>Practical answers</span>
+        <span>Application guide</span>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">Questions from the Field</div>
+        <h1>FAQ for<br>serious applicants</h1>
+        <div class="hero-sub">
+          Clear answers about fit, workload, specialization, funding, outcomes, and how the program is designed to turn technical curiosity into operational capability.
+        </div>
+        <div class="hero-meta">
+          <span>100 learners total</span>
+          <span>2 specializations</span>
+          <span>Practice-driven</span>
+          <span>Hybrid delivery</span>
+          <span>Capstone-based</span>
+        </div>
+        <div class="hero-actions">
+          <a class="button primary" href="#fit">Program fit</a>
+          <a class="button secondary" href="#experience">What learners experience</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel">
+        <div class="mini-label">What this page covers</div>
+        <h2>Answers before you apply</h2>
+        <p>
+          This page is built for the questions people actually ask before committing: who this is for, what you need coming in, how the tracks differ, how much time it takes, what support exists, and what you leave with at the end.
+        </p>
+        <div class="hero-panel-list">
+          <div class="hero-panel-item">
+            <div>
+              <strong>Fit & readiness</strong>
+              <span>Who should apply and what baseline knowledge helps</span>
+            </div>
+            <div>Start here</div>
+          </div>
+          <div class="hero-panel-item">
+            <div>
+              <strong>Tracks & outcomes</strong>
+              <span>How Cybersecurity and Digital Forensics differ and where they lead</span>
+            </div>
+            <div>Core</div>
+          </div>
+          <div class="hero-panel-item">
+            <div>
+              <strong>Workload & support</strong>
+              <span>Time commitment, intervention, funding, and what learners walk away with</span>
+            </div>
+            <div>Practical</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="stats-band">
+      <div class="stat">
+        <div class="stat-value">100</div>
+        <div class="stat-label">Learners</div>
+        <div class="stat-copy">75 learners in Cybersecurity and 25 in Digital Forensics, delivered inside one coordinated program.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">30–40</div>
+        <div class="stat-label">Hours / week</div>
+        <div class="stat-copy">A serious time commitment with live sessions, labs, self-study, and professional development.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">16</div>
+        <div class="stat-label">Weeks</div>
+        <div class="stat-copy">Shared foundation, specialization, and a final capstone phase designed to mirror real security work.</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">2</div>
+        <div class="stat-label">Funding paths</div>
+        <div class="stat-copy">An FSF-funded route for eligible learners and a self-pay path for those outside that eligibility window.</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="label">Navigate by theme</div>
+          <h2 class="section-title">Start where your questions are</h2>
+        </div>
+        <div class="section-copy">
+          The FAQ is grouped the same way applicants typically think: fit first, then learning model, then tracks and careers, then support, funding, and outcomes.
+        </div>
+      </div>
+
+      <div class="faq-nav">
+        <a href="#fit">Program fit</a>
+        <a href="#experience">What learners experience</a>
+        <a href="#tracks">Tracks & careers</a>
+        <a href="#support">Support, funding & outcomes</a>
+      </div>
+    </section>
+
+    <section class="section" id="fit">
+      <div class="section-head">
+        <div>
+          <div class="label">Program fit</div>
+          <h2 class="section-title">Who should apply, and what should they know first?</h2>
+        </div>
+        <div class="section-copy">
+          This section is for the first-pass questions: whether the program fits your background, whether you need prior tooling experience, and what kind of learner tends to succeed here.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card track-card gold">
+          <div class="track-tag gold">Audience</div>
+          <h3>Who this program is for</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>Who is this program built for?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The primary audience is unemployed graduates from low-income families in Jordan with degrees in computer science, IT, engineering, or related technical fields. A strong fit looks like someone who is motivated, disciplined, technically curious, and willing to commit to an intensive schedule.
+                </p>
+                <p>
+                  There is also a secondary audience: early-career professionals who want to pivot into cybersecurity or digital forensics roles but may not qualify for FSF funding.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Do I need professional experience before applying?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  No. The program is not built around prior industry experience. What matters more is technical curiosity, follow-through, structured problem-solving, and the ability to stay engaged in an intensive learning environment.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What kind of learner tends to do well here?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The strongest learners are not necessarily the most experienced — they are the most disciplined. This is a good fit for people who can follow structured workflows, document their work, ask clear questions, and stay consistent over weeks, not just days.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card blue">
+          <div class="track-tag blue">Prerequisites</div>
+          <h3>What you should already know</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What prior knowledge or skills should candidates have before applying?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Familiarity with operating systems such as Windows and/or Linux</li>
+                  <li>Basic networking concepts like TCP/IP, DNS, and HTTP</li>
+                  <li>Comfort with structured problem-solving</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Do I need Bash or command-line experience already?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Helpful, yes. Required, no. Command-line basics are covered in pre-work before the core program begins, so prior Bash fluency is not a gate to entry.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Do I need Git or GitHub before starting?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  No. Git workflows and GitHub are introduced during pre-work. Learners use GitHub throughout the program, but no prior experience is expected.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div class="badge-row">
+            <span class="chip blue">Windows / Linux</span>
+            <span class="chip blue">TCP/IP</span>
+            <span class="chip blue">Problem-solving</span>
+            <span class="chip blue">Git taught in pre-work</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-head">
+        <div>
+          <div class="label">What learners experience</div>
+          <h2 class="section-title">Why this is structured the way it is</h2>
+        </div>
+        <div class="section-copy">
+          These questions get at how the program actually feels: why it is practice-driven, why it is not just another online course, how the capstone works, and what a typical week demands.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card track-card green">
+          <div class="track-tag green">Learning model</div>
+          <h3>Practice before theory fades</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>If a learner could take any online course instead, why choose this program?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Structured, supervised intensity rather than self-paced drift</li>
+                  <li>Cohort-based accountability and real team dynamics</li>
+                  <li>Purple teaming by design, with both tracks working together in the capstone</li>
+                  <li>An FSF-funded pathway for eligible learners</li>
+                  <li>Employment support through networking, portfolio guidance, and employer-facing preparation</li>
+                  <li>Hybrid delivery, not a purely virtual experience</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What does “practice-driven” actually mean?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  It means learners are not just hearing about tools, frameworks, or workflows — they are using them inside structured, evidence-safe scenarios that mirror operational environments.
+                </p>
+                <ul>
+                  <li>Hands-on labs that reflect real workflows</li>
+                  <li>Scenario-based exercises such as intrusions, phishing, malware, and insider-threat style cases</li>
+                  <li>Structured reporting and documentation, not just button-clicking</li>
+                  <li>MITRE ATT&amp;CK-aligned reporting across the program</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Can you give one concrete example of that practice-driven model?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. Early in the program, Cybersecurity learners run Nmap and Masscan scans against lab targets. In the same period, Digital Forensics learners analyze the Windows artifacts generated by those exact actions: event IDs, registry changes, and file creation. One side produces the activity. The other side investigates the evidence. That red/blue feedback loop carries through the program.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card gold">
+          <div class="track-tag gold">Time & structure</div>
+          <h3>What a serious week looks like</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>How much time per week does the program require?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Learners should expect a minimum of roughly 30–40 hours per week during the core program. That time includes live sessions, labs, assignments, English-language learning, soft-skills development, and self-study.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What does a typical week include?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Live concept teaching</li>
+                  <li>Applied labs</li>
+                  <li>Assignments and structured practice</li>
+                  <li>English-language learning</li>
+                  <li>Soft-skills sessions</li>
+                  <li>Peer interaction and self-study</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Is this something I can casually fit around other major commitments?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  It should be approached as a serious training commitment. The program is built for learners who can show up consistently, stay on pace, and treat the work like a meaningful pre-employment pathway rather than a hobby course.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div class="callout gold">
+            <strong>Best expectation:</strong> plan around the program, not around the hope that it will somehow fit without deliberate time management.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="border-top: none;">
+        <div class="card track-card red">
+          <div class="track-tag red">Capstone</div>
+          <h3>How the final phase works</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What does the capstone project look like?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The capstone is a joint red/blue team exercise in the final phase of the program. Cybersecurity and Digital Forensics learners work in mixed teams around a realistic security engagement.
+                </p>
+                <ul>
+                  <li>Cybersecurity learners plan and execute an attack campaign in a lab environment</li>
+                  <li>Digital Forensics learners perform acquisition, build timelines, and analyze artifacts from that same scenario</li>
+                  <li>Both sides document their work and map activity to MITRE ATT&amp;CK where relevant</li>
+                  <li>The work ends in a presentation to a CISO-style panel</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What would a strong capstone include?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>A realistic attack chain with documented Rules of Engagement</li>
+                  <li>Forensic imaging and validated chain of custody where appropriate</li>
+                  <li>A unified timeline connecting offensive actions to defensive findings</li>
+                  <li>An executive-level briefing backed by a technical appendix</li>
+                  <li>Professional, reproducible documentation throughout</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card blue">
+          <div class="track-tag blue">Career preparation</div>
+          <h3>How interview readiness is built in</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>How does the program prepare learners for job interviews?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Networking events and exposure to industry practitioners</li>
+                  <li>Referrals to relevant opportunities</li>
+                  <li>Guidance on portfolios, GitHub repositories, and LinkedIn positioning</li>
+                  <li>Coordination with employment support activities</li>
+                  <li>Employer engagement and matching efforts</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What makes the preparation more credible than a theory-heavy course?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Learners are building visible artifacts: labs, reports, investigation write-ups, repository workflows, and a capstone presentation. That gives them concrete evidence of what they can do, not just what they can describe.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tracks">
+      <div class="section-head">
+        <div>
+          <div class="label">Tracks & careers</div>
+          <h2 class="section-title">How the two specializations differ — and where they point</h2>
+        </div>
+        <div class="section-copy">
+          These questions help applicants understand the difference between Cybersecurity and Digital Forensics, how track placement works, which roles the program aligns to, and where the skill set is most relevant.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card track-card red">
+          <div class="track-tag red">Specialization</div>
+          <h3>Choosing and understanding the tracks</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>In plain language, what is the difference between the two specializations?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  <strong>Cybersecurity</strong> is the attacker’s mindset applied defensively: finding weaknesses, simulating attacks, and reporting what should be fixed before a real adversary exploits it.
+                </p>
+                <p>
+                  <strong>Digital Forensics</strong> is the investigation side: figuring out what happened, preserving evidence, maintaining chain of custody, and producing defensible findings.
+                </p>
+                <p>
+                  Together, both tracks reflect how strong security teams work in practice.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>How do learners choose a specialization?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Applicants are not asked to simply pick a track on the application form. Placement happens during onboarding based on interests, assessment results, and education-team judgment.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Should applicants ask themselves anything before track placement?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Yes. Ask yourself whether you are more energized by finding weaknesses and simulating attacks, or by investigating what happened, preserving evidence, and building defensible findings. Both start from the same foundation, but the day-to-day mindset is different.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card blue">
+          <div class="track-tag blue">Target roles</div>
+          <h3>What graduates can realistically target</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What roles are employers actively hiring for that graduates can realistically target?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>SOC Analyst L1 / L2</li>
+                  <li>Threat Intelligence Analyst</li>
+                  <li>Incident Responder</li>
+                  <li>Digital Forensics Analyst</li>
+                  <li>Penetration Tester (junior)</li>
+                  <li>Junior Threat Hunter</li>
+                  <li>Junior AppSec Analyst</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Are there industries or job titles that fit one specialization better than the other?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p><strong>Cybersecurity:</strong> Penetration testing firms, red team roles, security consultancies, tech companies, and MSSP-style environments.</p>
+                <p><strong>Digital Forensics:</strong> Government-related work, law-enforcement support, banking and finance, large enterprises with SOC functions, insurance/legal cyber claims, and regulatory or compliance-heavy environments.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="badge-row">
+            <span class="chip blue">SOC / IR</span>
+            <span class="chip blue">Pen Testing</span>
+            <span class="chip blue">DFIR</span>
+            <span class="chip blue">Threat Intel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="border-top: none;">
+        <div class="card track-card green">
+          <div class="track-tag green">Standards</div>
+          <h3>What the program aligns with</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What certifications, frameworks, or standards does this program align with?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>CompTIA Security+</li>
+                  <li>CompTIA CySA+</li>
+                  <li>CompTIA CASP+</li>
+                  <li>MITRE ATT&amp;CK</li>
+                  <li>Chain-of-custody and forensic imaging best practices</li>
+                  <li>Incident-response playbook design</li>
+                  <li>OWASP Top 10</li>
+                  <li>OWASP LLM Top 10 / MITRE ATLAS as AI/LLM security becomes relevant</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card gold">
+          <div class="track-tag gold">Competitive edge</div>
+          <h3>What graduates can often do that a university-only graduate cannot</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What can this program's graduates do that a cybersecurity bachelor’s graduate often cannot do on Day 1?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Run a full lab-based penetration test from recon through report delivery</li>
+                  <li>Image a drive with validated hashes and defensible documentation</li>
+                  <li>Triage alerts, parse logs, and escalate incidents in a SOC-style workflow</li>
+                  <li>Script parts of their workflow in Python or Bash rather than rely only on GUIs</li>
+                  <li>Work across offense and defense in purple-team style collaboration</li>
+                  <li>Write executive-ready and technical security reports</li>
+                  <li>Use AI tools with validation, auditability, and documented judgment</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+
+          <div class="callout gold">
+            <strong>The difference is operational capability.</strong> The goal is not just to explain concepts, but to perform, document, and defend the work.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="support">
+      <div class="section-head">
+        <div>
+          <div class="label">Support, funding & outcomes</div>
+          <h2 class="section-title">What support exists, how funding works, and what learners leave with</h2>
+        </div>
+        <div class="section-copy">
+          These are the practical closing questions: what happens if a learner struggles, how the funding model works, what the program gives back at the end, and how to think about instructor credibility.
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card track-card green">
+          <div class="track-tag green">Support systems</div>
+          <h3>What happens if a learner struggles?</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What support exists if a learner falls behind?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Weekly attendance dashboard review and follow-up</li>
+                  <li>Weekly reflection review with follow-up</li>
+                  <li>Weekly LMS progress review and intervention</li>
+                  <li>First-line technical LMS support</li>
+                  <li>Teaching Assistant office hours for group and individual support</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Does the program just leave learners on their own once the workload gets hard?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  No. The program model is built around structured monitoring, intervention, and support. Struggle is expected. Silent drift is what the system is designed to catch.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card blue">
+          <div class="track-tag blue">Funding</div>
+          <h3>How the FSF pathway works</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What does the FSF funding cover, and who is eligible?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>No upfront payment for eligible learners</li>
+                  <li>Repayment begins only after employment is secured</li>
+                  <li>Repayment is capped at 10% of monthly salary</li>
+                  <li>No guarantor required</li>
+                  <li>Eligibility depends on FSF criteria</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What if someone does not qualify for FSF funding?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The program is also considering or supporting a self-pay pathway for early-career professionals and others outside the FSF eligibility rules.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="border-top: none;">
+        <div class="card track-card red">
+          <div class="track-tag red">Outcomes</div>
+          <h3>What learners walk away with</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>What does a learner walk away with at the end?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>A documented portfolio of lab work, reports, and exercises</li>
+                  <li>A capstone project and final presentation</li>
+                  <li>A structured, career-ready GitHub repository</li>
+                  <li>A guided LinkedIn profile</li>
+                  <li>Exposure to industry practitioners</li>
+                  <li>A graduate title framed around Cybersecurity Analyst (SOC/IR) with specialization</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Where does that portfolio live?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The intended model is a structured portfolio presentation of lab work, reports, and capstone outputs, supported by GitHub repositories and professional positioning artifacts.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>What are some examples of “cool” skills learners may actually build?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <ul>
+                  <li>Intercept live network traffic and inspect what is being transmitted</li>
+                  <li>Recover deleted evidence through forensic imaging workflows</li>
+                  <li>Crack a weak hashed password and explain why it fails so quickly</li>
+                  <li>Analyze malware behavior in a sandboxed environment</li>
+                  <li>Bypass a defense in a lab, then detect the same behavior from the blue side</li>
+                  <li>Write a Python script that automates scanning and parses output into useful signal</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="card track-card gold">
+          <div class="track-tag gold">Instructors</div>
+          <h3>What makes the team credible</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary class="faq-question">
+                <span>Who are the instructors and what makes them credible?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  The curriculum is developed by LevelUp Economy and Istidama Consulting, and delivery is structured around a Program Lead plus technical instructors for applied work.
+                </p>
+                <p>
+                  Detailed public bios, practitioner history, client references, and certifications should be surfaced separately once finalized for public use.
+                </p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                <span>Why doesn’t this FAQ list every employer partner or placement target by name?</span>
+                <span class="faq-symbol">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p>
+                  Public-facing placement claims and named partnerships should only be added once they are confirmed and approved for external use. This keeps the page credible and avoids overstating what is still in development.
+                </p>
+              </div>
+            </details>
+          </div>
+
+          <div class="callout blue">
+            <strong>Good marketing FAQ pages do not pretend certainty where the operating model is still being finalized.</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Questions from the Field — Amman Cybersecurity &amp; Digital Forensics Program</span>
+      <span>© 2026 LevelUp Economy. Proprietary and confidential.</span>
+    </footer>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const summary = item.querySelector('.faq-question');
+      const symbol = item.querySelector('.faq-symbol');
+
+      const syncSymbol = () => {
+        symbol.textContent = item.open ? '−' : '+';
+      };
+
+      syncSymbol();
+      item.addEventListener('toggle', syncSymbol);
+
+      summary.addEventListener('click', () => {
+        // native details handles open/close
+      });
+    });
+  </script>
+</body>
+</html>
