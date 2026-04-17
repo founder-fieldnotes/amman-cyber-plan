@@ -162,6 +162,16 @@
       flex-wrap: wrap;
       color: var(--ink);
     }
+    .top-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+    
+    .top-links a:hover {
+      border-color: var(--blue);
+    }
 
     .hero {
       display: grid;
@@ -238,7 +248,7 @@
       border-color: var(--ink);
       transform: translateY(-1px);
     }
-
+    
     .button.secondary:hover {
       background: var(--yellow);
       color: var(--ink);
@@ -817,7 +827,12 @@
         <div class="eyebrow">Amman, Jordan · 2025–2026</div>
         <div class="brand-title">Cybersecurity &amp; Digital Forensics Program</div>
       </div>
+    
       <div class="top-links">
+        <a href="/amman-cyber-plan/">Overview</a>
+        <a href="/amman-cyber-plan/questions-from-the-field.html">FAQ</a>
+        <a href="/amman-cyber-plan/#roles">Roles</a>
+    
         <span>100 learners</span>
         <span>16 weeks</span>
         <span>Dual track</span>
@@ -842,6 +857,8 @@
         <div class="hero-actions">
           <a class="button primary" href="#operating-model">Operating model</a>
           <a class="button secondary" href="#outcomes">Outcomes</a>
+          <a class="button secondary" href="/amman-cyber-plan/questions-from-the-field.html">FAQ</a>
+          <a class="button secondary" href="#roles">Roles</a>
         </div>
       </div>
 
@@ -874,6 +891,25 @@
             <div>Wks 13–16</div>
           </div>
         </div>
+        <aside class="hero-panel">
+        <div class="mini-label">At a glance</div>
+        <h2>What this program is built to solve</h2>
+        <p>
+          Employers increasingly need professionals who can work across systems, evidence, detection, analysis, and reporting — not just operate isolated tools.
+        </p>
+        <div class="hero-panel-list">
+          <div class="hero-panel-item">
+            <div>
+              <strong>Shared foundation</strong>
+              <span>Systems, networking, evidence-safe habits, and core lab practice</span>
+            </div>
+            <div>Wks 0–2</div>
+          </div>
+          <div style="margin-top:18px;">
+            <a class="button secondary" href="/amman-cyber-plan/questions-from-the-field.html">
+              Read the FAQ
+            </a>
+          </div>
       </aside>
     </section>
 
@@ -900,7 +936,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <<section class="section">
       <div class="section-head">
         <div>
           <div class="label">Program architecture</div>
@@ -1204,7 +1240,7 @@
               <li><strong>Assessment:</strong> identical deliverables and grading standards regardless of participation mode</li>
             </ul>
             <div class="badge-row">
-              <span class="chip green">2 instructors</span>
+              <span class="chip green">1 lead + 2 support Instructors</span>
               <span class="chip green">3–5 TAs</span>
               <span class="chip green">Hybrid parity</span>
               <span class="chip green">Artifact-based</span>
@@ -1262,7 +1298,7 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section" id="roles">
       <div class="section-head">
         <div>
           <div class="label">Instructional team</div>
