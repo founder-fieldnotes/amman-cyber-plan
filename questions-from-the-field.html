@@ -12,28 +12,28 @@
 
   <style>
     :root {
-        --bg: #f5f1e8;
-        --white: #ffffff;
-        --ink: #000000;
-        --muted: #4b4741;
-        --border: #000000;
-      
-        --yellow: #ffd400;
-        --blue: #00a9e8;
-        --green: #00c853;
-        --red: #ff5a36;
-        --cream: #efe9dc;
-      
-        --red-track: #ff5a36;
-        --blue-track: #00a9e8;
-        --green-track: #00c853;
-        --gold-track: #c48900;
-      
-        --max: 1400px;
-        --page-gutter: 24px;
-        --content-inset: 16px;
-        --section-top: 40px;
-      }
+      --bg: #f5f1e8;
+      --white: #ffffff;
+      --ink: #000000;
+      --muted: #4b4741;
+      --border: #000000;
+
+      --yellow: #ffd400;
+      --blue: #00a9e8;
+      --green: #00c853;
+      --red: #ff5a36;
+      --cream: #efe9dc;
+
+      --red-track: #ff5a36;
+      --blue-track: #00a9e8;
+      --green-track: #00c853;
+      --gold-track: #c48900;
+
+      --max: 1400px;
+      --page-gutter: 24px;
+      --content-inset: 16px;
+      --section-top: 40px;
+    }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -74,8 +74,7 @@
     .track-tag,
     .brand-title,
     .top-links,
-    .jump-link,
-    .faq-section-kicker {
+    .jump-link {
       font-family: 'IBM Plex Mono', monospace;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -156,6 +155,7 @@
 
     .top-links a {
       border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
     }
 
     .top-links a:hover {
@@ -287,7 +287,11 @@
       min-height: 155px;
       background: var(--white);
     }
-    
+
+    .stat:last-child {
+      border-right: none;
+    }
+
     .stat:nth-child(1) .stat-value { color: var(--blue); }
     .stat:nth-child(2) .stat-value { color: var(--gold-track); }
     .stat:nth-child(3) .stat-value { color: var(--red-track); }
@@ -334,10 +338,11 @@
       background: var(--cream);
       font-size: 14px;
     }
-    
-    .callout.green { background: var(--green); }
-    .callout.gold { background: var(--yellow); }
-    .callout.blue { background: var(--blue); }
+
+    .callout.green { background: var(--green); color: var(--ink); }
+    .callout.gold { background: var(--yellow); color: var(--ink); }
+    .callout.blue { background: var(--blue); color: var(--ink); }
+
     .jump-strip {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -345,26 +350,28 @@
       margin-top: 24px;
       background: var(--white);
     }
-    
+
     .jump-link {
       padding: 18px 16px;
       border-right: 2px solid var(--border);
       color: var(--ink);
       font-size: 11px;
+      font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       background: var(--white);
     }
-    
+
     .jump-link:last-child {
       border-right: none;
     }
-    
+
     .jump-link:hover {
       background: var(--yellow);
     }
+
     .editorial-block {
       border: 2px solid var(--border);
       margin-top: 24px;
@@ -391,42 +398,27 @@
       filter: saturate(0.96) contrast(1.03);
     }
 
-    .grid-2,
-    .grid-3 {
+    .grid-2 {
       border: 2px solid var(--border);
       margin-top: 24px;
-    }
-
-    .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-2 > *,
-    .grid-3 > * {
+    .grid-2 > * {
       border-right: 2px solid var(--border);
       padding: 24px var(--content-inset);
       background: var(--white);
       min-width: 0;
     }
 
-    .grid-2 > *:last-child,
-    .grid-3 > *:last-child {
+    .grid-2 > *:last-child {
       border-right: none;
     }
 
     .card {
       background: var(--white);
       min-width: 0;
-    }
-
-    .card.alt {
-      background: var(--cream);
     }
 
     .track-card.red { border-top: 6px solid var(--red-track); }
@@ -556,7 +548,7 @@
     #experience h2 { color: var(--gold-track); }
     #tracks h2 { color: var(--red-track); }
     #support h2 { color: var(--green-track); }
-    
+
     #fit details.faq-item { border-left: 6px solid var(--blue); }
     #experience details.faq-item { border-left: 6px solid var(--yellow); }
     #tracks details.faq-item { border-left: 6px solid var(--red-track); }
@@ -584,8 +576,7 @@
       .section-head,
       .jump-strip,
       .editorial-block,
-      .grid-2,
-      .grid-3 {
+      .grid-2 {
         grid-template-columns: 1fr;
       }
 
@@ -609,18 +600,15 @@
       }
 
       .stats-band > *,
-      .grid-2 > *,
-      .grid-3 > * {
+      .grid-2 > * {
         border-right: none !important;
       }
 
-      .grid-2 > *,
-      .grid-3 > * {
+      .grid-2 > * {
         border-bottom: 2px solid var(--border);
       }
 
-      .grid-2 > *:last-child,
-      .grid-3 > *:last-child {
+      .grid-2 > *:last-child {
         border-bottom: none;
       }
 
@@ -660,8 +648,7 @@
         gap: 14px;
       }
 
-      .grid-2 > *,
-      .grid-3 > * {
+      .grid-2 > * {
         padding: 18px var(--content-inset);
       }
 
@@ -691,7 +678,7 @@
       <div class="top-links">
         <a href="/amman-cyber-plan/">Overview</a>
         <a href="/amman-cyber-plan/questions-from-the-field.html">FAQ</a>
-        <span>For applicants</span>
+        <a href="/amman-cyber-plan/#roles">Roles</a>
       </div>
     </header>
 
@@ -732,7 +719,7 @@
           <div class="hero-panel-item">
             <div>
               <strong>Learning model</strong>
-              <span>What “practice-driven” means and what the weekly workload feels like</span>
+              <span>What practice-driven learning means and what the weekly workload feels like</span>
             </div>
             <div>2</div>
           </div>
@@ -770,6 +757,11 @@
       </div>
     </section>
 
+    <div class="callout blue" style="margin: 24px var(--page-gutter);">
+      <strong>This program is designed to make you job-ready.</strong>
+      You will not just learn concepts. You will practice real tasks, document your work, and present results in a way employers can understand.
+    </div>
+
     <section class="section">
       <div class="section-head">
         <div>
@@ -802,53 +794,36 @@
 
       <div class="faq-group">
         <details class="faq-item featured" open>
-          <details class="faq-item">
-            <summary class="faq-question">
-              <span>What happens if I cannot keep up with the workload?</span>
-              <span class="faq-symbol">+</span>
-            </summary>
-            <div class="faq-answer">
-              <p>
-                If you fall behind, you will not be left alone.
-              </p>
-              <p>
-                The program includes structured support to help you stay on track.
-              </p>
-              <p>
-                Support includes:
-              </p>
-              <ul>
-                <li>Regular attendance and progress review</li>
-                <li>Early follow-up when participation drops</li>
-                <li>Teaching Assistant support and office hours</li>
-                <li>Guidance from instructors when needed</li>
-              </ul>
-              <p>
-                However, this program requires consistent effort each week.
-              </p>
-              <p>
-                Staying engaged and keeping up with the work is important for success.
-              </p>
-            </div>
-          </details>
-          
           <summary class="faq-question">
             <span>Is this program right for me?</span>
             <span class="faq-symbol">−</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              This program is for people who want to start a career in cybersecurity or digital forensics.
-            </p>
-            <p>
-              You do not need job experience.
-            </p>
-            <p>
-              You do need focus, discipline, and willingness to learn every week.
-            </p>
-            <p>
-              This is not a casual program. It is closer to a full-time commitment.
-            </p>
+            <p>This program is for people who want to start a career in cybersecurity or digital forensics.</p>
+            <p>You do not need job experience.</p>
+            <p>You do need focus, discipline, and willingness to learn every week.</p>
+            <p>This is not a casual program.</p>
+            <p>It requires consistent work each week, similar to a full-time commitment.</p>
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What happens if I cannot keep up with the workload?</span>
+            <span class="faq-symbol">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>If you fall behind, you will not be left alone.</p>
+            <p>The program includes structured support to help you stay on track.</p>
+            <p>Support includes:</p>
+            <ul>
+              <li>Regular attendance and progress review</li>
+              <li>Early follow-up when participation drops</li>
+              <li>Teaching Assistant support and office hours</li>
+              <li>Guidance from instructors when needed</li>
+            </ul>
+            <p>However, this program requires consistent effort each week.</p>
+            <p>Staying engaged and keeping up with the work is important for success.</p>
           </div>
         </details>
 
@@ -858,12 +833,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              The main audience is unemployed graduates from low-income families in Jordan with degrees in computer science, IT, engineering, or related technical fields.
-            </p>
-            <p>
-              There is also a second audience: early-career professionals who want to move into cybersecurity or digital forensics but may not qualify for FSF funding.
-            </p>
+            <p>The main audience is unemployed graduates from low-income families in Jordan with degrees in computer science, IT, engineering, or related technical fields.</p>
+            <p>There is also a second audience: early-career professionals who want to move into cybersecurity or digital forensics but may not qualify for FSF funding.</p>
           </div>
         </details>
 
@@ -873,12 +844,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              You do not need advanced experience.
-            </p>
-            <p>
-              Helpful:
-            </p>
+            <p>You do not need advanced experience.</p>
+            <p>Helpful:</p>
             <ul>
               <li>Basic understanding of computers and operating systems</li>
               <li>Basic networking ideas like internet, IP, DNS, and websites</li>
@@ -898,12 +865,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              Helpful, yes. Required, no.
-            </p>
-            <p>
-              Command-line basics are covered in pre-work before the main course begins.
-            </p>
+            <p>Helpful, yes. Required, no.</p>
+            <p>Command-line basics are covered in pre-work before the main course begins.</p>
           </div>
         </details>
 
@@ -913,12 +876,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              No.
-            </p>
-            <p>
-              Git workflows and GitHub are introduced during pre-work. Learners use GitHub during the program, but no prior experience is expected.
-            </p>
+            <p>No.</p>
+            <p>Git workflows and GitHub are introduced during pre-work. Learners use GitHub during the program, but no prior experience is expected.</p>
           </div>
         </details>
       </div>
@@ -931,7 +890,7 @@
           <h2 class="section-title">What the learning feels like in real life</h2>
         </div>
         <div class="section-copy">
-          These are the questions behind most comparisons: will I do real work, what does “practice-driven” mean, how many hours does this take, and what is the capstone actually like?
+          These are the questions behind most comparisons: will I do real work, what does practice-driven learning mean, how many hours does this take, and what is the capstone actually like?
         </div>
       </div>
 
@@ -939,12 +898,8 @@
         <div class="editorial-copy">
           <div class="track-tag gold">One clear example</div>
           <h3>The same activity, seen from two sides</h3>
-          <p>
-            Early in the program, Cybersecurity learners run scans in a lab. In the same part of the program, Digital Forensics learners study the artifacts those scans created.
-          </p>
-          <p style="margin-top:12px;">
-            One side creates the activity. The other side investigates the evidence. This is what “practice-driven” means here: not isolated exercises, but connected work that shows how real teams operate.
-          </p>
+          <p>Early in the program, Cybersecurity learners run scans in a lab. In the same part of the program, Digital Forensics learners study the artifacts those scans created.</p>
+          <p style="margin-top:12px;">One side creates the activity. The other side investigates the evidence. This is what practice-driven learning means here: not isolated exercises, but connected work that shows how real teams operate.</p>
         </div>
         <div class="editorial-art">
           <img src="/amman-cyber-plan/images/faq-hero.png" alt="Students working together in a cybersecurity learning environment" />
@@ -958,24 +913,16 @@
             <span class="faq-symbol">−</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              You will do real work.
-            </p>
-            <p>
-              Every week includes hands-on labs, real tools, and real scenarios.
-            </p>
-            <p>
-              You will:
-            </p>
+            <p>You will do real work.</p>
+            <p>Every week includes hands-on labs, real tools, and real scenarios.</p>
+            <p>You will:</p>
             <ul>
               <li>Run scans</li>
               <li>Analyze data</li>
               <li>Investigate incidents</li>
               <li>Write reports</li>
             </ul>
-            <p>
-              This is not passive learning.
-            </p>
+            <p>This is not passive learning.</p>
           </div>
         </details>
 
@@ -998,13 +945,11 @@
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>What does “practice-driven” actually mean?</span>
+            <span>What does practice-driven learning actually mean?</span>
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              It means you are not only hearing about tools and workflows. You are using them inside structured scenarios that match real work.
-            </p>
+            <p>It means you are not only hearing about tools and workflows. You are using them inside structured scenarios that match real work.</p>
             <ul>
               <li>Hands-on labs</li>
               <li>Scenario-based exercises</li>
@@ -1020,12 +965,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              Plan for about 30–40 hours per week.
-            </p>
-            <p>
-              That includes live sessions, labs, assignments, self-study, English-language learning, and soft-skills work.
-            </p>
+            <p>Plan for about 30–40 hours per week.</p>
+            <p>That includes live sessions, labs, assignments, self-study, English-language learning, and soft-skills work.</p>
           </div>
         </details>
 
@@ -1052,12 +993,8 @@
             <span class="faq-symbol">+</span>
           </summary>
           <div class="faq-answer">
-            <p>
-              The capstone is a joint red/blue team exercise in the final phase of the program.
-            </p>
-            <p>
-              Cybersecurity and Digital Forensics learners work in mixed teams around a realistic security engagement.
-            </p>
+            <p>The capstone is a joint red/blue team exercise in the final phase of the program.</p>
+            <p>Cybersecurity and Digital Forensics learners work in mixed teams around a realistic security engagement.</p>
             <ul>
               <li>Cybersecurity learners plan and execute an attack campaign in a lab</li>
               <li>Digital Forensics learners collect, analyze, and build timelines from the same scenario</li>
@@ -1091,22 +1028,14 @@
                 <span class="faq-symbol">−</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  Cybersecurity means finding problems before attackers do.
-                </p>
-                <p>
-                  Digital Forensics means investigating what already happened.
-                </p>
-                <p>
-                  Simple example:
-                </p>
+                <p>Cybersecurity means finding problems before attackers do.</p>
+                <p>Digital Forensics means investigating what already happened.</p>
+                <p>Simple example:</p>
                 <ul>
                   <li>Cybersecurity tries to break into a system in a safe lab</li>
                   <li>Digital Forensics explains what happened, what changed, and what evidence exists</li>
                 </ul>
-                <p>
-                  Both tracks work together at the end of the program.
-                </p>
+                <p>Both tracks work together at the end of the program.</p>
               </div>
             </details>
 
@@ -1116,12 +1045,8 @@
                 <span class="faq-symbol">+</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  Learners are not simply asked to pick a track on the application form.
-                </p>
-                <p>
-                  Placement happens during onboarding based on interests, assessment results, and education-team judgment.
-                </p>
+                <p>Learners are not simply asked to pick a track on the application form.</p>
+                <p>Placement happens during onboarding based on interests, assessment results, and education-team judgment.</p>
               </div>
             </details>
 
@@ -1227,12 +1152,8 @@
                 <span class="faq-symbol">−</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  You will not be left alone.
-                </p>
-                <p>
-                  Support includes:
-                </p>
+                <p>You will not be left alone.</p>
+                <p>Support includes:</p>
                 <ul>
                   <li>Attendance review and follow-up</li>
                   <li>Weekly reflection review</li>
@@ -1249,12 +1170,8 @@
                 <span class="faq-symbol">+</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  No.
-                </p>
-                <p>
-                  The program is built around monitoring, intervention, and support. Struggle is normal. Silent drift is what the system is designed to catch early.
-                </p>
+                <p>No.</p>
+                <p>The program is built around monitoring, intervention, and support. Struggle is normal. Silent drift is what the system is designed to catch early.</p>
               </div>
             </details>
           </div>
@@ -1286,9 +1203,7 @@
                 <span class="faq-symbol">+</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  The program also supports or is considering a self-pay path for early-career professionals and others outside the FSF eligibility rules.
-                </p>
+                <p>The program also supports or is considering a self-pay path for early-career professionals and others outside the FSF eligibility rules.</p>
               </div>
             </details>
           </div>
@@ -1299,9 +1214,7 @@
         <div class="card track-card red">
           <div class="track-tag red">Outcomes</div>
           <h3>What will I have when I finish?</h3>
-          <p>
-            You will leave with proof of your work, not just a completion claim.
-          </p>
+          <p>You will leave with real work you can show to employers, not just a certificate.</p>
           <ul style="margin-top:12px; padding:0; list-style:none;">
             <li style="margin-bottom:10px; padding-left:14px; position:relative;">A documented portfolio of lab work, reports, and exercises</li>
             <li style="margin-bottom:10px; padding-left:14px; position:relative;">A capstone project and final presentation</li>
@@ -1331,15 +1244,9 @@
                 <span class="faq-symbol">−</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  The curriculum is developed by LevelUp Economy and Istidama Consulting.
-                </p>
-                <p>
-                  Delivery is structured around a Program Lead plus technical instructors for applied work.
-                </p>
-                <p>
-                  Detailed public bios, practitioner history, client references, and certifications should be shared separately once they are finalized for public use.
-                </p>
+                <p>The curriculum is developed by LevelUp Economy and Istidama Consulting.</p>
+                <p>Delivery is structured around a Program Lead plus technical instructors for applied work.</p>
+                <p>Detailed public bios, practitioner history, client references, and certifications should be shared separately once they are finalized for public use.</p>
               </div>
             </details>
 
@@ -1349,18 +1256,40 @@
                 <span class="faq-symbol">+</span>
               </summary>
               <div class="faq-answer">
-                <p>
-                  Public placement claims and named partnerships should only be added when they are confirmed and approved for external use.
-                </p>
-                <p>
-                  This keeps the page credible and avoids promising something that is still being finalized.
-                </p>
+                <p>Public placement claims and named partnerships should only be added when they are confirmed and approved for external use.</p>
+                <p>This keeps the page credible and avoids promising something that is still being finalized.</p>
               </div>
             </details>
           </div>
 
           <div class="callout blue">
             <strong>This page is meant to be clear and honest.</strong> It explains what is known now without overstating what is still being finalized.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid-2">
+        <div class="card track-card green">
+          <div class="track-tag green">Next step</div>
+          <h3>Ready to review the full program?</h3>
+          <p>If this program fits what you are looking for, the next step is to review the full program structure, schedule, and expectations.</p>
+          <div style="margin-top:16px;">
+            <a class="button primary" href="/amman-cyber-plan/">
+              Go to program overview
+            </a>
+          </div>
+        </div>
+
+        <div class="card track-card gold">
+          <div class="track-tag gold">More detail</div>
+          <h3>Want to see the teaching roles?</h3>
+          <p>If you are exploring who teaches the program or how delivery is structured, you can review the instructional roles on the main program page.</p>
+          <div style="margin-top:16px;">
+            <a class="button secondary" href="/amman-cyber-plan/#roles">
+              View roles
+            </a>
           </div>
         </div>
       </div>
