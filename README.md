@@ -15,13 +15,13 @@ This repository contains the master blueprint for the Amman Cybersecurity & Digi
 The program is organized in three parts:
 
 1. Shared Foundation  
-   Learners build common baseline capability in technical workflow, systems thinking, documentation, and professional execution.
+   Learners build common baseline capability in technical workflow, systems thinking, networking, documentation, and professional execution.
 
 2. Track Specialization  
    Learners move into either the Cybersecurity or Digital Forensics track for applied, role-aligned technical training.
 
 3. Capstone Phase  
-   Learners bring their work together in a final applied project phase that emphasizes execution, communication, and readiness for real-world environments.
+   Learners bring their work together in a final applied project phase that emphasizes execution, communication, business-aware reporting, and readiness for real-world environments.
 
 ## Repository Purpose
 

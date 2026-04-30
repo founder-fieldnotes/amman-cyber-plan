@@ -851,7 +851,7 @@
           <span>100 learners total</span>
           <span>75 cybersecurity</span>
           <span>25 digital forensics</span>
-          <span>Security+ → CySA+ → CASP+</span>
+          <span>Security+ → CySA+ → SecurityX (formerly CASP+)</span>
           <span>Career pathway: Cybersecurity Analyst (SOC/IR)</span>
         </div>
         <div class="hero-actions">
@@ -872,7 +872,7 @@
           <div class="hero-panel-item">
             <div>
               <strong>Shared foundation</strong>
-              <span>Systems, networking, evidence-safe habits, and core lab practice</span>
+              <span>Systems, networking, AD basics, evidence-safe habits, and core lab practice</span>
             </div>
             <div>Wks 0–2</div>
           </div>
@@ -901,7 +901,7 @@
           <div class="hero-panel-item">
             <div>
               <strong>Shared foundation</strong>
-              <span>Systems, networking, evidence-safe habits, and core lab practice</span>
+              <span>Systems, networking, AD basics, evidence-safe habits, and core lab practice</span>
             </div>
             <div>Wks 0–2</div>
           </div>
@@ -1017,7 +1017,7 @@
           <h2 class="section-title">Weeks 0–2 establish core technical and operational readiness</h2>
         </div>
         <div class="section-copy">
-          The program begins with a shared foundation in systems, networking, lab practice, and security workflows so every learner starts with the same core capabilities before moving into track-specific training.
+          The program begins with a shared foundation in systems, networking, lab practice, security workflows, documentation discipline, introductory Active Directory logic, and business-aware communication so every learner starts with the same core capabilities before moving into track-specific training.
         </div>
       </div>
 
@@ -1041,15 +1041,15 @@
               </tr>
               <tr>
                 <td><span class="week-pill">Wk 1</span></td>
-                <td>OS and networking foundations; security mindset and ethics; Rules of Engagement; SIEM/log reading; evidence-safe habits including hash validation and chain of custody</td>
-                <td>Packet capture baseline; OS artifact discovery report; hash verification of provided image; chain-of-custody form; basic ELK query</td>
-                <td>Learners build habits in documentation, safe evidence handling, and technical observation from the start.</td>
+                <td>OS and networking foundations (TCP/IP, DNS, HTTP/S, basic subnetting); security mindset and ethics; Rules of Engagement; SIEM/log reading; evidence-safe habits including hash validation and chain of custody; clear documentation habits</td>
+                <td>Packet capture baseline; simple DNS and HTTP trace; OS artifact discovery report; hash verification of provided image; chain-of-custody form; basic ELK query</td>
+                <td>Learners build habits in documentation, safe evidence handling, technical observation, and clear communication from the start.</td>
               </tr>
               <tr>
                 <td><span class="week-pill">Wk 2</span></td>
-                <td>Virtualization deep-dive; scripting intro; Windows internals; Red/Blue feedback loop where offense creates traces and DFIR analyzes them</td>
-                <td>Red runs Nmap/Masscan enumeration and documents it; Blue extracts Event IDs, registry changes, and file artifacts; both write a joint one-page report</td>
-                <td>This early crossover exercise helps learners connect technical action, evidence, and investigation in a practical way.</td>
+                <td>Virtualization deep-dive; scripting intro; Windows internals; Active Directory basics; risk-management framing; Red/Blue feedback loop where offense creates traces and DFIR analyzes them</td>
+                <td>Red runs Nmap/Masscan enumeration and documents it; Blue extracts Event IDs, registry changes, and file artifacts; both write a joint one-page report with a short executive summary</td>
+                <td>This early crossover exercise helps learners connect technical action, evidence, investigation, and business-facing communication in a practical way.</td>
               </tr>
             </tbody>
           </table>
@@ -1078,22 +1078,22 @@
             <div class="track-tag red">Cybersecurity track · 75 learners</div>
             <h3>Offense with defensive accountability</h3>
             <ul>
-              <li><strong>Wks 3–4:</strong> Recon Pt 1 &amp; 2 — Nmap, Masscan, OSINT, asset catalog, vuln sweep, attack surface map</li>
+              <li><strong>Wks 3–4:</strong> Recon Pt 1 &amp; 2 — Nmap, Masscan, OSINT, asset catalog, network mapping, vuln sweep, attack surface map</li>
               <li><strong>Wk 5:</strong> Web attacks — OWASP, SQLi/XSS, Burp + SQLmap, remediation-ready reporting</li>
               <li><strong>Wks 6–7:</strong> Exploitation &amp; automation — Metasploit chains, Python tool chaining, logged AI-assisted workflow</li>
               <li><strong>Wk 7:</strong> Passwords &amp; social engineering — Hashcat, Gophish, ethics-gated ROE</li>
-              <li><strong>Wks 8–9:</strong> AD attack paths — BloodHound, graph analysis, mitigation mapping</li>
+              <li><strong>Wks 8–9:</strong> AD attack paths — core AD structures, BloodHound, graph analysis, mitigation mapping</li>
               <li><strong>Wk 10:</strong> Priv-esc / EDR evasion — LotL tradeoffs, visibility, detected vs undetected paths</li>
               <li><strong>Wk 11:</strong> C2 &amp; OPSEC — minimal Sliver/Mythic, teardown discipline, Blue-team review</li>
               <li><strong>Wk 12:</strong> Detection-aware offense — Sysmon, ELK/Wazuh mapping, “what to monitor” list per TTP</li>
             </ul>
             <div class="callout" style="background:#f9ece8; border:1px solid #edc2b7;">
-              <strong>Key principle:</strong> every offensive week includes detection thinking and reporting, not just tool use.
+              <strong>Key principle:</strong> every offensive week includes detection thinking, documentation, and business-impact reporting, not just tool use.
             </div>
             <div class="badge-row">
               <span class="chip red">Security+</span>
               <span class="chip red">CySA+</span>
-              <span class="chip red">CASP+</span>
+              <span class="chip red">SecurityX</span>
               <span class="chip red">MITRE ATT&amp;CK</span>
             </div>
           </div>
@@ -1118,7 +1118,7 @@
             <div class="badge-row">
               <span class="chip blue">Security+</span>
               <span class="chip blue">CySA+</span>
-              <span class="chip blue">CASP+</span>
+              <span class="chip blue">SecurityX</span>
               <span class="chip blue">Chain of custody</span>
             </div>
           </div>
@@ -1278,9 +1278,10 @@
           <ul>
             <li><strong>Single umbrella credential:</strong> Cybersecurity Analyst (SOC/IR) with specialization line</li>
             <li><strong>Digital forensics framed as IR:</strong> strong fit for banks, telcos, and compliance-heavy environments</li>
-            <li><strong>Cert sequence:</strong> Security+ and CySA+ as near-term baseline; CASP+ as stretch path</li>
+            <li><strong>Cert sequence:</strong> Security+ and CySA+ as near-term baseline; SecurityX (formerly CASP+) as stretch path</li>
+            <li><strong>Business fluency:</strong> graduates should explain risk, tradeoffs, and mission impact instead of framing security as eliminating all risk</li>
             <li><strong>AI fluency:</strong> governed, validated AI practice becomes a concrete differentiator</li>
-            <li><strong>Portfolio over certs:</strong> capstone artifacts create decision-ready evidence for employers and partners</li>
+            <li><strong>Public credibility:</strong> capstone artifacts plus selected public writing and LinkedIn presence help graduates become visible to employers</li>
           </ul>
         </div>
 
