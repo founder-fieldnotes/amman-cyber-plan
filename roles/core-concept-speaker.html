@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Instructor — Amman Cybersecurity & Digital Forensics Program</title>
+  <meta name="description" content="Core Concept Speaker role for the Amman Cybersecurity & Digital Forensics Program." />
+  <link rel="icon" type="image/png" href="/amman-cyber-plan/images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f3f1ea;
+      --white: #ffffff;
+      --ink: #000000;
+      --muted: #4f4b46;
+      --border: #000000;
+      --yellow: #fdd837;
+      --blue: #29baee;
+      --green: #05c145;
+      --red: #ff624a;
+      --cream: #ece8dc;
+      --red-track: #ff624a;
+      --blue-track: #29baee;
+      --green-track: #05c145;
+      --gold-track: #b67a00;
+      --max: 1400px;
+      --page-gutter: 24px;
+      --content-inset: 16px;
+      --section-top: 36px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    .page { max-width: var(--max); margin: 0 auto; padding: 0; }
+
+    .eyebrow, .label, .mini-label, .stat-label,
+    .footnote, .chip, .hero-meta, .track-tag, .brand-title,
+    .top-links, .day-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(56px, 8vw, 110px);
+      line-height: 0.9;
+      letter-spacing: -0.05em;
+      margin: 0 0 18px;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0 0 14px;
+      font-weight: 800;
+    }
+
+    h3 {
+      font-size: 28px;
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin: 0 0 12px;
+      font-weight: 800;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    strong { color: var(--ink); }
+
+    /* TOPBAR */
+    .topbar {
+      border: 2px solid var(--border);
+      margin: 24px var(--page-gutter);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      background: var(--bg);
+    }
+
+    .brand, .top-links { padding: 16px 18px; }
+
+    .brand {
+      border-right: 2px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .brand-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .top-links {
+      font-size: 11px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      color: var(--ink);
+    }
+
+    .top-links a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .top-links a:hover { border-color: var(--ink); }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      border: 2px solid var(--border);
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .hero-copy {
+      padding: 64px;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--white);
+    }
+
+    .hero-panel {
+      padding: 64px;
+      background: var(--yellow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 520px;
+      border-left: 2px solid var(--border);
+    }
+
+    .hero-sub {
+      font-size: 22px;
+      line-height: 1.35;
+      margin-bottom: 22px;
+      max-width: 720px;
+      color: #222;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin: 20px 0 22px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      border: 2px solid var(--border);
+      padding: 12px 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+    }
+
+    .button.primary {
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .button.primary:hover {
+      background: var(--yellow);
+      color: var(--ink);
+    }
+
+    .button.secondary:hover { background: var(--green); }
+
+    .mini-label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-panel-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .hero-panel-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17,17,17,0.3);
+      font-size: 14px;
+    }
+
+    .hero-panel-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* STATS */
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      border: 2px solid var(--border);
+      border-top: none;
+      margin: 0 var(--page-gutter);
+      background: var(--white);
+    }
+
+    .stat {
+      padding: 28px 22px 24px;
+      border-right: 2px solid var(--border);
+      min-height: 155px;
+      background: var(--white);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-value {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .stat-copy {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: var(--section-top) var(--page-gutter) 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 380px;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    .section-title { margin: 0; }
+    .section-copy { font-size: 14px; color: var(--muted); }
+    .label { font-size: 10px; color: var(--muted); }
+
+    /* GRIDS */
+    .grid-3, .grid-2, .grid-2-1 {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); }
+    .grid-2 { display: grid; grid-template-columns: repeat(2,1fr); }
+    .grid-2-1 { display: grid; grid-template-columns: 2fr 1fr; }
+
+    .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+      border-right: 2px solid var(--border);
+      padding: 24px var(--content-inset);
+      background: var(--white);
+      min-width: 0;
+    }
+
+    .grid-3 > *:last-child, .grid-2 > *:last-child, .grid-2-1 > *:last-child {
+      border-right: none;
+    }
+
+    .card { background: var(--white); min-width: 0; }
+    .card.alt { background: var(--cream); }
+
+    .track-card.blue { border-top: 6px solid var(--blue-track); }
+    .track-card.green { border-top: 6px solid var(--green-track); }
+    .track-card.gold { border-top: 6px solid var(--gold-track); }
+    .track-card.red { border-top: 6px solid var(--red-track); }
+
+    /* LISTS */
+    ul { padding: 0; list-style: none; margin: 0; }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 14px;
+      position: relative;
+      color: #222;
+      font-size: 14px;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* TRACK TAGS */
+    .track-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .track-tag::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    .track-tag.blue::before { background: var(--blue-track); }
+    .track-tag.green::before { background: var(--green-track); }
+    .track-tag.gold::before { background: var(--gold-track); }
+    .track-tag.red::before { background: var(--red-track); }
+
+    /* CHIPS */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid currentColor;
+      padding: 6px 10px;
+      font-size: 10px;
+    }
+
+    .chip.blue { color: var(--blue-track); }
+    .chip.green { color: var(--green-track); }
+    .chip.gold { color: var(--gold-track); }
+    .chip.red { color: var(--red-track); }
+    .chip.gray { color: var(--muted); }
+
+    /* CALLOUTS */
+    .callout {
+      overflow-wrap: break-word;
+      padding: 16px var(--content-inset);
+      border: 2px solid var(--border);
+      margin-top: 16px;
+      background: var(--cream);
+      font-size: 14px;
+    }
+
+    .callout.green { background: var(--green); }
+    .callout.gold { background: var(--yellow); }
+    .program-note { margin-top: 16px; }
+
+    /* INSTRUCTIONAL LAYER TABLE */
+    .layer-wrap {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .layer-row {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .layer-row:last-child { border-bottom: none; }
+    .layer-row.you { background: var(--yellow); }
+
+    .layer-cell {
+      padding: 16px var(--content-inset);
+      border-right: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .layer-cell:last-child { border-right: none; }
+
+    .layer-role {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .layer-row.you .layer-role { color: var(--ink); }
+    .layer-desc { color: #222; }
+
+    /* AUTHORITY GRID */
+    .auth-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 2px solid var(--border);
+      margin-top: 16px;
+    }
+
+    .auth-cell {
+      padding: 20px var(--content-inset);
+      border-right: 2px solid var(--border);
+    }
+
+    .auth-cell:last-child { border-right: none; }
+    .auth-cell.yours { background: var(--yellow); }
+
+    .auth-head {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .auth-cell.yours .auth-head { color: var(--ink); }
+
+    /* SCHEDULE TABLE */
+    .schedule-table {
+      border: 2px solid var(--border);
+      margin-top: 24px;
+    }
+
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 120px 180px 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .schedule-row:last-child { border-bottom: none; }
+    .schedule-row.header { background: var(--ink); }
+
+    .sched-cell {
+      padding: 12px var(--content-inset);
+      font-size: 13px;
+      color: #222;
+      border-right: 1px solid var(--border);
+    }
+
+    .sched-cell:last-child { border-right: none; }
+
+    .schedule-row.header .sched-cell {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .schedule-row.highlight { background: var(--yellow); }
+    .schedule-row.alt { background: var(--cream); }
+
+    .day-pill {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .footnote {
+      margin-top: 10px;
+      font-size: 10px;
+      color: var(--muted);
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* FOOTER */
+    .footer {
+      border-top: 2px solid var(--border);
+      margin: 28px var(--page-gutter) 24px;
+      padding-top: 14px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--muted);
+    }
+
+    .footer a:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    @media (max-width: 1100px) {
+      .hero, .stats-band, .grid-3, .grid-2, .grid-2-1, .section-head, .auth-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar { grid-template-columns: 1fr; }
+
+      .brand {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .hero-panel {
+        border-left: none;
+        border-top: 2px solid var(--border);
+      }
+
+      .stats-band, .hero { border-top: 2px solid var(--border); }
+
+      .stats-band > *, .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+        border-right: none !important;
+      }
+
+      .grid-3 > *, .grid-2 > *, .grid-2-1 > * {
+        border-bottom: 2px solid var(--border);
+      }
+
+      .grid-3 > *:last-child, .grid-2 > *:last-child, .grid-2-1 > *:last-child {
+        border-bottom: none;
+      }
+
+      .hero-copy, .hero-panel {
+        min-height: auto;
+        padding: 32px 24px;
+      }
+
+      .layer-row { grid-template-columns: 160px 1fr; }
+      .schedule-row { grid-template-columns: 100px 1fr; }
+      .sched-cell.focus { display: none; }
+
+      .auth-cell {
+        border-right: none;
+        border-bottom: 2px solid var(--border);
+      }
+
+      .auth-cell:last-child { border-bottom: none; }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --page-gutter: 16px;
+        --content-inset: 16px;
+        --section-top: 36px;
+      }
+
+      h1 { font-size: 54px; }
+      h3 { font-size: 24px; }
+      .hero-sub { font-size: 18px; }
+      li { font-size: 13px; }
+
+      .layer-row { grid-template-columns: 1fr; }
+
+      .layer-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="eyebrow">Amman, Jordan · 2025–2026</div>
+      <div class="brand-title">Cybersecurity &amp; Digital Forensics Program</div>
+    </div>
+    <div class="top-links">
+      <a href="../index.html">← Program overview</a>
+      <span>Open role</span>
+      <span>Low-lift expert role</span>
+      <a href="lead-instructor.html">Lead Instructor role →</a>
+      <a href="support-instructor-cybersecurity.html">Cybersecurity role →</a>
+      <a href="support-instructor-digital-forensics.html">Digital Forensics role →</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">Open Role · LevelUp Economy</div>
+      <h1>Core Concept<br>Speaker</h1>
+      <div class="hero-sub">
+        The Core Concept Speaker leads designated shared virtual concept sessions that anchor key weeks in the program. This is a low-lift expert-teaching role: you take approved material, make it clear and engaging, and prepare learners for the applied labs and track-specific execution that follow.
+      </div>
+      <div class="hero-meta">
+        <span>📍 Amman, Jordan</span>
+        <span>Remote-friendly role</span>
+        <span>Guest or recurring</span>
+        <span>1 hr prep / week</span>
+        <span>90–120 min live / session</span>
+      </div>
+      <div class="hero-actions">
+        <a class="button primary" href="#responsibilities">Responsibilities</a>
+        <a class="button secondary" href="#qualifications">Qualifications</a>
+      </div>
+    </div>
+
+    <aside class="hero-panel">
+      <div class="mini-label">What this role owns</div>
+      <h2>The shared concept layer</h2>
+      <p>You are not the curriculum owner or the lab-execution layer. You step in for designated shared concept sessions, create clarity before labs begin, reinforce documentation and communication habits, and make the weekly material feel coherent, relevant, and real without taking on the full instructional load.</p>
+      <div class="hero-panel-list">
+        <div class="hero-panel-item">
+          <div>
+            <strong>Concept delivery</strong>
+            <span>Lead shared virtual sessions that introduce the weekly ideas, frameworks, and operating logic</span>
+          </div>
+          <div>Weekly</div>
+        </div>
+        <div class="hero-panel-item">
+          <div>
+            <strong>Translation layer</strong>
+            <span>Turn approved curriculum into clear explanations, examples, and mental models learners can use immediately</span>
+          </div>
+          <div>Prep</div>
+        </div>
+        <div class="hero-panel-item">
+          <div>
+            <strong>Session handoff</strong>
+            <span>Coordinate with Support Instructors so shared concepts connect cleanly to the week's labs, assignments, and assessments</span>
+          </div>
+          <div>Handoff</div>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <div class="stats-band">
+    <div class="stat">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Shared session / week</div>
+      <div class="stat-copy">The role anchors a shared concept session that keeps all cohorts aligned before applied execution begins.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">1</div>
+      <div class="stat-label">Prep hr / week</div>
+      <div class="stat-copy">Review approved materials, choose a few strong examples, and prepare a clean live delivery with business and documentation framing.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">90–120m</div>
+      <div class="stat-label">Live teaching block</div>
+      <div class="stat-copy">Most live work happens in a single virtual session, with optional guest appearances or Q&amp;A follow-on as needed.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value">Shared</div>
+      <div class="stat-label">Audience</div>
+      <div class="stat-copy">Sessions are designed for the full cohort, building common language across cybersecurity and digital forensics before the tracks diverge in application.</div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Instructional system</div>
+        <h2 class="section-title">Where you sit</h2>
+      </div>
+      <div class="section-copy">
+        The program operates across four instructional layers. The Lead Instructor approves standards and direction. Core Concept Speakers lead designated shared sessions. Support Instructors own applied execution. TAs handle daily support, grading workflows, and risk visibility.
+      </div>
+    </div>
+
+    <div class="layer-wrap">
+      <div class="layer-row you">
+        <div class="layer-cell"><span class="layer-role">Core Concept Speaker ← you</span></div>
+        <div class="layer-cell layer-desc"><strong>Owns live delivery of designated shared concept sessions, conceptual clarity, weekly framing, and clean handoff into applied labs</strong></div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-cell"><span class="layer-role">Lead Instructor</span></div>
+        <div class="layer-cell layer-desc">Owns curriculum architecture, instructional standards, module approval, and final academic judgment</div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-cell"><span class="layer-role">Support Instructors</span></div>
+        <div class="layer-cell layer-desc">Own applied execution, live labs, TA supervision, grading oversight, and learner readiness enforcement</div>
+      </div>
+      <div class="layer-row">
+        <div class="layer-cell"><span class="layer-role">Teaching Assistants</span></div>
+        <div class="layer-cell layer-desc">Provide daily learner support, first-pass grading, dashboard monitoring, and early risk detection</div>
+      </div>
+    </div>
+
+    <div class="auth-grid">
+      <div class="auth-cell yours">
+        <div class="auth-head">You hold authority over</div>
+        <ul>
+          <li>Delivery quality for designated shared concept sessions</li>
+          <li>Session clarity, pacing, and learner-facing framing</li>
+          <li>The examples, explanations, and connective tissue that make weekly content coherent</li>
+          <li>Live reinforcement of documentation, communication, and business-risk habits</li>
+        </ul>
+      </div>
+      <div class="auth-cell">
+        <div class="auth-head">You do not own</div>
+        <ul>
+          <li>Curriculum approval or final academic judgment</li>
+          <li>Routine lab delivery and onsite troubleshooting</li>
+          <li>TA management and daily supervision</li>
+          <li>Routine grading or readiness enforcement</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="responsibilities">
+    <div class="section-head">
+      <div>
+        <div class="label">Operating model</div>
+        <h2 class="section-title">How this role fits into delivery</h2>
+      </div>
+      <div class="section-copy">
+        The Core Concept Speaker works from Lead-approved material, then hands the week cleanly into the applied delivery team. This role gives the cohort conceptual alignment without duplicating the Lead Instructor or Support Instructor responsibilities.
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Step 1</div>
+        <h3>Receive the weekly brief</h3>
+        <p>Review approved module goals, key concepts, vocabulary, examples, and learner outcomes for the upcoming shared session.</p>
+      </div>
+      <div class="card alt track-card blue">
+        <div class="track-tag blue">Step 2</div>
+        <h3>Lead the concept session</h3>
+        <p>Teach the shared cohort live, clarify the logic behind the week, and reinforce documentation, communication, and business-aware thinking.</p>
+      </div>
+      <div class="card track-card green">
+        <div class="track-tag green">Step 3</div>
+        <h3>Hand off to labs</h3>
+        <p>Leave Support Instructors with a clean bridge into the week's labs, including emphasis points, risk framing, and likely learner confusion areas.</p>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>This role owns clarity, not the whole pipeline.</strong> The job is to make the week legible, credible, and memorable before applied execution begins.
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Responsibilities</div>
+        <h2 class="section-title">What you'll do</h2>
+      </div>
+      <div class="section-copy">
+        This role is focused, learner-facing, and intentionally lightweight. You are responsible for the shared concept experience that sets the tone for the week, not for the full instructional stack.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Live instruction</div>
+        <h3>Lead the shared session</h3>
+        <ul>
+          <li>Teach designated virtual concept sessions for the full cohort</li>
+          <li>Explain frameworks, mental models, and weekly operating logic in plain, credible language</li>
+          <li>Use examples that connect directly to the applied labs learners will enter next</li>
+          <li>Keep pacing strong for mixed-experience learners without flattening the technical rigor</li>
+        </ul>
+      </div>
+
+      <div class="card track-card blue">
+        <div class="track-tag blue">Instructional translation</div>
+        <h3>Make the material land</h3>
+        <ul>
+          <li>Turn approved modules into clear live explanations, walkthroughs, and comparisons</li>
+          <li>Surface where concepts differ across Cybersecurity and Digital Forensics without losing the shared throughline</li>
+          <li>Reinforce vocabulary, conceptual precision, and the "why" behind the tooling</li>
+          <li>Give learners a clean mental map before they touch the applied exercises</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="border-top: none;">
+      <div class="card track-card green">
+        <div class="track-tag green">Professional habits</div>
+        <h3>Reinforce the right instincts</h3>
+        <ul>
+          <li>Model clear communication, structured note-taking, and decision-ready explanation</li>
+          <li>Reinforce business-risk framing and mission impact where relevant</li>
+          <li>Keep evidence handling, documentation discipline, and professional judgment visible from the beginning</li>
+          <li>Show learners how strong practitioners explain technical work to different audiences</li>
+        </ul>
+      </div>
+
+      <div class="card track-card red">
+        <div class="track-tag red">Coordination</div>
+        <h3>Hand off cleanly</h3>
+        <ul>
+          <li>Coordinate with the Lead Instructor on content boundaries and emphasis</li>
+          <li>Coordinate with Support Instructors so the concept session tees up the week's labs accurately</li>
+          <li>Flag unclear module language or conceptual gaps before delivery when possible</li>
+          <li>Share post-session notes on learner confusion, questions, and follow-up needs</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="border-top: none;">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Scope limits</div>
+        <h3>What you are not owning</h3>
+        <ul>
+          <li>You are not the final curriculum approver</li>
+          <li>You are not the primary lab facilitator for the track-specific sessions</li>
+          <li>You are not supervising TAs or running daily learner support</li>
+          <li>You are not responsible for routine grading or readiness enforcement</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip blue">Live teaching</span>
+          <span class="chip blue">Concept clarity</span>
+          <span class="chip blue">Handoff</span>
+          <span class="chip blue">Shared cohort</span>
+        </div>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">Role shape</div>
+        <h3>Designed for specialists</h3>
+        <ul>
+          <li>This can be a recurring light-touch role or a guest-style role for designated modules</li>
+          <li>The best fit may be a practitioner who teaches especially well, even if they are not in the full delivery chain</li>
+          <li>Subject-matter depth matters, but delivery clarity matters just as much</li>
+          <li>The standard is not just expertise. It is whether learners actually understand the week better because you were there.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Working model</div>
+        <h2 class="section-title">How the role works</h2>
+      </div>
+      <div class="section-copy">
+        This role is designed to be flexible, remote-friendly, and easy to pair with working practitioners. The center of gravity is a brief prep window plus strong live teaching, not constant attendance.
+      </div>
+    </div>
+
+    <div class="grid-2-1">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Preparation</div>
+        <h3>Minimal prep, clear delivery</h3>
+        <ul>
+          <li>Review approved materials ahead of the session in about an hour</li>
+          <li>Prepare one or two examples, diagrams, stories, or comparisons that make the concepts stick</li>
+          <li>Clarify where the shared session ends and the applied lab begins</li>
+          <li>Coordinate with the instructional team on any risks, dependencies, or content sensitivities</li>
+        </ul>
+      </div>
+
+      <div class="card alt track-card green">
+        <div class="track-tag green">Delivery</div>
+        <h3>Live when it matters</h3>
+        <ul>
+          <li>Join live for the designated concept session and any tightly scoped follow-up needed that week</li>
+          <li>Most work can be handled asynchronously before and after the session</li>
+          <li>This role is compatible with external practitioners, guest experts, and part-time contributors</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="schedule">
+    <div class="section-head">
+      <div>
+        <div class="label">Weekly rhythm</div>
+        <h2 class="section-title">What your week looks like</h2>
+      </div>
+      <div class="section-copy">
+        The cadence is simple: review the week, teach the shared session, hand off to the applied team, and capture what learners still need.
+      </div>
+    </div>
+
+    <div class="schedule-table">
+      <div class="schedule-row header">
+        <div class="sched-cell">Focus</div>
+        <div class="sched-cell focus">Mode</div>
+        <div class="sched-cell">Key actions</div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="sched-cell"><span class="day-pill">Pre-session</span></div>
+        <div class="sched-cell focus">Async</div>
+        <div class="sched-cell">Review approved module materials, shape examples, and align with the Lead Instructor or Support Instructors on emphasis and boundaries</div>
+      </div>
+
+      <div class="schedule-row highlight">
+        <div class="sched-cell"><span class="day-pill">Sunday</span></div>
+        <div class="sched-cell focus">Live online</div>
+        <div class="sched-cell">Lead the shared concept session for the full cohort, framing the week's ideas, vocabulary, risks, and expected ways of thinking</div>
+      </div>
+
+      <div class="schedule-row alt">
+        <div class="sched-cell"><span class="day-pill">Post-session</span></div>
+        <div class="sched-cell focus">Async</div>
+        <div class="sched-cell">Share notes on learner confusion, key questions, and follow-up points so the applied team can pick up the thread cleanly</div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="sched-cell"><span class="day-pill">As needed</span></div>
+        <div class="sched-cell focus">Advisory</div>
+        <div class="sched-cell">Return for a guest Q&amp;A, high-value topic, or specialist module where deeper practitioner context adds clear value</div>
+      </div>
+    </div>
+
+    <div class="callout green program-note">
+      <strong>The session should make the rest of the week easier.</strong> If learners leave with a clearer model, stronger vocabulary, and better judgment, the role is doing its job.
+    </div>
+  </section>
+
+  <section class="section" id="qualifications">
+    <div class="section-head">
+      <div>
+        <div class="label">Qualifications</div>
+        <h2 class="section-title">What you bring</h2>
+      </div>
+      <div class="section-copy">
+        This role is ideal for someone with real technical credibility who can also teach clearly to a mixed cohort without needing heavy prep or ownership of the whole module. Strong communication, judgment, and narrative clarity matter as much as subject-matter depth.
+      </div>
+    </div>
+
+    <div class="grid-2-1">
+      <div class="card track-card gold">
+        <div class="track-tag gold">Required</div>
+        <h3>Core qualifications</h3>
+        <ul>
+          <li>Strong practitioner experience in cybersecurity, digital forensics, incident response, or a closely related field</li>
+          <li>Ability to teach technical concepts clearly to learners who are smart but still building fluency</li>
+          <li>Comfort explaining systems, networking, documentation, and tradeoffs in accessible language</li>
+          <li>Strong speaking presence in live virtual sessions</li>
+          <li>Ability to connect technical content to business risk, operational reality, and professional communication</li>
+          <li>Reliable preparation habits and willingness to coordinate with the instructional team</li>
+        </ul>
+        <div class="badge-row">
+          <span class="chip gold">Live teaching</span>
+          <span class="chip gold">Technical clarity</span>
+          <span class="chip gold">Communication</span>
+          <span class="chip gold">Professional judgment</span>
+        </div>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">Ideal profile</div>
+        <h3>How you operate</h3>
+        <ul>
+          <li>Clear — you can explain difficult things without flattening them</li>
+          <li>Grounded — your examples come from real practice, not only theory</li>
+          <li>Organized — you can deliver a clean session with a strong beginning, middle, and end</li>
+          <li>Audience-aware — you know how to speak to mixed-experience learners without losing rigor</li>
+          <li>Collaborative — you can work within an existing curriculum rather than freelancing the whole week</li>
+          <li>Professional — you model the communication habits the program wants learners to build</li>
+        </ul>
+        <div class="callout gold" style="margin-top:14px;">
+          <strong>The best Core Concept Speaker is not just an expert.</strong> They are someone who makes the cohort smarter, clearer, and more ready for the work that follows.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <div class="label">Outcome</div>
+        <h2 class="section-title">What excellence looks like</h2>
+      </div>
+      <div class="section-copy">
+        When this role is working well, the concept session becomes the weekly alignment point that makes every downstream part of the program stronger.
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card track-card blue">
+        <div class="track-tag blue">Learner experience</div>
+        <h3>The week makes sense</h3>
+        <ul>
+          <li>Learners understand the big idea before they enter the lab</li>
+          <li>Technical vocabulary is introduced cleanly and reused consistently</li>
+          <li>Documentation, reporting, and business framing feel built in rather than bolted on</li>
+        </ul>
+      </div>
+
+      <div class="card track-card green">
+        <div class="track-tag green">System effect</div>
+        <h3>The delivery team moves faster</h3>
+        <ul>
+          <li>Support Instructors inherit fewer basic misconceptions</li>
+          <li>Labs land more smoothly because the conceptual setup was strong</li>
+          <li>The full cohort shares a clearer language across Cybersecurity and Digital Forensics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>Excellence here means the shared session earns its place.</strong> It gives learners a better model, sharper language, and stronger judgment before the applied work begins.
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Core Concept Speaker — Amman Cybersecurity &amp; Digital Forensics Program · LevelUp Economy</span>
+    <span>
+      <a href="../index.html">Program overview</a> &nbsp;·&nbsp;
+      <a href="lead-instructor.html">Lead Instructor role</a> &nbsp;·&nbsp;
+      <a href="support-instructor-cybersecurity.html">Cybersecurity role</a> &nbsp;·&nbsp;
+      <a href="support-instructor-digital-forensics.html">Digital Forensics role</a> &nbsp;·&nbsp;
+      <a href="teaching-assistant.html">Teaching Assistant role</a>
+    </span>
+  </footer>
+
+</div>
+</body>
+</html>
